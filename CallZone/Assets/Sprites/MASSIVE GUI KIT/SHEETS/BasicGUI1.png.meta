@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: b0e65254979d4a24c93eeb670ee4ef8d
+timeCreated: 1436588966
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BasicGUI1_0
+    21300002: BasicGUI1_1
+    21300004: BasicGUI1_2
+    21300006: BasicGUI1_3
+    21300008: BasicGUI1_4
+    21300010: BasicGUI1_5
+    21300012: BasicGUI1_6
+    21300014: BasicGUI1_7
+    21300016: BasicGUI1_8
+    21300018: BasicGUI1_9
+    21300020: BasicGUI1_10
+    21300022: BasicGUI1_11
+    21300024: BasicGUI1_12
+    21300026: BasicGUI1_13
+    21300028: BasicGUI1_14
+    21300030: BasicGUI1_15
+    21300032: BasicGUI1_16
+    21300034: BasicGUI1_17
+    21300036: BasicGUI1_18
+    21300038: BasicGUI1_19
+    21300040: BasicGUI1_20
+    21300042: BasicGUI1_21
+    21300044: BasicGUI1_22
+    21300046: BasicGUI1_23
+    21300048: BasicGUI1_24
+    21300050: BasicGUI1_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BasicGUI1_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 3648
+        width: 387
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_1
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 3625
+        width: 394
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_2
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 3626
+        width: 394
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_3
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 3622
+        width: 401
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_4
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 3656
+        width: 1082
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_5
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 3787
+        width: 897
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 3190
+        width: 1136
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_7
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 3190
+        width: 676
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_8
+      rect:
+        serializedVersion: 2
+        x: 2078
+        y: 3359
+        width: 345
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_9
+      rect:
+        serializedVersion: 2
+        x: 2516
+        y: 3340
+        width: 232
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_10
+      rect:
+        serializedVersion: 2
+        x: 2830
+        y: 3340
+        width: 232
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_11
+      rect:
+        serializedVersion: 2
+        x: 3156
+        y: 3350
+        width: 428
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_12
+      rect:
+        serializedVersion: 2
+        x: 3689
+        y: 608
+        width: 27
+        height: 3038
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_13
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 608
+        width: 181
+        height: 3038
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2913
+        width: 1863
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_15
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 2939
+        width: 196
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_16
+      rect:
+        serializedVersion: 2
+        x: 2515
+        y: 2996
+        width: 233
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_17
+      rect:
+        serializedVersion: 2
+        x: 2828
+        y: 2996
+        width: 233
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_18
+      rect:
+        serializedVersion: 2
+        x: 3182
+        y: 2983
+        width: 263
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2586
+        width: 3038
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_20
+      rect:
+        serializedVersion: 2
+        x: 3227
+        y: 2476
+        width: 218
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_21
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2474
+        width: 3038
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_22
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1749
+        width: 1150
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_23
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1675
+        width: 2137
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_24
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 132
+        width: 1149
+        height: 1402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BasicGUI1_25
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 39
+        width: 2227
+        height: 1565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
