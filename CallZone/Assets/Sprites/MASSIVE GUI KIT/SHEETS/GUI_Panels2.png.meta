@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: fd2255689ac02df49b18ad2f77273d64
+timeCreated: 1435436781
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GUI_Panels2
+    21300002: GUI_Panels2_0
+    21300004: GUI_Panels2_1
+    21300006: GUI_Panels2_2
+    21300008: GUI_Panels2_3
+    21300010: GUI_Panels2_4
+    21300012: GUI_Panels2_5
+    21300014: GUI_Panels2_6
+    21300016: GUI_Panels2_7
+    21300018: GUI_Panels2_8
+    21300020: GUI_Panels2_9
+    21300022: GUI_Panels2_10
+    21300024: GUI_Panels2_11
+    21300026: GUI_Panels2_12
+    21300028: GUI_Panels2_13
+    21300030: GUI_Panels2_14
+    21300032: GUI_Panels2_15
+    21300034: GUI_Panels2_16
+    21300036: GUI_Panels2_17
+    21300038: GUI_Panels2_18
+    21300040: GUI_Panels2_19
+    21300042: GUI_Panels2_20
+    21300044: GUI_Panels2_21
+    21300046: GUI_Panels2_22
+    21300048: GUI_Panels2_23
+    21300050: GUI_Panels2_24
+    21300052: GUI_Panels2_25
+    21300054: GUI_Panels2_26
+    21300056: GUI_Panels2_27
+    21300058: GUI_Panels2_28
+    21300060: GUI_Panels2_29
+    21300062: GUI_Panels2_30
+    21300064: GUI_Panels2_31
+    21300066: GUI_Panels2_32
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GUI_Panels2
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1777
+        width: 600
+        height: 222
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_0
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1247
+        width: 588
+        height: 734
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_1
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 1076
+        width: 725
+        height: 905
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1575
+        width: 572
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1408
+        width: 141
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_4
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1408
+        width: 366
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_5
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1166
+        width: 221
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_6
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1205
+        width: 145
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1278
+        width: 130
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 981
+        width: 157
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_9
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 982
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_10
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1043
+        width: 351
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_11
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1043
+        width: 317
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_12
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 788
+        width: 148
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_13
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 788
+        width: 148
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_14
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 788
+        width: 147
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_15
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 787
+        width: 147
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_16
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 804
+        width: 158
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_17
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 445
+        width: 852
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 599
+        width: 148
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 599
+        width: 148
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_20
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 606
+        width: 139
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_21
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 596
+        width: 148
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_22
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 606
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_23
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 398
+        width: 490
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_24
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 401
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_25
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 202
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_26
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 202
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_27
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 202
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_28
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 202
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_29
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 12
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_30
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 12
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_31
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 12
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI_Panels2_32
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 12
+        width: 498
+        height: 177
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
