@@ -3733,7 +3733,7 @@ MonoBehaviour:
       _buttonRepeatDelay: 0
     mapCategories:
     - _name: Default
-      _descriptiveName: Default
+      _descriptiveName: DualShock3
       _tag: 
       _id: 0
       _userAssignable: 1
@@ -3838,7 +3838,7 @@ MonoBehaviour:
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 0
+    joystickMapIdCounter: 2
     keyboardMapIdCounter: 1
     mouseMapIdCounter: 1
     customControllerMapIdCounter: 0
