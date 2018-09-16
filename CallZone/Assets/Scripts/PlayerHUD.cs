@@ -8,9 +8,13 @@ public class PlayerHUD : MonoBehaviour {
     //Os toggles de coletáveis
     public Toggle[] collectable;
 
+    public int playerNumerHUD;
+
 	// Use this for initialization
 	void Start ()
     {
+         
+
         //Desabilitando todos os toggles
 		for(int i = 0; i < collectable.Length; i++)
         {

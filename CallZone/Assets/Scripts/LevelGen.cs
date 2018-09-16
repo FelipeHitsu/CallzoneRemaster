@@ -27,7 +27,7 @@ public class LevelGen : MonoBehaviour {
         //Instanciando os objetos pelo numero total
         for (int i = 0; i < numberFood; i++)
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 6);
 
             GameObject obj = Instantiate(food, new Vector3(Random.Range(-mapWidht, mapWidht), Random.Range(-mapHeight, mapHeight)), Quaternion.identity, transform);
 

@@ -26,6 +26,11 @@ public class GameController : Singleton<GameController>
 		//nada aqui
 	}
 
+   public void AllFood()
+   {
+        SceneManager.LoadScene("Gameplay");
+   }
+
    public void DeadPlayer()
     {
         //Retirando um player quando morre

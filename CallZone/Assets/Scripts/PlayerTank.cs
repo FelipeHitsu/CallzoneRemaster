@@ -7,7 +7,7 @@ using Rewired;
 public class PlayerTank : MonoBehaviour {
 
     //Referencia ao playerHUD
-    public PlayerHUD playerHUD;
+    private PlayerHUD playerHUD;
 
     /// <Rewired>
     private Player rewPlayer;
@@ -33,7 +33,7 @@ public class PlayerTank : MonoBehaviour {
     //Vida inicial do jogador
     public int _life = 200;
     //Contador de comida
-    private int foodCount = 0;
+    public int foodCount = 0;
     /// </Variaveis>
 
 
@@ -63,9 +63,19 @@ public class PlayerTank : MonoBehaviour {
 
         playerRb = GetComponent<Rigidbody2D>();
         playerTransform = transform;
-        basePosition = playerTransform.position;
         shootRotation = baseRotation;
- }
+
+
+        var HUDs = FindObjectsOfType<PlayerHUD>();
+
+        foreach (var hud in HUDs)
+        {
+            if(hud.playerNumerHUD == _playerNumber)
+            {
+                playerHUD = hud;
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -148,6 +158,9 @@ public class PlayerTank : MonoBehaviour {
             //Chamando a função para ativar o toggle, para ativa o tipo de comida que foi coletado
             playerHUD.Collected(collectable.foodType);
 
+            //Contando as comidas
+            foodCount += 1;
+
             //Destruindo o objeto
             Destroy(other.gameObject);
         }
@@ -162,10 +175,18 @@ public class PlayerTank : MonoBehaviour {
         {
             //O gerenciador chama a função para verificar se só existe um jogador vivo e reinicia o jogo
             GameController.Instance.DeadPlayer();
+
             Destroy(gameObject);
         }
     }
 
+    public void CountFood(int food)
+    {
+        if(food >= 5)
+        {
+            GameController.Instance.AllFood();
+        }
+    }
     
 
 }
