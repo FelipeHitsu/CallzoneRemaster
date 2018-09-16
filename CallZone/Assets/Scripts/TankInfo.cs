@@ -20,6 +20,7 @@ public class TankInfo : MonoBehaviour {
     //Numero do tank
     public int numberTank;
 
+    //Numero para saber qual jogador é qual
     public int playerNumber;
 
     public Button advance;
@@ -46,6 +47,8 @@ public class TankInfo : MonoBehaviour {
         if (indexInitial <= 0) {back.interactable = false; }
         else {advance.interactable = true;}
 
+        //Este é o numero do tank que será criado no jogo
+        numberTank = indexInitial;
 
     }
 
@@ -68,8 +71,7 @@ public class TankInfo : MonoBehaviour {
 
         tankName.text = tankname;
 
-        //Este é o numero do tank que será criado no jogo
-        numberTank = indexInitial;
+        
        
     }
 
@@ -82,7 +84,7 @@ public class TankInfo : MonoBehaviour {
 
         tankName.text = tankname;
 
-        numberTank = indexInitial;
+        
         
     }
 

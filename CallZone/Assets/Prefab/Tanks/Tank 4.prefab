@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 1505622115752918}
   m_LocalRotation: {x: -0, y: -0, z: -0.0038655344, w: 0.99999255}
   m_LocalPosition: {x: -4.4392433, y: -2.707415, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4825823853354946}
   - {fileID: 4293933300992598}
@@ -224,6 +224,7 @@ MonoBehaviour:
   fireRate: 2
   _damage: 10
   _life: 200
+  foodCount: 0
   shootSpawn: {fileID: 4493860547036798}
   playerRb: {fileID: 0}
 --- !u!114 &114704783168752900
