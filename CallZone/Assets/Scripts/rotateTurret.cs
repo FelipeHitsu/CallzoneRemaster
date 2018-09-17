@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class rotateTurret : MonoBehaviour {
 
- 
+    [SerializeField]
+    private GameObject shoot;
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
+    public Transform shootspawn;
+
 	
 	// Update is called once per frame
 	void Update ()
@@ -30,5 +28,19 @@ public class rotateTurret : MonoBehaviour {
         Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
 
         transform.right = direction;
+    }
+
+    
+    public void Shoot()
+    {
+        ///Furutamente: Deixar esse input para o Joystick, ou seja aqui seria o R1 para atirar.
+
+        //Se apertar click do mouse e o tempo for menor que 2 segundos, atira
+        GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
+        tempBullet.transform.right = transform.right;
+
+        Destroy(tempBullet, 4.0f);
+
+        
     }
 }

@@ -21,7 +21,7 @@ public class GenerateTank : MonoBehaviour {
 
         MakeTank();
 
-        BrginTank();
+        BringTank();
     }
 	
 
@@ -33,10 +33,11 @@ public class GenerateTank : MonoBehaviour {
         
     }
 
-    public void BrginTank()
+    public void BringTank()
     {
         var tanks = FindObjectsOfType<TankInfo>();
-
+        Debug.Log(tanks);
+        
         //Instancia dos tanks vindo do menu
         for (int i = 0; i < tanks.Length; i++)
         {
@@ -52,6 +53,7 @@ public class GenerateTank : MonoBehaviour {
         }
     }
 
+    
     public void MakeTank()
     {
         var tanks = FindObjectsOfType<TankInfo>();

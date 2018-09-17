@@ -6,6 +6,8 @@ using Rewired;
 
 public class PlayerTank : MonoBehaviour {
 
+    public rotateTurret Turret;
+
     //Referencia ao playerHUD
     private PlayerHUD playerHUD;
 
@@ -14,10 +16,7 @@ public class PlayerTank : MonoBehaviour {
     public int _playerNumber;
     /// </Rewired>
 
-    /// <Objetos>
-    //Objeto para o tiro do jogador
-    public GameObject shoot;
-    /// </Objetos>
+    
 
     /// <Variaveis>
     //Velocidade do jogador se mover
@@ -38,14 +37,10 @@ public class PlayerTank : MonoBehaviour {
 
 
     ///Vetores
-    //Vetor para o tiro com rotação
-    Vector3 shootRotation;
     //Vetor para a base do tank
     Vector3 basePosition;
     //Vetor para a torre do tank
     Vector3 baseRotation;
-    //Posição onde o tiro irá ser instanciado
-    public Transform shootSpawn;
     //Referencia as posições do player
     Transform playerTransform;
 
@@ -63,8 +58,6 @@ public class PlayerTank : MonoBehaviour {
 
         playerRb = GetComponent<Rigidbody2D>();
         playerTransform = transform;
-        shootRotation = baseRotation;
-
 
         var HUDs = FindObjectsOfType<PlayerHUD>();
 
@@ -85,8 +78,13 @@ public class PlayerTank : MonoBehaviour {
 
         move();
 
-        Shoot();
+        fireRate += 0.1f;
 
+        if (Input.GetMouseButton(0) && fireRate >= 2.0f)
+        {
+            Turret.Shoot();
+            fireRate = 0;
+        }
     }
 
    void rotate()
@@ -127,23 +125,7 @@ public class PlayerTank : MonoBehaviour {
         }
     }
 
-    void Shoot()
-    {
-        fireRate += 0.1f;
-
-        ///Furutamente: Deixar esse input para o Joystick, ou seja aqui seria o R1 para atirar.
-
-        //Se apertar click do mouse e o tempo for menor que 2 segundos, atira
-        //
-        if (rewPlayer.GetButton("Shoot") && fireRate >= 2.0f)
-        {
-            GameObject tempBullet = Instantiate(shoot, shootSpawn.position, shootSpawn.rotation);
-            fireRate = 0;
-
-            Destroy(tempBullet, 4.0f);
-            
-        }
-    }
+    
 
 
 

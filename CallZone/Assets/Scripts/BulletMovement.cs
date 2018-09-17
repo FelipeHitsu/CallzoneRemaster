@@ -21,8 +21,8 @@ public class BulletMovement : MonoBehaviour {
     void Update()
     {
         //Deixei com transform pq funciona sem aquele bug bizarro do Move.Positions
-        transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         
+        bulletRb.MovePosition(transform.position + transform.right * speed * Time.deltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D other)
