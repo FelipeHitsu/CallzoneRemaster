@@ -169,9 +169,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -188,19 +188,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: BackButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 917803079}
-        m_MethodName: BackButton
+      - m_Target: {fileID: 1877865792}
+        m_MethodName: BackModelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -245,6 +234,82 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 14590358}
+--- !u!1001 &139531098
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114632332628585516, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: _turretName
+      value: 
+      objectReference: {fileID: 1512025290}
+    - target: {fileID: 114632332628585516, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: _advance
+      value: 
+      objectReference: {fileID: 1784534085}
+    - target: {fileID: 114632332628585516, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: _back
+      value: 
+      objectReference: {fileID: 776582626}
+    - target: {fileID: 1505622115752918, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+      propertyPath: m_Name
+      value: Jogador 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955972864300132, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: _tankName
+      value: 
+      objectReference: {fileID: 659658255}
+    - target: {fileID: 114955972864300132, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: advanceBase
+      value: 
+      objectReference: {fileID: 1462813786}
+    - target: {fileID: 114955972864300132, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+        type: 2}
+      propertyPath: backBase
+      value: 
+      objectReference: {fileID: 1357043340}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: caad8a1aeb75cd242a666e6d30a27bd2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &215618565
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &215618566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,16 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritesTanksBase:
-  - {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
-  - {fileID: 21300000, guid: baf8d4f8de9284b4cb691f85786d0aba, type: 3}
-  - {fileID: 21300000, guid: b47d3519774ab824ba91740382afcfe7, type: 3}
-  - {fileID: 21300000, guid: 86c05a0c7e10e4e4d9d15a88dcd25103, type: 3}
-  tankName: {fileID: 659658255}
-  numberTank: 2
-  playerNumber: 1
-  advance: {fileID: 1462813786}
-  back: {fileID: 1357043340}
+  _spritesTank: []
+  _tankName: {fileID: 0}
+  _numberTank: 0
+  advanceBase: {fileID: 0}
+  backBase: {fileID: 0}
 --- !u!212 &215618567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -342,6 +402,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.249}
+--- !u!1 &333396779 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505622115752918, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 139531098}
+--- !u!114 &333396784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333396779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08241f8a39c59ae479c9660c412cb1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433426886
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &748667129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -776,9 +852,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05660379, g: 0.052064806, b: 0.052064806, a: 0.5921569}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5921569}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -795,7 +871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1383165263}
         m_MethodName: AdvanceButton
         m_Mode: 1
         m_Arguments:
@@ -841,6 +917,82 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 748667128}
+--- !u!1001 &749836799
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.0038655344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99999255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592121121300450, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877323967175998, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: _turretName
+      value: 
+      objectReference: {fileID: 1998688265}
+    - target: {fileID: 114877323967175998, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: _advance
+      value: 
+      objectReference: {fileID: 748667130}
+    - target: {fileID: 114877323967175998, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: _back
+      value: 
+      objectReference: {fileID: 1870085911}
+    - target: {fileID: 1505622115752918, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+      propertyPath: m_Name
+      value: Jogador 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114351934182208118, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: _tankName
+      value: 
+      objectReference: {fileID: 1303841974}
+    - target: {fileID: 114351934182208118, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: advanceBase
+      value: 
+      objectReference: {fileID: 1488074822}
+    - target: {fileID: 114351934182208118, guid: c345008b5cf281a45b59d1916e8afa71,
+        type: 2}
+      propertyPath: backBase
+      value: 
+      objectReference: {fileID: 14590360}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c345008b5cf281a45b59d1916e8afa71, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &759995131
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &776582625
 RectTransform:
   m_ObjectHideFlags: 0
@@ -959,9 +1111,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -978,18 +1130,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: BackButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1478455718}
         m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
@@ -1051,7 +1192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &917803079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,16 +1204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritesTanksBase:
-  - {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
-  - {fileID: 21300000, guid: baf8d4f8de9284b4cb691f85786d0aba, type: 3}
-  - {fileID: 21300000, guid: b47d3519774ab824ba91740382afcfe7, type: 3}
-  - {fileID: 21300000, guid: 86c05a0c7e10e4e4d9d15a88dcd25103, type: 3}
-  tankName: {fileID: 1303841974}
-  numberTank: 1
-  playerNumber: 0
-  advance: {fileID: 1488074822}
-  back: {fileID: 14590360}
+  _spritesTank: []
+  _tankName: {fileID: 0}
+  _numberTank: 0
+  advanceBase: {fileID: 0}
+  backBase: {fileID: 0}
 --- !u!212 &917803080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1571,9 +1707,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1590,19 +1726,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: BackButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 215618566}
-        m_MethodName: BackButton
+      - m_Target: {fileID: 2032465073}
+        m_MethodName: BackModelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1647,6 +1772,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1357043338}
+--- !u!114 &1383165263 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114877323967175998, guid: c345008b5cf281a45b59d1916e8afa71,
+    type: 2}
+  m_PrefabInternal: {fileID: 749836799}
+  m_Script: {fileID: 11500000, guid: 9a51a88a96d9cfd4a86db000233f5b1f, type: 3}
 --- !u!1 &1408065299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,9 +2063,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1951,19 +2082,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AdvanceButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 215618566}
-        m_MethodName: AdvanceButton
+      - m_Target: {fileID: 2032465073}
+        m_MethodName: AdvanceModelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2008,6 +2128,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462813784}
+--- !u!114 &1478455718 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114632332628585516, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 139531098}
+  m_Script: {fileID: 11500000, guid: 9a51a88a96d9cfd4a86db000233f5b1f, type: 3}
 --- !u!1 &1488074820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,9 +2190,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05660379, g: 0.052064806, b: 0.052064806, a: 0.5921569}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2083,19 +2209,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AdvanceButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 917803079}
-        m_MethodName: AdvanceButton
+      - m_Target: {fileID: 1877865792}
+        m_MethodName: AdvanceModelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2156,7 +2271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1512025289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2299,7 +2414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1784534084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2338,9 +2453,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2357,7 +2472,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1478455718}
         m_MethodName: AdvanceButton
         m_Mode: 1
         m_Arguments:
@@ -2420,7 +2535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1870085910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2459,9 +2574,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.05882353, g: 0.05490196, b: 0.05490196, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2478,7 +2593,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1383165263}
         m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
@@ -2524,6 +2639,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870085909}
+--- !u!114 &1877865792 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114351934182208118, guid: c345008b5cf281a45b59d1916e8afa71,
+    type: 2}
+  m_PrefabInternal: {fileID: 749836799}
+  m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
 --- !u!1001 &1911298329
 Prefab:
   m_ObjectHideFlags: 0
@@ -2651,7 +2772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1998688264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2709,6 +2830,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998688263}
+--- !u!114 &2032465073 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114955972864300132, guid: caad8a1aeb75cd242a666e6d30a27bd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 139531098}
+  m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
 --- !u!1 &2078097171
 GameObject:
   m_ObjectHideFlags: 0

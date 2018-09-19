@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4930588641880076}
   - component: {fileID: 212538818012903892}
   - component: {fileID: 114651245920955584}
+  - component: {fileID: 114632332628585516}
   m_Layer: 0
   m_Name: torreTank
   m_TagString: Untagged
@@ -54,6 +55,7 @@ GameObject:
   - component: {fileID: 61089989779144714}
   - component: {fileID: 50513359983906946}
   - component: {fileID: 114582244965027522}
+  - component: {fileID: 114955972864300132}
   m_Layer: 0
   m_Name: Tank 2
   m_TagString: Player
@@ -96,15 +98,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505622115752918}
-  m_LocalRotation: {x: -0, y: -0, z: -0.0038655344, w: 0.99999255}
-  m_LocalPosition: {x: 5.245885, y: -24.855686, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 7.41, y: -3.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825823853354946}
   - {fileID: 4930588641880076}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.44300002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4825823853354946
 Transform:
   m_ObjectHideFlags: 1
@@ -158,7 +160,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505622115752918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -197,6 +199,26 @@ MonoBehaviour:
   _life: 200
   foodCount: 0
   playerRb: {fileID: 0}
+--- !u!114 &114632332628585516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202335084967364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a51a88a96d9cfd4a86db000233f5b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesTurret:
+  - {fileID: 21300000, guid: afd2b53d58a4fda4c89290ebb1ed6b91, type: 3}
+  - {fileID: 21300000, guid: a738d82a005a75a4789324ed10126c6d, type: 3}
+  - {fileID: 21300000, guid: 4ba7eb2e03df8ee4fb2e77afc91bf5d9, type: 3}
+  - {fileID: 21300000, guid: 6237b308f5ff7554dbd822120d10b3e4, type: 3}
+  _turretName: {fileID: 0}
+  numberTank: 1
+  _advance: {fileID: 0}
+  _back: {fileID: 0}
 --- !u!114 &114651245920955584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +232,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 1989996556092228, guid: 38931cccd79d705419fb2ea7cb7f53f4, type: 2}
   shootspawn: {fileID: 4493860547036798}
+--- !u!114 &114955972864300132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505622115752918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesTank:
+  - {fileID: 21300000, guid: 50bd4450d85074c44a979b6eed90bc1f, type: 3}
+  - {fileID: 21300000, guid: 5fe05c9b438528d44a2c2ee53a4d8e80, type: 3}
+  - {fileID: 21300000, guid: 6172ff75eb0d09f4d89227771459579f, type: 3}
+  - {fileID: 21300000, guid: afd83d9b3c243a24ba4e156d1065a945, type: 3}
+  _tankName: {fileID: 0}
+  _numberTank: 1
+  advanceBase: {fileID: 0}
+  backBase: {fileID: 0}
 --- !u!212 &212538818012903892
 SpriteRenderer:
   m_ObjectHideFlags: 1

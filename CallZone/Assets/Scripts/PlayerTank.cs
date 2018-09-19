@@ -52,6 +52,8 @@ public class PlayerTank : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        //DontDestroyOnLoad(gameObject);
+
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
         

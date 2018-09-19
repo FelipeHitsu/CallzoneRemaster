@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateTank : MonoBehaviour {
+public class GenerateTank : MonoBehaviour
+{
 
-    /// <Criartank>
-    /// Preciso que ao entrar no gameplay o tank receba informações que vieram do menu
-    /// </Criartank>
-    public GameObject [] tanks;
+   
+    public GameObject[] tanks;
 
-    
+
 
     public float spawnX, spawnY;
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
 
 
@@ -23,21 +22,21 @@ public class GenerateTank : MonoBehaviour {
 
         BringTank();
     }
-	
+
 
     void InstantiateTank(TankInfo tank)
     {
-        GameObject tankController = Instantiate(tanks[tank.numberTank], new Vector2(Random.Range(-spawnX, spawnX), Random.Range(-spawnY, spawnY)), Quaternion.identity);
-        tankController.GetComponent<PlayerTank>()._playerNumber = tank.playerNumber;
+        GameObject tankController = Instantiate(tanks[tank._numberTank], new Vector2(Random.Range(-spawnX, spawnX), Random.Range(-spawnY, spawnY)), Quaternion.identity);
+       // tankController.GetComponent<PlayerTank>()._playerNumber = tank.playerNumber;
 
-        
+
     }
 
     public void BringTank()
     {
         var tanks = FindObjectsOfType<TankInfo>();
         Debug.Log(tanks);
-        
+
         //Instancia dos tanks vindo do menu
         for (int i = 0; i < tanks.Length; i++)
         {
@@ -53,7 +52,7 @@ public class GenerateTank : MonoBehaviour {
         }
     }
 
-    
+
     public void MakeTank()
     {
         var tanks = FindObjectsOfType<TankInfo>();
@@ -66,8 +65,8 @@ public class GenerateTank : MonoBehaviour {
             for (int i = 0; i < tanks.Length; i++)
             {
                 tanks[i] = gameObject.AddComponent<TankInfo>();
-                tanks[i].playerNumber = i;
-                tanks[i].numberTank = i;
+               // tanks[i].playerNumber = i;
+                tanks[i]._numberTank = i;
             }
         }
 

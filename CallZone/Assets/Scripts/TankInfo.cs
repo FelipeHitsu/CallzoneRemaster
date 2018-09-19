@@ -6,88 +6,88 @@ using UnityEngine.UI;
 public class TankInfo : MonoBehaviour {
 
     //Array de sprites para alterar os modelos dos tanks
-    public Sprite[] spritesTanksBase;
-    
+    public Sprite[] _spritesTank;
+
     //Texto para exibir o nome do modelo
-    public Text tankName;
+    public Text _tankName;
 
     //Inidice usado no array dos modelos
-    private int indexInitial = 0;
-    
+    private int _indexinitialBase = 0;
+
     //Componente de spriteRendenrer para cada objeto
-    private SpriteRenderer spriteRend;
+    private SpriteRenderer _spriteRend;
 
     //Numero do tank
-    public int numberTank;
+    public int _numberTank;
 
-    //Numero para saber qual jogador é qual
-    public int playerNumber;
+    //Botões para a escolha das base e torres
+    public Button advanceBase;
+    public Button backBase;
 
-    public Button advance;
-    public Button back; 
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-        DontDestroyOnLoad(gameObject);
 
         //Pegando o componente para sprite
-        spriteRend = GetComponentInChildren<SpriteRenderer>();
+        _spriteRend = GetComponentInChildren<SpriteRenderer>();
+
         //Chamada da função que define o index como 0
-        SetInitial(indexInitial);
+        SetInitial(_indexinitialBase);
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        //Verificando o index do modelo atual e desativando o botão quando chegar no último modelo, seja indo ou voltando
-        if (indexInitial >= spritesTanksBase.Length - 1) { advance.interactable = false; }
-        else { back.interactable = true; }
-
-        if (indexInitial <= 0) {back.interactable = false; }
-        else {advance.interactable = true;}
-
-        //Este é o numero do tank que será criado no jogo
-        numberTank = indexInitial;
+        VerifyIndex(_indexinitialBase);
+   
 
     }
 
     //Aplica a primeira sprite como padrão de modelo do tank
     public void SetInitial(int index)
     {
-        spriteRend.sprite = spritesTanksBase[index];
-        string tankname = spritesTanksBase[index].name;
+        //Base
+        _spriteRend.sprite = _spritesTank[index];
+        string tankname = _spritesTank[index].name;
 
-        tankName.text = tankname;
-        
+        _tankName.text = tankname;
+
+
     }
 
     //Função que avança o modelo do tanque quando o botão for pressionado
-    public void AdvanceButton()
+    public void AdvanceModelButton()
     {
-        //Avançando dentro do indice de arrays de cada modelo
-        spriteRend.sprite = spritesTanksBase[indexInitial += 1];
-        string tankname = spritesTanksBase[indexInitial].name;
+        //Avançando dentro do indice de arrays de cada modelo de base
+        _spriteRend.sprite = _spritesTank[_indexinitialBase += 1];
+        string tankname = _spritesTank[_indexinitialBase].name;
 
-        tankName.text = tankname;
-
-        
-       
+        _tankName.text = tankname;
+    
     }
 
-    //Função que volta do modelo do tanquye quando o botão for pressionado
-    public void BackButton()
+    //Função que volta do modelo do tanque quando o botão for pressionado
+    public void BackModelButton()
     {
         //Voltando dentro do incide de arrays de cada modelo
-        spriteRend.sprite = spritesTanksBase[indexInitial -= 1];
-        string tankname = spritesTanksBase[indexInitial].name;
+        _spriteRend.sprite = _spritesTank[_indexinitialBase -= 1];
+        string tankname = _spritesTank[_indexinitialBase].name;
 
-        tankName.text = tankname;
+        _tankName.text = tankname;
 
-        
-        
     }
 
-    
+    public void VerifyIndex(int index)
+    {
+        ///Base
+        //Verificando o index do modelo atual e desativando o botão quando chegar no último modelo, seja indo ou voltando
+        if (index >= _spritesTank.Length - 1) { advanceBase.interactable = false; }
+        else { backBase.interactable = true; }
+
+        if (index <= 0) { backBase.interactable = false; }
+        else { advanceBase.interactable = true; }
   
+    }
+    
 }

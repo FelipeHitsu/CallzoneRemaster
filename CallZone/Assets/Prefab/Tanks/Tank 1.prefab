@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4930588641880076}
   - component: {fileID: 212538818012903892}
   - component: {fileID: 114848672978126648}
+  - component: {fileID: 114877323967175998}
   m_Layer: 0
   m_Name: torreTank
   m_TagString: Untagged
@@ -54,6 +55,8 @@ GameObject:
   - component: {fileID: 61089989779144714}
   - component: {fileID: 50513359983906946}
   - component: {fileID: 114582244965027522}
+  - component: {fileID: 114351934182208118}
+  - component: {fileID: 114348185848743444}
   m_Layer: 0
   m_Name: Tank 1
   m_TagString: Player
@@ -97,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505622115752918}
   m_LocalRotation: {x: -0, y: -0, z: -0.0038655344, w: 0.99999255}
-  m_LocalPosition: {x: -19.34708, y: -20.40553, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -7.19, y: -3.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825823853354946}
   - {fileID: 4930588641880076}
@@ -158,7 +161,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505622115752918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -177,13 +180,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
---- !u!114 &114582244965027522
+--- !u!114 &114348185848743444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505622115752918}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08241f8a39c59ae479c9660c412cb1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114351934182208118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505622115752918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acec348adc4e514fa233b7772542f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesTank:
+  - {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
+  - {fileID: 21300000, guid: baf8d4f8de9284b4cb691f85786d0aba, type: 3}
+  - {fileID: 21300000, guid: b47d3519774ab824ba91740382afcfe7, type: 3}
+  - {fileID: 21300000, guid: 86c05a0c7e10e4e4d9d15a88dcd25103, type: 3}
+  _tankName: {fileID: 0}
+  _numberTank: 0
+  advanceBase: {fileID: 0}
+  backBase: {fileID: 0}
+--- !u!114 &114582244965027522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505622115752918}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
@@ -203,13 +237,33 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202335084967364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de291f19f01ea6d4e8264f1a286055bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 1989996556092228, guid: 38931cccd79d705419fb2ea7cb7f53f4, type: 2}
   shootspawn: {fileID: 4493860547036798}
+--- !u!114 &114877323967175998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202335084967364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a51a88a96d9cfd4a86db000233f5b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spritesTurret:
+  - {fileID: 21300000, guid: 597efc4b8187e07468d8b31f21ca5c0a, type: 3}
+  - {fileID: 21300000, guid: cb5ffafa63ee33b47a9aaed266488cb7, type: 3}
+  - {fileID: 21300000, guid: cbde9405b8dfce34ca61c61fe88c8644, type: 3}
+  - {fileID: 21300000, guid: 1107019e67479484f8fa8a2fe8eeb583, type: 3}
+  _turretName: {fileID: 0}
+  numberTank: 0
+  _advance: {fileID: 0}
+  _back: {fileID: 0}
 --- !u!212 &212538818012903892
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -245,7 +299,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 597efc4b8187e07468d8b31f21ca5c0a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,7 +307,7 @@ SpriteRenderer:
   m_Size: {x: 1.68, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212653143375603346
 SpriteRenderer:
@@ -290,7 +344,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,5 +352,5 @@ SpriteRenderer:
   m_Size: {x: 1.68, y: 1.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
