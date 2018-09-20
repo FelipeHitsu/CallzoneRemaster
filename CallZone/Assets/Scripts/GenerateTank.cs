@@ -28,6 +28,7 @@ public class GenerateTank : MonoBehaviour
     {
         GameObject tankController = Instantiate(tanks[tank._numberTank], new Vector2(Random.Range(-spawnX, spawnX), Random.Range(-spawnY, spawnY)), Quaternion.identity);
        // tankController.GetComponent<PlayerTank>()._playerNumber = tank.playerNumber;
+       
 
 
     }

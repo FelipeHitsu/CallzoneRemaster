@@ -24,6 +24,7 @@ public class TankInfo : MonoBehaviour {
     public Button advanceBase;
     public Button backBase;
 
+
     // Use this for initialization
     void Start()
     {

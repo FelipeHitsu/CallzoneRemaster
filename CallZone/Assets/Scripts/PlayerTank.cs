@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 
-public class PlayerTank : MonoBehaviour {
+public class PlayerTank : MonoBehaviour
+{
 
     public rotateTurret Turret;
 
