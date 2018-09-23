@@ -42,12 +42,10 @@ public class PlayerHUDMenu : MonoBehaviour
 
     public void GetInformation()
     {
-        _LifeTxt.text = "Tank Life: " + _life;
-        _speedTxt.text = "Tank Speed: " + _speed;
-        _fireRateTxt.text = "Your Fire rate: " + _fireRate;
-        _DamageTxt.text = ("Your damage: " + _damage);
-
-        Debug.Log("valor vida: " + _life);
+        _LifeTxt.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name +" " + "life: " +  _life;
+        _speedTxt.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "speed: " + _speed;
+        _fireRateTxt.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "fire rate: " + _fireRate;
+        _DamageTxt.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "damage: " + _damage;
     }
 
 }
