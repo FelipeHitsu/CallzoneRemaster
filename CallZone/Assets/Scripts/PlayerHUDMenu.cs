@@ -21,8 +21,6 @@ public class PlayerHUDMenu : MonoBehaviour
 
     public int PlayerNumber;
 
-    //private TankSettings baseTank;
-    //private TankSettings turretTank;
 
 
     // Update is called once per frame
@@ -34,20 +32,22 @@ public class PlayerHUDMenu : MonoBehaviour
 
     public void SetPlayerStatus()
     {
-        _speed = TankSettings.tankInfo[PlayerNumber]._speed;
-        _life = TankSettings.tankInfo[PlayerNumber]._life;
-        _fireRate = TankSettings.tankInfo[PlayerNumber]._fireRate;
-        _damage = TankSettings.tankInfo[PlayerNumber]._damage;
+        _speed = TankSettings.tankInfo[PlayerNumber].baseTank._speed;
+        _life = TankSettings.tankInfo[PlayerNumber].baseTank._life;
+        _fireRate = TankSettings.tankInfo[PlayerNumber].turret._fireRate;
+        _damage = TankSettings.tankInfo[PlayerNumber].turret._damage;
 
 
     }
 
     public void GetInformation()
     {
-        _LifeTxt.text = _life.ToString("Tank Life: " + _life);
-        _speedTxt.text = _speed.ToString("Tank Speed: " + _speed);
-        _fireRateTxt.text = _fireRate.ToString("Your Fire rate: " + _fireRate);
-        _DamageTxt.text = _damage.ToString("Your damage: " + _damage);
+        _LifeTxt.text = "Tank Life: " + _life;
+        _speedTxt.text = "Tank Speed: " + _speed;
+        _fireRateTxt.text = "Your Fire rate: " + _fireRate;
+        _DamageTxt.text = ("Your damage: " + _damage);
+
+        Debug.Log("valor vida: " + _life);
     }
 
 }
