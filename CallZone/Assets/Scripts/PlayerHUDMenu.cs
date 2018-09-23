@@ -19,26 +19,35 @@ public class PlayerHUDMenu : MonoBehaviour
     private float _fireRate;
     private int _damage;
 
-    private PlayerTank playerTank;
+    public int PlayerNumber;
 
-    // Use this for initialization
-    void Start()
-    {
-        var tank = FindObjectsOfType<PlayerTank>();
+    //private TankSettings baseTank;
+    //private TankSettings turretTank;
 
-    }
 
     // Update is called once per frame
     void Update()
     {
+        GetInformation();
+        SetPlayerStatus();
+    }
+
+    public void SetPlayerStatus()
+    {
+        _speed = TankSettings.tankInfo[PlayerNumber]._speed;
+        _life = TankSettings.tankInfo[PlayerNumber]._life;
+        _fireRate = TankSettings.tankInfo[PlayerNumber]._fireRate;
+        _damage = TankSettings.tankInfo[PlayerNumber]._damage;
+
 
     }
 
-    //public void InformationMenu()
-    //{
-
-
-    //}
+    public void GetInformation()
+    {
+        _LifeTxt.text = _life.ToString("Tank Life: " + _life);
+        _speedTxt.text = _speed.ToString("Tank Speed: " + _speed);
+        _fireRateTxt.text = _fireRate.ToString("Your Fire rate: " + _fireRate);
+        _DamageTxt.text = _damage.ToString("Your damage: " + _damage);
+    }
 
 }
-

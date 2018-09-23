@@ -20,11 +20,18 @@ public class TankTurretInfo : MonoBehaviour
     private SpriteRenderer _spriteRend;
 
     //Numero do tank
-    public int numberTank;
+    public int numberTankRew;
 
     //Botões para as escolhas de torres
     public Button _advance;
     public Button _back;
+
+    //Numero da torre para ser criado no gameplay
+    public int _turretNumber;
+
+    ////Informações da torre
+    //public float _fireRate;
+    //public int _damage;
 
     // Use this for initialization
     void Start()
@@ -47,6 +54,7 @@ public class TankTurretInfo : MonoBehaviour
         if (_indexInitial <= 0) { _back.interactable = false; }
         else { _advance.interactable = true; }
 
+        _turretNumber = _indexInitial;
     }
 
     //Aplica a primeira sprite como padrão de modelo do tank
