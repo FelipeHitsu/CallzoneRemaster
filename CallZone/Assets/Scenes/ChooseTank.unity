@@ -466,25 +466,25 @@ MonoBehaviour:
     _BodySprite: {fileID: 21300000, guid: 86c05a0c7e10e4e4d9d15a88dcd25103, type: 3}
   turrets:
   - name: Canoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1435108645071508, guid: 863b0510e1fba23498d16149758c273d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 597efc4b8187e07468d8b31f21ca5c0a, type: 3}
     _turnSpeed: 20
     _fireRate: 2
     _damage: 20
   - name: DoubleCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: cb5ffafa63ee33b47a9aaed266488cb7, type: 3}
     _turnSpeed: 20
     _fireRate: 1.5
     _damage: 15
   - name: LongCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
     _TowerSprite: {fileID: 21300000, guid: cbde9405b8dfce34ca61c61fe88c8644, type: 3}
     _turnSpeed: 25
     _fireRate: 2.5
     _damage: 30
   - name: RapidCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 1107019e67479484f8fa8a2fe8eeb583, type: 3}
     _turnSpeed: 15
     _fireRate: 1

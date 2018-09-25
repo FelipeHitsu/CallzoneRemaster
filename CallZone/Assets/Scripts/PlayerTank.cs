@@ -17,23 +17,22 @@ public class PlayerTank : MonoBehaviour
     public int _playerNumber;
     /// </Rewired>
 
-    
+
 
     /// <Variaveis>
+    //Imagem da base do tank
+    public Sprite _baseSprite;
+ 
     //Velocidade do jogador se mover
-    public float speed;
+    public float _speed;
     //Velocidade do jogador virar a base do tank
-    public float rotationSpeed;
-    //Velocidade para o tiro
-    public float fireRate;
+    public float _rotationSpeed;
     //Angulho para rotação da torre
-    private  float angle;
-    //Dano inicial do jogador
-    public int _damage = 10;
+    private  float _angle;
     //Vida inicial do jogador
-    public int _life = 200;
+    public int _life;
     //Contador de comida
-    public int foodCount = 0;
+    public int _foodCount = 0;
     /// </Variaveis>
 
 
@@ -54,6 +53,8 @@ public class PlayerTank : MonoBehaviour
 	void Start ()
     {
         //DontDestroyOnLoad(gameObject);
+
+        CreateTank();
 
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
@@ -81,13 +82,8 @@ public class PlayerTank : MonoBehaviour
 
         move();
 
-        fireRate += 0.1f;
-
-        if (Input.GetMouseButton(0) && fireRate >= 2.0f)
-        {
-            Turret.Shoot();
-            fireRate = 0;
-        }
+        if (Input.GetMouseButton(0))
+         { Turret.Shoot(); }
     }
 
    void rotate()
@@ -98,12 +94,12 @@ public class PlayerTank : MonoBehaviour
         //Direita
         if (rewPlayer.GetButton("Turnright"))
         {
-            baseRotation.z -= rotationSpeed;
+            baseRotation.z -= _rotationSpeed;
         }
         //Esquerda
         if (rewPlayer.GetButton("TurnLeft"))
         {
-            baseRotation.z += rotationSpeed;
+            baseRotation.z += _rotationSpeed;
         }
 
         playerTransform.rotation = Quaternion.Euler(baseRotation);
@@ -117,14 +113,14 @@ public class PlayerTank : MonoBehaviour
         if (rewPlayer.GetButton("MoveFront"))
         {
             
-            playerRb.MovePosition(playerTransform.position + playerTransform.right * speed * Time.deltaTime);
+            playerRb.MovePosition(playerTransform.position + playerTransform.right * _speed * Time.deltaTime);
         }
 
         //
         if (rewPlayer.GetButton("MoveBack"))
         {
             
-            playerRb.MovePosition(playerTransform.position - playerTransform.right * speed * Time.deltaTime);
+            playerRb.MovePosition(playerTransform.position - playerTransform.right * _speed * Time.deltaTime);
         }
     }
 
@@ -144,7 +140,7 @@ public class PlayerTank : MonoBehaviour
             playerHUD.Collected(collectable.foodType);
 
             //Contando as comidas
-            foodCount += 1;
+            _foodCount += 1;
 
             //Destruindo o objeto
             Destroy(other.gameObject);
@@ -173,7 +169,19 @@ public class PlayerTank : MonoBehaviour
         }
     }
     
+    public void CreateTank()
+    {
 
+        //Imagem da base
+        _baseSprite = TankSettings.tankInfo[_playerNumber].baseTank._BodySprite;
+        //Velocidade
+        _speed = TankSettings.tankInfo[_playerNumber].baseTank._speed;
+        //Vida
+        _life = TankSettings.tankInfo[_playerNumber].baseTank._life;
+        
+        //Informações da torre
+        Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
+    }
 }
 
 
