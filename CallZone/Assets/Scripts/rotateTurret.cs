@@ -9,7 +9,7 @@ public class rotateTurret : MonoBehaviour {
 
     public Transform shootspawn;
 
-    public SpriteRenderer spritRendTurret;
+    private SpriteRenderer spritRendTurret;
 
     public int _playerNumber;
 
@@ -19,14 +19,20 @@ public class rotateTurret : MonoBehaviour {
 
     private float _fireReloadTimer;
 
-    private bool _fireUp;
+    private bool _fireUp = false;
 
 	// Update is called once per frame
 	void Update ()
     {
+        DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
+
+        //Timer de reload
         if(!_fireUp)
         {
+            //Contandoo tempo para o reload
             _fireReloadTimer += Time.deltaTime;
+
+            //Verificando o tempo, se for maior que o tempo de reload, atira
             if(_fireReloadTimer >= _fireRate)
             {
                 _fireUp = true;
@@ -63,6 +69,7 @@ public class rotateTurret : MonoBehaviour {
             GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
 
+            //Destruindo objeto depois de 4 segundos
             Destroy(tempBullet, 4.0f);
         }
         
@@ -70,13 +77,19 @@ public class rotateTurret : MonoBehaviour {
 
     public void DefineTurret(TankTurret turret)
     {
+        //Sprite do canhão
         spritRendTurret.sprite = turret._TowerSprite;
+         Debug.Log("Não carregado" + spritRendTurret.sprite == null);
+
+        //O projétil do canhão
         shoot = turret._bullet;
 
         //Velocidade de tiro
         _fireRate = TankSettings.tankInfo[_playerNumber].turret._fireRate;
         //Velocidade de rotação
         _rotationSpeed = TankSettings.tankInfo[_playerNumber].turret._turnSpeed;
+        //Dano do canhão
+        _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
 
     }
 

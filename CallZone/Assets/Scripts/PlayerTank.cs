@@ -52,13 +52,15 @@ public class PlayerTank : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        //DontDestroyOnLoad(gameObject);
+        rewPlayer = ReInput.players.GetPlayer(_playerNumber);
+        Debug.Log("ele é nulo??" + rewPlayer == null);
+
 
         CreateTank();
 
-        rewPlayer = ReInput.players.GetPlayer(_playerNumber);
-
         
+       
+  
 
         playerRb = GetComponent<Rigidbody2D>();
         playerTransform = transform;
@@ -92,7 +94,7 @@ public class PlayerTank : MonoBehaviour
         
         ///Rotação
         //Direita
-        if (rewPlayer.GetButton("Turnright"))
+        if (rewPlayer.GetButton("TurnRight"))
         {
             baseRotation.z -= _rotationSpeed;
         }
@@ -107,7 +109,7 @@ public class PlayerTank : MonoBehaviour
 
     void move()
     {
-        ///Futuramente: Deixar o movimento com o Joystick, no analógico esquerdo
+        ///Futuramente: Deixar o movimento com o Joystick, no analógico direito
 
         //
         if (rewPlayer.GetButton("MoveFront"))
@@ -174,11 +176,13 @@ public class PlayerTank : MonoBehaviour
 
         //Imagem da base
         _baseSprite = TankSettings.tankInfo[_playerNumber].baseTank._BodySprite;
+         Debug.Log("Sprite não carregada" + _baseSprite == null);
+        
         //Velocidade
         _speed = TankSettings.tankInfo[_playerNumber].baseTank._speed;
         //Vida
         _life = TankSettings.tankInfo[_playerNumber].baseTank._life;
-        
+
         //Informações da torre
         Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
     }
