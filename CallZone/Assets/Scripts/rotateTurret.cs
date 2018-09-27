@@ -9,13 +9,13 @@ public class rotateTurret : MonoBehaviour {
 
     public Transform shootspawn;
 
-    private SpriteRenderer spritRendTurret;
+    private SpriteRenderer sprtRendTurret;
 
     public int _playerNumber;
 
-    private float _fireRate;
+    public float _fireRate;
     private float _rotationSpeed;
-    private float _damage;
+    public float _damage;
 
     private float _fireReloadTimer;
 
@@ -78,8 +78,8 @@ public class rotateTurret : MonoBehaviour {
     public void DefineTurret(TankTurret turret)
     {
         //Sprite do canhão
-        spritRendTurret.sprite = turret._TowerSprite;
-         Debug.Log("Não carregado" + spritRendTurret.sprite == null);
+        sprtRendTurret.sprite = turret._TowerSprite;
+         Debug.Log("Não carregado" + sprtRendTurret.sprite == null);
 
         //O projétil do canhão
         shoot = turret._bullet;

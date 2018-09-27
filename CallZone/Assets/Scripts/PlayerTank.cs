@@ -22,7 +22,9 @@ public class PlayerTank : MonoBehaviour
     /// <Variaveis>
     //Imagem da base do tank
     public Sprite _baseSprite;
- 
+
+    private SpriteRenderer sprtRendBase;
+
     //Velocidade do jogador se mover
     public float _speed;
     //Velocidade do jogador virar a base do tank
@@ -53,14 +55,14 @@ public class PlayerTank : MonoBehaviour
 	void Start ()
     {
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
-        Debug.Log("ele é nulo??" + rewPlayer == null);
+
+
+
+        sprtRendBase = GetComponentInChildren<SpriteRenderer>();
+
 
 
         CreateTank();
-
-        
-       
-  
 
         playerRb = GetComponent<Rigidbody2D>();
         playerTransform = transform;
@@ -175,8 +177,9 @@ public class PlayerTank : MonoBehaviour
     {
 
         //Imagem da base
-        _baseSprite = TankSettings.tankInfo[_playerNumber].baseTank._BodySprite;
-         Debug.Log("Sprite não carregada" + _baseSprite == null);
+        sprtRendBase.sprite = TankSettings.tankInfo[_playerNumber].baseTank._BodySprite;
+        //TA CERTO PORRA, ESSA CARALHA!
+        ///Daqui pra cima ta debugado
         
         //Velocidade
         _speed = TankSettings.tankInfo[_playerNumber].baseTank._speed;
