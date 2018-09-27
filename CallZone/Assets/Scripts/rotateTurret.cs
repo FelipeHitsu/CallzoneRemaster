@@ -21,10 +21,14 @@ public class rotateTurret : MonoBehaviour {
 
     private bool _fireUp = false;
 
-	// Update is called once per frame
+    void Awake()
+    {
+        sprtRendTurret = GetComponent<SpriteRenderer>();
+    }
+
 	void Update ()
     {
-        DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
+        
 
         //Timer de reload
         if(!_fireUp)
@@ -77,11 +81,14 @@ public class rotateTurret : MonoBehaviour {
 
     public void DefineTurret(TankTurret turret)
     {
+        
+        //O tank é carregado, mas a sprite não!
+
         //Sprite do canhão
         sprtRendTurret.sprite = turret._TowerSprite;
-         Debug.Log("Não carregado" + sprtRendTurret.sprite == null);
+       
 
-        //O projétil do canhão
+        ////O projétil do canhão
         shoot = turret._bullet;
 
         //Velocidade de tiro

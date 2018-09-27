@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Turret: {fileID: 196878243}
   _playerNumber: 0
+  _baseSprite: {fileID: 0}
   _speed: 0
   _rotationSpeed: 20
   _life: 0
@@ -1960,7 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 0}
   shootspawn: {fileID: 0}
-  _playerNumber: 0
+  _playerNumber: 1
   _fireRate: 0
   _damage: 0
 --- !u!212 &545741341
@@ -3140,7 +3141,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1095436519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3243,7 +3244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 545741340}
-  _playerNumber: 0
+  _playerNumber: 1
+  _baseSprite: {fileID: 0}
   _speed: 0
   _rotationSpeed: 0
   _life: 0

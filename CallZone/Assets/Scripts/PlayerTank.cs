@@ -175,19 +175,19 @@ public class PlayerTank : MonoBehaviour
     
     public void CreateTank()
     {
-
         //Imagem da base
         sprtRendBase.sprite = TankSettings.tankInfo[_playerNumber].baseTank._BodySprite;
-        //TA CERTO PORRA, ESSA CARALHA!
-        ///Daqui pra cima ta debugado
         
         //Velocidade
         _speed = TankSettings.tankInfo[_playerNumber].baseTank._speed;
+
         //Vida
         _life = TankSettings.tankInfo[_playerNumber].baseTank._life;
 
+        Debug.Log("TO TENTANDO CARALHOOOOOOOOO");
         //Informações da torre
         Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
+        
     }
 }
 
