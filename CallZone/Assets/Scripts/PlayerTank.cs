@@ -6,6 +6,8 @@ using Rewired;
 
 public class PlayerTank : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerLifeBar life;
 
     public rotateTurret Turret;
 
@@ -43,17 +45,16 @@ public class PlayerTank : MonoBehaviour
     Vector3 basePosition;
     //Vetor para a torre do tank
     Vector3 baseRotation;
-    //Referencia as posições do player
-    Transform playerTransform;
 
     ///Componentes
     //Componente de rigidbody do player
     public Rigidbody2D playerRb;
 
 
-	// Use this for initialization
-	void Start ()
+    
+    void Start ()
     {
+        
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
 
@@ -65,7 +66,6 @@ public class PlayerTank : MonoBehaviour
         CreateTank();
 
         playerRb = GetComponent<Rigidbody2D>();
-        playerTransform = transform;
 
         var HUDs = FindObjectsOfType<PlayerHUD>();
 
@@ -81,18 +81,26 @@ public class PlayerTank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
- 
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            life.currentLife -= 10;
+        
+       
         rotate();
 
         move();
 
-        if (Input.GetMouseButton(0))
-         { Turret.Shoot(); }
+        //Input R1 do joystick
+        if (rewPlayer.GetButton("Shoot"))
+        {
+            //Chamando a função de tiro
+            Turret.Shoot();
+        }
     }
 
    void rotate()
     {
-        ///Futuramente: Deixar a rotação com o Joystick, no analógico direito
+        
         
         ///Rotação
         //Direita
@@ -106,25 +114,25 @@ public class PlayerTank : MonoBehaviour
             baseRotation.z += _rotationSpeed;
         }
 
-        playerTransform.rotation = Quaternion.Euler(baseRotation);
+        transform.rotation = Quaternion.Euler(baseRotation);
     }
 
     void move()
     {
-        ///Futuramente: Deixar o movimento com o Joystick, no analógico direito
+       
 
-        //
+        //Frente
         if (rewPlayer.GetButton("MoveFront"))
         {
             
-            playerRb.MovePosition(playerTransform.position + playerTransform.right * _speed * Time.deltaTime);
+            playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
 
-        //
+        //Trás
         if (rewPlayer.GetButton("MoveBack"))
         {
             
-            playerRb.MovePosition(playerTransform.position - playerTransform.right * _speed * Time.deltaTime);
+            playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
     }
 
@@ -154,7 +162,7 @@ public class PlayerTank : MonoBehaviour
     //Função de dano contra os tanks
     public void ApplyDamage(int damage)
     {
-        _life -= damage;
+       _life -= damage;
 
         if(_life <= 0)
         {
@@ -183,6 +191,7 @@ public class PlayerTank : MonoBehaviour
 
         //Vida
         _life = TankSettings.tankInfo[_playerNumber].baseTank._life;
+        //life.currentLife = TankSettings.tankInfo[_playerNumber].baseTank._life;
 
         Debug.Log("TO TENTANDO CARALHOOOOOOOOO");
         //Informações da torre
