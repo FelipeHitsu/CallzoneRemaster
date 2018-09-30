@@ -18,6 +18,8 @@ public class Collectable : MonoBehaviour {
     //Enum dos tipos de comida
     public FoodType foodType;
 
+    public float foodEnergy = 50;
+
     private SpriteRenderer spriteRend;
 
 	// Use this for initialization
@@ -31,7 +33,7 @@ public class Collectable : MonoBehaviour {
     public void SetFood(int food)
     {
         //Peganmdo o componente de sprite e dizendo que ele na posição food, é uma comida
-        GetComponent<SpriteRenderer>().sprite = sprites[food];
+        spriteRend.sprite = sprites[food];
 
         //Dizendo que a comida é igual ao index criado para ser ele
         foodType = (FoodType)food;

@@ -42,8 +42,8 @@ public class PlayerTank : MonoBehaviour
     //Contador de comida
     private int _foodCount = 0;
     //Energia maxima e atual
-    private float _maxEnergy = 200;
-    private float _energy = 0;
+    private float _maxEnergy;
+    private float _energy;
     /// </Variaveis>
 
 
@@ -144,12 +144,13 @@ public class PlayerTank : MonoBehaviour
         {
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
-
+            
             //Contando as comidas
             _foodCount += 1;
 
             //Setando o valor de energia de cada comida
-            GetEnergy(20);
+            GetEnergy(collectable.foodEnergy);
+            
 
             //Destruindo o objeto
             Destroy(other.gameObject);
@@ -168,6 +169,7 @@ public class PlayerTank : MonoBehaviour
         {
             DamageEvent.Invoke((float)_life / _maxLife);
         }
+
         if(_life <= 0)
         {
             //O gerenciador chama a função para verificar se só existe um jogador vivo e reinicia o jogo
@@ -183,7 +185,7 @@ public class PlayerTank : MonoBehaviour
         _energy += energy;
 
         if (EnergyEvent != null)
-            EnergyEvent.Invoke((float) energy / _maxEnergy);
+            EnergyEvent.Invoke(_energy / _maxEnergy);
 
     }
 
@@ -209,7 +211,10 @@ public class PlayerTank : MonoBehaviour
         _maxLife = TankSettings.tankInfo[_playerNumber].baseTank._life;
         _life = _maxLife;
 
-        
+        //Energia
+        _maxEnergy = 200;
+
+
         //Informações da torre
         Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
         

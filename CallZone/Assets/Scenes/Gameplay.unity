@@ -1252,7 +1252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d47793ccbc2824093d5ba8c86ca0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LifeBar: {fileID: 1803978109}
+  _LifeBar: {fileID: 2063967962}
+  _EnergyBar: {fileID: 1803978109}
 --- !u!1 &466854472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LifeBar: {fileID: 2063967962}
+  _EnergyBar: {fileID: 1803978109}
 --- !u!224 &599069633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4616,8 +4618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 478295930}
-  barLife: {fileID: 599069632}
-  barEnergy: {fileID: 461948289}
+  barLife: {fileID: 2063967962}
+  barEnergy: {fileID: 1803978109}
 --- !u!4 &1411981533 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4190957535054640, guid: 2789b23a82743c14c8139ad1037d99fa,

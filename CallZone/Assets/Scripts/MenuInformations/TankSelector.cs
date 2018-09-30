@@ -26,7 +26,7 @@ public class TankSelector : MonoBehaviour {
 
     void Start ()
     {
-        //DontDestroyOnLoad(gameObject);
+        
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
         

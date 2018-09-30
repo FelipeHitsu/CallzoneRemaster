@@ -9,10 +9,12 @@ public class PlayerHUD : MonoBehaviour
     public PlayerTank tank;
 
     //Barra de vida do jogador
-    public PlayerStatus barLife;
+    [SerializeField]
+    private Image barLife;
 
+    [SerializeField]
     //Barra de energia do jogador
-    public PlayerStatus barEnergy;
+    private Image barEnergy;
 
 	// Use this for initialization
 	void Start ()
@@ -21,7 +23,8 @@ public class PlayerHUD : MonoBehaviour
         tank.DamageEvent += OnDamage;
 
         tank.EnergyEvent += OnEnergy;
-       
+
+        barEnergy.fillAmount = 0;
 	}
 	
     //Desub do evento
@@ -34,13 +37,14 @@ public class PlayerHUD : MonoBehaviour
     //Função do dano
     public void OnDamage (float life)
     {
-        
-        barLife.SetFillAmountLife(life);
+
+        barLife.fillAmount = life;
     }
 
     //função da energia
     public void OnEnergy (float energy)
     {
-        barEnergy.SetFillAmountEnergy(energy);
+        barEnergy.fillAmount = energy;
+        Debug.Log("Minha energia: " + barEnergy.fillAmount);
     }
 }
