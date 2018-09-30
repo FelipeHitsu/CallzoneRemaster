@@ -60,25 +60,15 @@ public class rotateTurret : MonoBehaviour {
 
         if (rewPlayer.GetButton("TurnTurretRight"))
         {
-            Debug.Log("VIRA DIREITAAAAAAAAAA, CARALHOOOOOO");
             turretRotation.z += _rotationSpeed;
         }
         if(rewPlayer.GetButton("TurnTurretLeft"))
-        {
-            Debug.Log("VIRA ESQUERDAAAAAAAA, CARALHOOOOOO");
+        {     
             turretRotation.z -= _rotationSpeed;
         }
 
         transform.rotation = Quaternion.Euler(turretRotation);
 
-        ////Rotação
-        //Vector3 mousePos = Input.mousePosition;
-
-        //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        //Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
-
-        //transform.right = direction;
     }
 
     
@@ -96,8 +86,8 @@ public class rotateTurret : MonoBehaviour {
                 _fireUp = false;
 
                 //Destruindo objeto depois de 4 segundos
-                Destroy(tempBullet, 4.0f);
-            }
+                Destroy(tempBullet, 3.0f);
+         }
         
     }
 

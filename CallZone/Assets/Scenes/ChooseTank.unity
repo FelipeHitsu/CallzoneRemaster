@@ -355,27 +355,27 @@ MonoBehaviour:
     _BodySprite: {fileID: 21300000, guid: afd83d9b3c243a24ba4e156d1065a945, type: 3}
   turrets:
   - name: Canoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1435108645071508, guid: 863b0510e1fba23498d16149758c273d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: afd2b53d58a4fda4c89290ebb1ed6b91, type: 3}
-    _turnSpeed: 20
+    _turnSpeed: 5
     _fireRate: 2
     _damage: 20
   - name: DoubleCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 4ba7eb2e03df8ee4fb2e77afc91bf5d9, type: 3}
-    _turnSpeed: 20
+    _turnSpeed: 5
     _fireRate: 1.5
     _damage: 15
   - name: LongCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
     _TowerSprite: {fileID: 21300000, guid: a738d82a005a75a4789324ed10126c6d, type: 3}
-    _turnSpeed: 25
+    _turnSpeed: 5
     _fireRate: 2.5
     _damage: 30
   - name: RapidCanoon
-    _bullet: {fileID: 0}
+    _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 6237b308f5ff7554dbd822120d10b3e4, type: 3}
-    _turnSpeed: 15
+    _turnSpeed: 5
     _fireRate: 1
     _damage: 10
   PlayerNumber: 1

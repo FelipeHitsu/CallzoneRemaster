@@ -43,6 +43,8 @@ public class BulletMovement : MonoBehaviour {
             //Destruindo o projétil
             Destroy(gameObject);
         }
+
+        
     }
 
     

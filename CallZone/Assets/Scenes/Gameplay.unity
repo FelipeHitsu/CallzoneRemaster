@@ -526,7 +526,7 @@ GameObject:
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1212,6 +1212,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 461948288}
+  - component: {fileID: 461948289}
   m_Layer: 5
   m_Name: Energy
   m_TagString: Untagged
@@ -1240,6 +1241,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &461948289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461948287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d47793ccbc2824093d5ba8c86ca0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LifeBar: {fileID: 1803978109}
 --- !u!1 &466854472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1264,7 @@ GameObject:
   m_Layer: 0
   m_Name: Shoot
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1403,7 +1416,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tank 1
   m_TagString: Player
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1418,14 +1431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: {fileID: 599069632}
   Turret: {fileID: 196878243}
   _playerNumber: 0
   _baseSprite: {fileID: 0}
   _speed: 0
   _rotationSpeed: 5
-  _life: 0
-  _foodCount: 0
+  _angle: 0
   playerRb: {fileID: 0}
 --- !u!4 &478295931
 Transform:
@@ -1543,7 +1554,7 @@ GameObject:
   m_Layer: 0
   m_Name: Shoot
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2053,7 +2064,7 @@ GameObject:
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2399,11 +2410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d47793ccbc2824093d5ba8c86ca0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeFillAmount: 0
   _LifeBar: {fileID: 2063967962}
-  _playerNumber: 0
-  MaxValue: 0
-  currentLife: 0
 --- !u!224 &599069633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3619,7 +3626,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tank2
   m_TagString: Player
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3724,14 +3731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: {fileID: 0}
   Turret: {fileID: 545741340}
   _playerNumber: 1
   _baseSprite: {fileID: 0}
   _speed: 0
   _rotationSpeed: 5
-  _life: 0
-  _foodCount: 0
+  _angle: 0
   playerRb: {fileID: 0}
 --- !u!4 &1095436523
 Transform:
@@ -4210,10 +4215,7 @@ MonoBehaviour:
         _categoryId: 0
         _layoutId: 0
       _defaultMouseMaps: []
-      _defaultKeyboardMaps:
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 0
+      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 1
@@ -4223,12 +4225,12 @@ MonoBehaviour:
       _name: Player1
       _descriptiveName: Player1
       _startPlaying: 1
-      _defaultJoystickMaps:
+      _defaultJoystickMaps: []
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultMouseMaps: []
-      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -4608,19 +4610,14 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1326481802}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021619901f2c3146aec6da39621ffdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerNumerHUD: 0
+  tank: {fileID: 478295930}
+  barLife: {fileID: 599069632}
+  barEnergy: {fileID: 461948289}
 --- !u!4 &1411981533 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4190957535054640, guid: 2789b23a82743c14c8139ad1037d99fa,

@@ -3,33 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHUD : MonoBehaviour {
+public class PlayerHUD : MonoBehaviour
+{
 
-    //Os toggles de coletáveis
-    public Toggle[] collectable;
+    public PlayerTank tank;
 
-    public int playerNumerHUD;
+    //Barra de vida do jogador
+    public PlayerStatus barLife;
+
+    //Barra de energia do jogador
+    public PlayerStatus barEnergy;
 
 	// Use this for initialization
 	void Start ()
     {
-         
+        //Agora minha hud escuta esse evento
+        tank.DamageEvent += OnDamage;
 
-        //Desabilitando todos os toggles
-		for(int i = 0; i < collectable.Length; i++)
-        {
-            collectable[i].isOn = false;
-        }
+        tank.EnergyEvent += OnEnergy;
+       
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    //Função que verifica se um tipo especifico de comida foi coletado e diz que a HUD está positiva
-    public void Collected(FoodType type)
+    //Desub do evento
+    void OnDisable()
     {
-        collectable[(int)type].isOn = true;
+        tank.DamageEvent -= OnDamage;
+        tank.EnergyEvent -= OnEnergy;
+    }
+
+    //Função do dano
+    public void OnDamage (float life)
+    {
+        
+        barLife.SetFillAmountLife(life);
+    }
+
+    //função da energia
+    public void OnEnergy (float energy)
+    {
+        barEnergy.SetFillAmountEnergy(energy);
     }
 }

@@ -6,13 +6,16 @@ using Rewired;
 
 public class PlayerTank : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerLifeBar life;
+    /// <Eventos>
+    public  delegate void  DamageDelegate(float currentLife);
+    public event DamageDelegate DamageEvent;
+
+    public delegate void EnergyDelegate(float totalFood);
+    public event EnergyDelegate EnergyEvent;
+    /// </Eventos>
+
 
     public rotateTurret Turret;
-
-    //Referencia ao playerHUD
-    private PlayerHUD playerHUD;
 
     /// <Rewired>
     private Player rewPlayer;
@@ -32,11 +35,15 @@ public class PlayerTank : MonoBehaviour
     //Velocidade do jogador virar a base do tank
     public float _rotationSpeed;
     //Angulho para rotação da torre
-    private  float _angle;
-    //Vida inicial do jogador
-    public int _life;
+    public  float _angle;
+    //Vida inicial do jogador maxima e atual
+    private int _maxLife;
+    private int _life;
     //Contador de comida
-    public int _foodCount = 0;
+    private int _foodCount = 0;
+    //Energia maxima e atual
+    private float _maxEnergy = 200;
+    private float _energy = 0;
     /// </Variaveis>
 
 
@@ -67,23 +74,11 @@ public class PlayerTank : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody2D>();
 
-        var HUDs = FindObjectsOfType<PlayerHUD>();
-
-        foreach (var hud in HUDs)
-        {
-            if(hud.playerNumerHUD == _playerNumber)
-            {
-                playerHUD = hud;
-            }
-        }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            life.currentLife -= 10;
         
        
         rotate();
@@ -103,12 +98,12 @@ public class PlayerTank : MonoBehaviour
         
         
         ///Rotação
-        //Direita
+        //Direita, com joystick
         if (rewPlayer.GetButton("TurnRight"))
         {
             baseRotation.z -= _rotationSpeed;
         }
-        //Esquerda
+        //Esquerda, com joystick
         if (rewPlayer.GetButton("TurnLeft"))
         {
             baseRotation.z += _rotationSpeed;
@@ -119,21 +114,23 @@ public class PlayerTank : MonoBehaviour
 
     void move()
     {
-       
 
-        //Frente
+
+        //Frente, com joystick
         if (rewPlayer.GetButton("MoveFront"))
         {
             
             playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
 
-        //Trás
+        //Trás, com joystick
         if (rewPlayer.GetButton("MoveBack"))
         {
             
             playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
+
+
     }
 
     
@@ -148,15 +145,17 @@ public class PlayerTank : MonoBehaviour
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
 
-            //Chamando a função para ativar o toggle, para ativa o tipo de comida que foi coletado
-            playerHUD.Collected(collectable.foodType);
-
             //Contando as comidas
             _foodCount += 1;
+
+            //Setando o valor de energia de cada comida
+            GetEnergy(20);
 
             //Destruindo o objeto
             Destroy(other.gameObject);
         }
+
+        
     }
 
     //Função de dano contra os tanks
@@ -164,6 +163,11 @@ public class PlayerTank : MonoBehaviour
     {
        _life -= damage;
 
+        //Chamada do evento de dano
+        if (DamageEvent != null)
+        {
+            DamageEvent.Invoke((float)_life / _maxLife);
+        }
         if(_life <= 0)
         {
             //O gerenciador chama a função para verificar se só existe um jogador vivo e reinicia o jogo
@@ -173,10 +177,22 @@ public class PlayerTank : MonoBehaviour
         }
     }
 
+    //Função que chama o evento para coletar energia
+    public void GetEnergy(float energy)
+    {
+        _energy += energy;
+
+        if (EnergyEvent != null)
+            EnergyEvent.Invoke((float) energy / _maxEnergy);
+
+    }
+
+    //Isso aqui vai servir pra dar respawns caso as comidas acabem
     public void CountFood(int food)
     {
         if(food >= 5)
         {
+            Debug.Log("Comidas full!" + food);
             GameController.Instance.AllFood();
         }
     }
@@ -190,10 +206,10 @@ public class PlayerTank : MonoBehaviour
         _speed = TankSettings.tankInfo[_playerNumber].baseTank._speed;
 
         //Vida
-        _life = TankSettings.tankInfo[_playerNumber].baseTank._life;
-        //life.currentLife = TankSettings.tankInfo[_playerNumber].baseTank._life;
+        _maxLife = TankSettings.tankInfo[_playerNumber].baseTank._life;
+        _life = _maxLife;
 
-        Debug.Log("TO TENTANDO CARALHOOOOOOOOO");
+        
         //Informações da torre
         Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
         
