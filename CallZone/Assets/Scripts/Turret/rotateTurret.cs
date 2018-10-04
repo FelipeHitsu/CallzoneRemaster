@@ -10,7 +10,9 @@ public class rotateTurret : MonoBehaviour {
 
     public Transform shootspawn;
 
-    
+    //public AudioController soundController;
+    //public AudioClip shootKetchup;
+
     private SpriteRenderer sprtRendTurret;
 
     //Pra saber qual jogador que é
@@ -77,13 +79,15 @@ public class rotateTurret : MonoBehaviour {
        ///Furutamente: Deixar esse input para o Joystick, ou seja aqui seria o quadrado para atirar.
          if (_fireUp)
          {
-                
-                //Criando instancia temporária para o tiro
-                GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
-                tempBullet.transform.right = transform.right;
+            //Som de tiro
+           // soundController.Playsound(shootKetchup);
 
-                _fireReloadTimer = 0;
-                _fireUp = false;
+             //Criando instancia temporária para o tiro
+              GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
+              tempBullet.transform.right = transform.right;
+
+              _fireReloadTimer = 0;
+              _fireUp = false;
 
                 //Destruindo objeto depois de 4 segundos
                 Destroy(tempBullet, 3.0f);

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class TankSelector : MonoBehaviour {
 
 
+    public AudioController soundController;
+
+    public AudioClip selectSound;
 
     public TankBase[] bases;
     public TankTurret[] turrets;
@@ -45,7 +48,8 @@ public class TankSelector : MonoBehaviour {
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
         baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
-        
+
+       // soundController.Playsound(selectSound);
     }
 
     public void BackBase ()
@@ -56,6 +60,8 @@ public class TankSelector : MonoBehaviour {
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
         baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+
+       // soundController.Playsound(selectSound);
     }
 
     public void AdvanceTurret()
@@ -67,6 +73,8 @@ public class TankSelector : MonoBehaviour {
 
 
         turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+
+        //soundController.Playsound(selectSound);
     }
 
     public void BackTurret()
@@ -79,6 +87,8 @@ public class TankSelector : MonoBehaviour {
 
 
         turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+
+        //soundController.Playsound(selectSound);
     }
 
     public void VerifyIndex(ref int index)

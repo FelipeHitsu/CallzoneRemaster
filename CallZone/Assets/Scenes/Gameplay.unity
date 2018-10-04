@@ -203,6 +203,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &134389288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,6 +324,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &136018889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -443,6 +445,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &190012334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -774,6 +777,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &239198479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -935,6 +939,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &398204114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1055,6 +1060,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &412027804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1332,6 +1338,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &471131449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1432,6 +1439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundController: {fileID: 547668723}
+  colletc: {fileID: 8300000, guid: d1c7e7e95d1c8d34dbe43db983234ce6, type: 3}
+  stoped: {fileID: 8300000, guid: 5ac33cfafb975004596cc238e1d88d78, type: 3}
+  shootKecthup: {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
   Turret: {fileID: 196878243}
   _playerNumber: 0
   _baseSprite: {fileID: 0}
@@ -1622,6 +1633,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &495206828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1742,6 +1754,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &501635625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1862,6 +1875,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &518724403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1982,6 +1996,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 1
+  foodEnergy: 50
 --- !u!61 &526286674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2144,6 +2159,143 @@ Transform:
   m_Father: {fileID: 1095436523}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &547668722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 547668725}
+  - component: {fileID: 547668724}
+  - component: {fileID: 547668723}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &547668723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547668722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa7cdfc846d4b043951e17abff495e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: {fileID: 0}
+--- !u!82 &547668724
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547668722}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &547668725
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547668722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8319921, y: 0.7903232, z: -0.14002962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570184332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2346,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &570184335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2314,6 +2467,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &584113887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2484,6 +2638,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &665885206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2916,6 +3071,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 3
+  foodEnergy: 50
 --- !u!61 &829642148
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3036,6 +3192,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 3
+  foodEnergy: 50
 --- !u!61 &865931945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3156,6 +3313,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 3
+  foodEnergy: 50
 --- !u!61 &916585778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3276,6 +3434,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &979960994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3370,7 +3529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 77.4, y: -398.1}
+  m_AnchoredPosition: {x: 77.4, y: -344.3}
   m_SizeDelta: {x: 100, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1019840682
@@ -3423,6 +3582,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &1019840685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3543,6 +3703,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &1061740870
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3733,6 +3894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundController: {fileID: 547668723}
+  colletc: {fileID: 8300000, guid: ca9eb43cccc4ff249bc653849aab1f30, type: 3}
+  stoped: {fileID: 8300000, guid: 5ac33cfafb975004596cc238e1d88d78, type: 3}
+  shootKecthup: {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
   Turret: {fileID: 545741340}
   _playerNumber: 1
   _baseSprite: {fileID: 0}
@@ -4794,7 +4959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1473647657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4994,6 +5159,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &1760775421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5375,6 +5541,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &1853026465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5523,6 +5690,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &1893484031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5643,6 +5811,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &1905558381
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5763,6 +5932,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 2
+  foodEnergy: 50
 --- !u!61 &1919627504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5955,6 +6125,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 4
+  foodEnergy: 50
 --- !u!61 &1957038605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6109,6 +6280,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 1
+  foodEnergy: 50
 --- !u!61 &2050829897
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6229,6 +6401,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 0
+  foodEnergy: 50
 --- !u!61 &2061419362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6421,6 +6594,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 3
+  foodEnergy: 50
 --- !u!61 &2071616253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6541,6 +6715,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
   - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
   foodType: 3
+  foodEnergy: 50
 --- !u!61 &2095297636
 BoxCollider2D:
   m_ObjectHideFlags: 0

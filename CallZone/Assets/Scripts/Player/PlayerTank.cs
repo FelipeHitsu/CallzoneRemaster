@@ -14,6 +14,12 @@ public class PlayerTank : MonoBehaviour
     public event EnergyDelegate EnergyEvent;
     /// </Eventos>
 
+    public AudioController soundController;
+
+    public AudioClip colletc;
+    public AudioClip stoped;
+    public AudioClip shootKecthup;
+
 
     public rotateTurret Turret;
 
@@ -44,6 +50,8 @@ public class PlayerTank : MonoBehaviour
     //Energia maxima e atual
     private float _maxEnergy;
     private float _energy;
+    //Movendo ou não
+    private bool _isMoving;
     /// </Variaveis>
 
 
@@ -79,17 +87,26 @@ public class PlayerTank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        
+
        
         rotate();
 
+        if (!_isMoving)
+        {
+           // soundController.Playsound(stoped);
+            Debug.Log("cade o som?" + _isMoving);
+        }
+        
         move();
 
         //Input R1 do joystick
         if (rewPlayer.GetButton("Shoot"))
         {
+
             //Chamando a função de tiro
             Turret.Shoot();
+            //Som de tiro
+            //soundController.Playsound(shootKecthup);
         }
     }
 
@@ -115,18 +132,20 @@ public class PlayerTank : MonoBehaviour
     void move()
     {
 
+        _isMoving = false;
 
         //Frente, com joystick
         if (rewPlayer.GetButton("MoveFront"))
         {
-            
+            _isMoving = true;
+            Debug.Log("cade o som?" + _isMoving);
             playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
 
         //Trás, com joystick
         if (rewPlayer.GetButton("MoveBack"))
         {
-            
+            _isMoving = true;
             playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
 
@@ -150,7 +169,9 @@ public class PlayerTank : MonoBehaviour
 
             //Setando o valor de energia de cada comida
             GetEnergy(collectable.foodEnergy);
-            
+
+            //soundController.Playsound(colletc);
+            Debug.Log("pegando comida:" + colletc == null);
 
             //Destruindo o objeto
             Destroy(other.gameObject);
