@@ -44,9 +44,15 @@ public class BulletMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        if(other.gameObject.CompareTag("Food"))
+        {
+            Destroy(other.gameObject);
+        }
         
     }
 
     
+
+
 
 }

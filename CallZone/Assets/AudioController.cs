@@ -1,46 +1,51 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class AudioController : MonoBehaviour {
 
     public AudioClip[] sounds;
 
-    private AudioSource player;
+    
+    private AudioSource[] player;
+    //A source 0 será para efeitos rápidos, como tiro, coletar comida, levar tiro...
+    //A source 1 será para efeitos que precisam tocar a todo instante, movimento/parada do "tank"
+    //A source 2 será a de musicas
+
    
 	// Use this for initialization
-	void Start () {
-        player = GetComponent<AudioSource>();
-	}
-	
-	//Tocar som
-    public void Playsound(int index)
+	void Start ()
     {
-        player.clip = sounds[index];
-        player.Play();
+        player = new AudioSource[sounds.Length];
+
+
+        for (int i = 0; i < player.Length; i++)
+        {
+            player[i] = gameObject.AddComponent<AudioSource>();
+        }
+
+
+    }
+
+  
+    //Tocar som
+    public void Playsound(int indexClip, int indexSource, bool loop)
+    {
+        player[indexSource].clip = sounds[indexClip];
+        player[indexSource].Play();
+
+        if(loop)
+        { player[indexSource].loop = true; }
     }
 
     //Parar som
-    public void StopSound(int index)
+    public void StopSound(int indexClip, int indexSource)
     {
-        player.clip = sounds[index];
-        player.Play();
+        player[indexSource].clip = sounds[indexClip];
+        player[indexSource].Play();
     }
 
-    //Colocar em loop
-    public void OnLoop(int index)
-    {
-        player.clip = sounds[index];
-        player.loop = true;
-        player.Play();
-    }
-
-    //Parar o loop
-    public void StopLoop(int index)
-    {
-        player.clip = sounds[index];
-        player.loop = false;
-        player.Pause();
-    }
 
 }

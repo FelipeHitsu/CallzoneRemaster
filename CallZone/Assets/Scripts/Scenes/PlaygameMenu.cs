@@ -9,7 +9,7 @@ public class PlaygameMenu : MonoBehaviour {
 
     public void Play()
     {
-        soundController.Playsound(0);
+        soundController.Playsound(0, 0, false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
        
     }

@@ -14,7 +14,13 @@ public class PlayerTank : MonoBehaviour
     public event EnergyDelegate EnergyEvent;
     /// </Eventos>
 
-    public AudioController soundController;
+    
+    public AudioController _sfx;
+
+    //A source 0 será para efeitos rápidos, como tiro, coletar comida, levar tiro...
+    //A source 1 será para efeitos que precisam tocar a todo instante, movimento/parada do "tank"
+    //A source 2 será a de musicas
+
 
     public rotateTurret Turret;
 
@@ -79,6 +85,9 @@ public class PlayerTank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+       
+
+        
 
         rotate();
         move();
@@ -142,16 +151,15 @@ public class PlayerTank : MonoBehaviour
         {
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
-            
+
+            //Som coletando a comida
+            _sfx.Playsound(0, 0, false);
+
             //Contando as comidas
             _foodCount += 1;
 
             //Setando o valor de energia de cada comida
             GetEnergy(collectable.foodEnergy);
-
-            //Som coletando a comida
-            soundController.Playsound(0);
-           
 
             //Destruindo o objeto
             Destroy(other.gameObject);
@@ -167,7 +175,7 @@ public class PlayerTank : MonoBehaviour
        _life -= damage;
 
         //Som do dano
-        soundController.Playsound(4);
+        _sfx.Playsound(4, 0, false);
 
         //Chamada do evento de dano
         if (DamageEvent != null)

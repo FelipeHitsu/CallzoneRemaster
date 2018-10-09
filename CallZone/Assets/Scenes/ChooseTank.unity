@@ -139,7 +139,7 @@ RectTransform:
   m_GameObject: {fileID: 14590358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 5
@@ -338,46 +338,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundController: {fileID: 853251272}
   bases:
-  - name: Destructor
-    _speed: 20
+  - name: Breads
+    _speed: 40
     _life: 200
-    _BodySprite: {fileID: 21300000, guid: 50bd4450d85074c44a979b6eed90bc1f, type: 3}
-  - name: Flexible
-    _speed: 15
+    _BodySprite: {fileID: 21300000, guid: 12d7fed7800f17c489469294dc35976f, type: 3}
+  - name: Chocolate
+    _speed: 35
     _life: 150
-    _BodySprite: {fileID: 21300000, guid: 5fe05c9b438528d44a2c2ee53a4d8e80, type: 3}
-  - name: Golias
-    _speed: 10
+    _BodySprite: {fileID: 21300000, guid: 77dfc40524fcf5847af915221f684c2c, type: 3}
+  - name: FrenchFries
+    _speed: 20
     _life: 300
-    _BodySprite: {fileID: 21300000, guid: 6172ff75eb0d09f4d89227771459579f, type: 3}
+    _BodySprite: {fileID: 21300000, guid: fc58bf5f5d7031749957306bb1406c21, type: 3}
   - name: Raptor
-    _speed: 30
+    _speed: 50
     _life: 100
     _BodySprite: {fileID: 21300000, guid: afd83d9b3c243a24ba4e156d1065a945, type: 3}
   turrets:
-  - name: Canoon
+  - name: Sausage
     _bullet: {fileID: 1435108645071508, guid: 863b0510e1fba23498d16149758c273d, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: afd2b53d58a4fda4c89290ebb1ed6b91, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: c918a08076bf0c8449828e752fa7b355, type: 3}
     _turnSpeed: 5
-    _fireRate: 2
+    _fireRate: 0.5
     _damage: 20
-  - name: DoubleCanoon
+  - name: DoubleTubes
     _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: 4ba7eb2e03df8ee4fb2e77afc91bf5d9, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: f4795038be79eed48a1725ba5d47d94e, type: 3}
     _turnSpeed: 5
-    _fireRate: 1.5
+    _fireRate: 0.5
     _damage: 15
-  - name: LongCanoon
+  - name: IceCream
     _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: a738d82a005a75a4789324ed10126c6d, type: 3}
-    _turnSpeed: 5
-    _fireRate: 2.5
-    _damage: 30
-  - name: RapidCanoon
-    _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: 6237b308f5ff7554dbd822120d10b3e4, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: ee80cb0b003e9364687eb3cb8a61dda9, type: 3}
     _turnSpeed: 5
     _fireRate: 1
+    _damage: 30
+  - name: Carrot
+    _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
+    _TowerSprite: {fileID: 21300000, guid: 276cdfa73c26fbd41b7cd2d5270c364c, type: 3}
+    _turnSpeed: 5
+    _fireRate: 0.2
     _damage: 10
   PlayerNumber: 1
   baseText: {fileID: 659658255}
@@ -396,7 +396,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333396779}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 8.62, y: -3.3, z: 0}
+  m_LocalPosition: {x: 7.78, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802563205}
@@ -429,7 +429,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420140649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.16, y: -3.35, z: 0}
+  m_LocalPosition: {x: -7.31, y: -3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963980097}
@@ -450,46 +450,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundController: {fileID: 853251272}
   bases:
-  - name: Destructor
-    _speed: 20
+  - name: Breads
+    _speed: 40
     _life: 200
-    _BodySprite: {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
-  - name: Flexible
-    _speed: 15
+    _BodySprite: {fileID: 21300000, guid: 12d7fed7800f17c489469294dc35976f, type: 3}
+  - name: Chocolate
+    _speed: 35
     _life: 150
-    _BodySprite: {fileID: 21300000, guid: baf8d4f8de9284b4cb691f85786d0aba, type: 3}
-  - name: Golias
-    _speed: 10
+    _BodySprite: {fileID: 21300000, guid: 77dfc40524fcf5847af915221f684c2c, type: 3}
+  - name: FrenchFries
+    _speed: 20
     _life: 300
-    _BodySprite: {fileID: 21300000, guid: b47d3519774ab824ba91740382afcfe7, type: 3}
+    _BodySprite: {fileID: 21300000, guid: fc58bf5f5d7031749957306bb1406c21, type: 3}
   - name: Raptor
-    _speed: 30
+    _speed: 50
     _life: 100
     _BodySprite: {fileID: 21300000, guid: 86c05a0c7e10e4e4d9d15a88dcd25103, type: 3}
   turrets:
-  - name: Canoon
+  - name: Sausage
     _bullet: {fileID: 1435108645071508, guid: 863b0510e1fba23498d16149758c273d, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: 597efc4b8187e07468d8b31f21ca5c0a, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: c918a08076bf0c8449828e752fa7b355, type: 3}
     _turnSpeed: 5
-    _fireRate: 2
+    _fireRate: 0.5
     _damage: 20
-  - name: DoubleCanoon
+  - name: DoubleTubes
     _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: cb5ffafa63ee33b47a9aaed266488cb7, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: f4795038be79eed48a1725ba5d47d94e, type: 3}
     _turnSpeed: 5
-    _fireRate: 1.5
+    _fireRate: 0.5
     _damage: 15
-  - name: LongCanoon
+  - name: IceCream
     _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: cbde9405b8dfce34ca61c61fe88c8644, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: ee80cb0b003e9364687eb3cb8a61dda9, type: 3}
     _turnSpeed: 5
-    _fireRate: 2.5
+    _fireRate: 1
     _damage: 30
   - name: RapidCanoon
     _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
-    _TowerSprite: {fileID: 21300000, guid: 1107019e67479484f8fa8a2fe8eeb583, type: 3}
+    _TowerSprite: {fileID: 21300000, guid: 276cdfa73c26fbd41b7cd2d5270c364c, type: 3}
     _turnSpeed: 5
-    _fireRate: 1
+    _fireRate: 0.2
     _damage: 10
   PlayerNumber: 0
   baseText: {fileID: 1303841974}
@@ -534,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -251.3}
+  m_AnchoredPosition: {x: 0, y: -283.2}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433426888
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.9, y: -92}
+  m_AnchoredPosition: {x: 93.9, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590401818
@@ -1106,14 +1106,14 @@ RectTransform:
   m_GameObject: {fileID: 748667128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: -49.2}
+  m_AnchoredPosition: {x: -74.8, y: -49.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748667130
@@ -1289,14 +1289,14 @@ RectTransform:
   m_GameObject: {fileID: 776582624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 71, y: -52.9}
+  m_AnchoredPosition: {x: 80, y: -52.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776582626
@@ -1393,7 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853251273}
   - component: {fileID: 853251272}
-  - component: {fileID: 853251274}
+  - component: {fileID: 853251275}
   m_Layer: 0
   m_Name: Audiocontroller
   m_TagString: Untagged
@@ -1427,7 +1427,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &853251274
+--- !u!82 &853251275
 AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1807,7 +1807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundController: {fileID: 853251272}
-  onGame: {fileID: 8300000, guid: fe0192e70dfaef143bdd77c3dfce5f0d, type: 3}
 --- !u!1 &1098334469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,14 +2154,14 @@ RectTransform:
   m_GameObject: {fileID: 1357043338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 71, y: 7}
+  m_AnchoredPosition: {x: 80, y: 7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357043340
@@ -2431,7 +2430,7 @@ RectTransform:
   m_GameObject: {fileID: 1462813784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 6
@@ -2552,14 +2551,14 @@ RectTransform:
   m_GameObject: {fileID: 1488074820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29577777, y: 1.6902859, z: 1.6902859}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: 7}
+  m_AnchoredPosition: {x: -74.8, y: 7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488074822
@@ -2975,7 +2974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85.8, y: -92}
+  m_AnchoredPosition: {x: -87, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625258630
@@ -3171,7 +3170,7 @@ RectTransform:
   m_GameObject: {fileID: 1784534083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 10
@@ -3443,7 +3442,7 @@ RectTransform:
   m_GameObject: {fileID: 1870085909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29578, y: 1.69029, z: 1.69029}
+  m_LocalScale: {x: 0.3, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1016994645}
   m_RootOrder: 9

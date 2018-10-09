@@ -80,7 +80,7 @@ public class rotateTurret : MonoBehaviour {
          if (_fireUp)
          {
            //Som de tiro
-           soundController.Playsound(3);
+           soundController.Playsound(3, 0, false);
 
            //Criando instancia temporária para o tiro
            GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
