@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class PlaygameMenu : MonoBehaviour {
 
     public AudioController soundController;
-    public AudioClip onGame;
 
     public void Play()
     {
-        //soundController.Playsound(onGame);
+        soundController.Playsound(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
        
     }

@@ -8,8 +8,6 @@ public class TankSelector : MonoBehaviour {
 
     public AudioController soundController;
 
-    public AudioClip selectSound;
-
     public TankBase[] bases;
     public TankTurret[] turrets;
 
@@ -49,7 +47,7 @@ public class TankSelector : MonoBehaviour {
 
         baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
-       // soundController.Playsound(selectSound);
+        soundController.Playsound(0);
     }
 
     public void BackBase ()
@@ -61,7 +59,7 @@ public class TankSelector : MonoBehaviour {
 
         baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
-       // soundController.Playsound(selectSound);
+        soundController.Playsound(0);
     }
 
     public void AdvanceTurret()
@@ -74,7 +72,7 @@ public class TankSelector : MonoBehaviour {
 
         turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
-        //soundController.Playsound(selectSound);
+        soundController.Playsound(0);
     }
 
     public void BackTurret()
@@ -88,7 +86,7 @@ public class TankSelector : MonoBehaviour {
 
         turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
-        //soundController.Playsound(selectSound);
+        soundController.Playsound(0);
     }
 
     public void VerifyIndex(ref int index)

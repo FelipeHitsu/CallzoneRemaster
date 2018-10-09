@@ -13,27 +13,34 @@ public class AudioController : MonoBehaviour {
         player = GetComponent<AudioSource>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+	//Tocar som
     public void Playsound(int index)
     {
         player.clip = sounds[index];
         player.Play();
-    } 
+    }
 
-    //public void OnLoop (AudioClip genericSound)
-    //{
-    //    sounds.clip = genericSound;
-    //    sounds.loop = true;
-    //}
+    //Parar som
+    public void StopSound(int index)
+    {
+        player.clip = sounds[index];
+        player.Play();
+    }
 
-    //public void StopLoop(AudioClip genericSound)
-    //{
-    //    sounds.clip = genericSound;
-    //    sounds.loop = false;
-    //}
+    //Colocar em loop
+    public void OnLoop(int index)
+    {
+        player.clip = sounds[index];
+        player.loop = true;
+        player.Play();
+    }
+
+    //Parar o loop
+    public void StopLoop(int index)
+    {
+        player.clip = sounds[index];
+        player.loop = false;
+        player.Pause();
+    }
 
 }

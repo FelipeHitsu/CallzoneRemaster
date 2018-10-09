@@ -16,11 +16,6 @@ public class PlayerTank : MonoBehaviour
 
     public AudioController soundController;
 
-    public AudioClip colletc;
-    public AudioClip stoped;
-    public AudioClip shootKecthup;
-
-
     public rotateTurret Turret;
 
     /// <Rewired>
@@ -70,13 +65,10 @@ public class PlayerTank : MonoBehaviour
     void Start ()
     {
         
+
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
-
-
         sprtRendBase = GetComponentInChildren<SpriteRenderer>();
-
-
 
         CreateTank();
 
@@ -88,25 +80,14 @@ public class PlayerTank : MonoBehaviour
 	void Update ()
     {
 
-       
         rotate();
-
-        if (!_isMoving)
-        {
-           // soundController.Playsound(stoped);
-            Debug.Log("cade o som?" + _isMoving);
-        }
-        
         move();
 
         //Input R1 do joystick
         if (rewPlayer.GetButton("Shoot"))
         {
-
             //Chamando a função de tiro
             Turret.Shoot();
-            //Som de tiro
-            //soundController.Playsound(shootKecthup);
         }
     }
 
@@ -131,28 +112,26 @@ public class PlayerTank : MonoBehaviour
 
     void move()
     {
-
         _isMoving = false;
 
         //Frente, com joystick
         if (rewPlayer.GetButton("MoveFront"))
         {
             _isMoving = true;
-            Debug.Log("cade o som?" + _isMoving);
             playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
+        
 
         //Trás, com joystick
         if (rewPlayer.GetButton("MoveBack"))
         {
             _isMoving = true;
+           
             playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
 
 
     }
-
-    
 
 
 
@@ -170,8 +149,9 @@ public class PlayerTank : MonoBehaviour
             //Setando o valor de energia de cada comida
             GetEnergy(collectable.foodEnergy);
 
-            //soundController.Playsound(colletc);
-            Debug.Log("pegando comida:" + colletc == null);
+            //Som coletando a comida
+            soundController.Playsound(0);
+           
 
             //Destruindo o objeto
             Destroy(other.gameObject);
@@ -183,7 +163,11 @@ public class PlayerTank : MonoBehaviour
     //Função de dano contra os tanks
     public void ApplyDamage(int damage)
     {
+        //Aplicando o dano
        _life -= damage;
+
+        //Som do dano
+        soundController.Playsound(4);
 
         //Chamada do evento de dano
         if (DamageEvent != null)

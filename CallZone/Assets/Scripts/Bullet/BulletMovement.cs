@@ -21,7 +21,6 @@ public class BulletMovement : MonoBehaviour {
     void Update()
     {
         //Deixei com transform pq funciona sem aquele bug bizarro do Move.Positions
-        
         bulletRb.MovePosition(transform.position + transform.right * speed * Time.deltaTime);
     }
 
@@ -30,6 +29,7 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com a pedra
         if (other.gameObject.CompareTag("pedroso"))
         {
+            
             //Destruindo o objeto, no caso o projétil
             Destroy(gameObject);
         }
