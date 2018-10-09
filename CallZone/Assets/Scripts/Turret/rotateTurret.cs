@@ -5,7 +5,7 @@ using Rewired;
 
 public class rotateTurret : MonoBehaviour {
 
-    [SerializeField]
+    
     private GameObject shoot;
 
     public Transform shootspawn;
@@ -80,7 +80,7 @@ public class rotateTurret : MonoBehaviour {
          if (_fireUp)
          {
            //Som de tiro
-           soundController.Playsound(3, 0, false);
+           soundController.Playsound(1, 0, false);
 
            //Criando instancia temporária para o tiro
            GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);

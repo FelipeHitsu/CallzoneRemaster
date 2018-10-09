@@ -6,10 +6,19 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour {
 
-    public AudioClip[] sounds;
-
     
-    private AudioSource[] player;
+
+    [System.Serializable]
+    public class AudioGroup
+    {
+        public string name;
+        public List<AudioClip> clips;
+
+        [HideInInspector]
+        public AudioSource player;
+    }
+
+    public List<AudioGroup> AudiosGroup;
     //A source 0 será para efeitos rápidos, como tiro, coletar comida, levar tiro...
     //A source 1 será para efeitos que precisam tocar a todo instante, movimento/parada do "tank"
     //A source 2 será a de musicas
@@ -18,34 +27,33 @@ public class AudioController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        player = new AudioSource[sounds.Length];
-
-
-        for (int i = 0; i < player.Length; i++)
+        
+        for (int i = 0; i < AudiosGroup.Count; i++)
         {
-            player[i] = gameObject.AddComponent<AudioSource>();
+            AudiosGroup[i].player = gameObject.AddComponent<AudioSource>();
         }
-
-
     }
 
-  
-    //Tocar som
-    public void Playsound(int indexClip, int indexSource, bool loop)
+    public bool AudioIsPlaying(int group, int clipIndex)
     {
-        player[indexSource].clip = sounds[indexClip];
-        player[indexSource].Play();
+        return AudiosGroup[group].player.isPlaying;
+    }
 
-        if(loop)
-        { player[indexSource].loop = true; }
+    //Tocar som
+    public void Playsound(int group, int clipIndex, bool loop)
+    {
+        if (clipIndex >= AudiosGroup[group].clips.Count)
+            return;
+
+        AudiosGroup[group].player.clip = AudiosGroup[group].clips[clipIndex];
+        AudiosGroup[group].player.Play();
+        AudiosGroup[group].player.loop = loop;
+
     }
 
     //Parar som
-    public void StopSound(int indexClip, int indexSource)
+    public void StopSound(int indexGroup)
     {
-        player[indexSource].clip = sounds[indexClip];
-        player[indexSource].Play();
+        AudiosGroup[indexGroup].player.Stop();
     }
-
-
 }

@@ -6,6 +6,12 @@ using Rewired;
 
 public class PlayerTank : MonoBehaviour
 {
+    //Arrays de som
+    // 0 = Movimento
+    // 1 = Tiro
+    // 2 = Explosão
+    // 3 = Comidas
+
     /// <Eventos>
     public  delegate void  DamageDelegate(float currentLife);
     public event DamageDelegate DamageEvent;
@@ -66,11 +72,13 @@ public class PlayerTank : MonoBehaviour
     //Componente de rigidbody do player
     public Rigidbody2D playerRb;
 
+    int sfx_Explosion, sfx_Movement, sfx_Shoot;
 
-    
+
+
     void Start ()
     {
-        
+       
 
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
@@ -111,7 +119,7 @@ public class PlayerTank : MonoBehaviour
             baseRotation.z -= _rotationSpeed;
         }
         //Esquerda, com joystick
-        if (rewPlayer.GetButton("TurnLeft"))
+        else if (rewPlayer.GetButton("TurnLeft"))
         {
             baseRotation.z += _rotationSpeed;
         }
@@ -121,23 +129,30 @@ public class PlayerTank : MonoBehaviour
 
     void move()
     {
-        _isMoving = false;
-
+        
         //Frente, com joystick
         if (rewPlayer.GetButton("MoveFront"))
         {
-            _isMoving = true;
+            //Clip, source, bool
+            if (!_sfx.AudioIsPlaying(0, 1))
+                _sfx.Playsound(0, 0, false);
+
             playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
         
 
         //Trás, com joystick
-        if (rewPlayer.GetButton("MoveBack"))
+        else if (rewPlayer.GetButton("MoveBack"))
         {
-            _isMoving = true;
-           
+            if(!_sfx.AudioIsPlaying(0, 1))
+            _sfx.Playsound(0, 0, false);
+
             playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
+        //else
+        if(!_sfx.AudioIsPlaying(0,1))
+            _sfx.Playsound(0, 1, true);
+   
 
 
     }
@@ -153,7 +168,7 @@ public class PlayerTank : MonoBehaviour
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
 
             //Som coletando a comida
-            _sfx.Playsound(0, 0, false);
+            _sfx.Playsound(3, 0, false);
 
             //Contando as comidas
             _foodCount += 1;
@@ -175,7 +190,7 @@ public class PlayerTank : MonoBehaviour
        _life -= damage;
 
         //Som do dano
-        _sfx.Playsound(4, 0, false);
+        _sfx.Playsound(2, 0, false);
 
         //Chamada do evento de dano
         if (DamageEvent != null)
