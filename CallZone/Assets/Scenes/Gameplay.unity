@@ -1492,6 +1492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfx: {fileID: 547668723}
+  _collectParticle: {fileID: 1354121427347782, guid: 880baab1ae4ef5c43962320b437d3fac,
+    type: 2}
   Turret: {fileID: 196878243}
   _playerNumber: 0
   playerRb: {fileID: 0}
@@ -3934,6 +3936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfx: {fileID: 1812808607}
+  _collectParticle: {fileID: 1354121427347782, guid: 880baab1ae4ef5c43962320b437d3fac,
+    type: 2}
   Turret: {fileID: 545741340}
   _playerNumber: 1
   playerRb: {fileID: 0}

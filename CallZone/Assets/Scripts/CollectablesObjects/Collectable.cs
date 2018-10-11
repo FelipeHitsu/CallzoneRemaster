@@ -9,10 +9,12 @@ public enum FoodType
 
 };
 
+
+
 public class Collectable : MonoBehaviour {
 
-    
-    
+   
+
     //Todas as sprites das comidas
     public Sprite[] sprites;
     //Enum dos tipos de comida

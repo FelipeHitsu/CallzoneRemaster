@@ -19,6 +19,9 @@ public class PlayerTank : MonoBehaviour
     public AudioController _sfx;
     ///</Áudio>
 
+        ///Particulas
+    public GameObject _collectParticle;
+
 
     /// <Torre>
     public rotateTurret Turret;
@@ -155,13 +158,13 @@ public class PlayerTank : MonoBehaviour
         //Verifica se a tag é food
         if (other.collider.CompareTag("Food"))
         {
+            Instantiate(_collectParticle, transform.position, Quaternion.identity);
+
             //Som coletando a comida
             _sfx.Playsound(3, 0, false);
 
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
-
-           
 
             //Contando as comidas
             _foodCount += 1;

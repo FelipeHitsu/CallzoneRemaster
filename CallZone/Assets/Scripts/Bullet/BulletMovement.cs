@@ -10,6 +10,11 @@ public class BulletMovement : MonoBehaviour {
 
     public Rigidbody2D bulletRb;
 
+    ///<Particulas>
+    public GameObject _ketchupParticle;
+    /// </Particulas>
+
+
     // Use this for initialization
     void Start()
     {
@@ -38,6 +43,9 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com o jogador adversário e chamando a função que aplica o dano
         if (other.gameObject.CompareTag("Player"))
         {
+           
+            Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
+          
             //Pegando o componente do tank para chamar a função de dano com o valor
             other.collider.GetComponent<PlayerTank>().ApplyDamage(10);
 

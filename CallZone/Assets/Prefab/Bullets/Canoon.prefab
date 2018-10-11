@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   bulletRb: {fileID: 0}
+  _ketchupParticle: {fileID: 1451872480095636, guid: ebc8204cf09deac4e9206c66d1101935,
+    type: 2}
 --- !u!212 &212813070505597578
 SpriteRenderer:
   m_ObjectHideFlags: 1
