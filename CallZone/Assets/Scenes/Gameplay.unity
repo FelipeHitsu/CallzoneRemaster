@@ -595,7 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de291f19f01ea6d4e8264f1a286055bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
   shootspawn: {fileID: 488347784}
   soundController: {fileID: 547668723}
   _playerNumber: 0
@@ -1495,10 +1494,6 @@ MonoBehaviour:
   _sfx: {fileID: 547668723}
   Turret: {fileID: 196878243}
   _playerNumber: 0
-  _baseSprite: {fileID: 0}
-  _speed: 0
-  _rotationSpeed: 5
-  _angle: 0
   playerRb: {fileID: 0}
 --- !u!4 &478295931
 Transform:
@@ -2146,7 +2141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de291f19f01ea6d4e8264f1a286055bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
   shootspawn: {fileID: 466854473}
   soundController: {fileID: 547668723}
   _playerNumber: 1
@@ -2187,7 +2181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 597efc4b8187e07468d8b31f21ca5c0a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2195,7 +2189,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &545741342
 Transform:
@@ -2239,20 +2233,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudiosGroup:
-  - name: Movimento
+  - name: Movimento[0]
     clips:
-    - {fileID: 8300000, guid: ad5a7181ae679fe42973f08801ab41e0, type: 3}
+    - {fileID: 8300000, guid: 5ac33cfafb975004596cc238e1d88d78, type: 3}
     - {fileID: 8300000, guid: 5a8f48a5045e2f541861a953afdca8c7, type: 3}
     player: {fileID: 0}
-  - name: Tiro
+  - name: Tiro[1]
     clips:
     - {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
     player: {fileID: 0}
-  - name: "Explos\xE3o"
+  - name: "Explos\xE3o[2]"
     clips:
     - {fileID: 8300000, guid: e908ab5c5ddddbf41b122601c877111f, type: 3}
     player: {fileID: 0}
-  - name: Comidas
+  - name: Comidas[3]
     clips:
     - {fileID: 8300000, guid: ca9eb43cccc4ff249bc653849aab1f30, type: 3}
     player: {fileID: 0}
@@ -3918,7 +3912,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b382d265670ba1498c85da69c733c49, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3926,7 +3920,7 @@ SpriteRenderer:
   m_Size: {x: 2.46, y: 2.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!114 &1095436522
 MonoBehaviour:
@@ -3939,13 +3933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa236e384c8f8540b4b18892c62d35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sfx: {fileID: 0}
+  _sfx: {fileID: 1812808607}
   Turret: {fileID: 545741340}
   _playerNumber: 1
-  _baseSprite: {fileID: 0}
-  _speed: 0
-  _rotationSpeed: 5
-  _angle: 0
   playerRb: {fileID: 0}
 --- !u!4 &1095436523
 Transform:
@@ -6075,20 +6065,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudiosGroup:
-  - name: Movimento
+  - name: Movimento[0]
     clips:
-    - {fileID: 8300000, guid: ad5a7181ae679fe42973f08801ab41e0, type: 3}
+    - {fileID: 8300000, guid: 5ac33cfafb975004596cc238e1d88d78, type: 3}
     - {fileID: 8300000, guid: 5a8f48a5045e2f541861a953afdca8c7, type: 3}
     player: {fileID: 0}
-  - name: Tiro
+  - name: Tiro[1]
     clips:
     - {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
     player: {fileID: 0}
-  - name: "Explos\xE3o"
+  - name: "Explos\xE3o[2]"
     clips:
     - {fileID: 8300000, guid: e908ab5c5ddddbf41b122601c877111f, type: 3}
     player: {fileID: 0}
-  - name: Comidas
+  - name: Comidas[3]
     clips:
     - {fileID: 8300000, guid: ca9eb43cccc4ff249bc653849aab1f30, type: 3}
     player: {fileID: 0}

@@ -6,12 +6,7 @@ using Rewired;
 
 public class PlayerTank : MonoBehaviour
 {
-    //Arrays de som
-    // 0 = Movimento
-    // 1 = Tiro
-    // 2 = Explosão
-    // 3 = Comidas
-
+    
     /// <Eventos>
     public  delegate void  DamageDelegate(float currentLife);
     public event DamageDelegate DamageEvent;
@@ -20,35 +15,28 @@ public class PlayerTank : MonoBehaviour
     public event EnergyDelegate EnergyEvent;
     /// </Eventos>
 
-    
+    ///<Áudio>
     public AudioController _sfx;
-
-    //A source 0 será para efeitos rápidos, como tiro, coletar comida, levar tiro...
-    //A source 1 será para efeitos que precisam tocar a todo instante, movimento/parada do "tank"
-    //A source 2 será a de musicas
+    ///</Áudio>
 
 
+    /// <Torre>
     public rotateTurret Turret;
+    /// </Torre>
+
 
     /// <Rewired>
     private Player rewPlayer;
     public int _playerNumber;
     /// </Rewired>
 
-
-
     /// <Variaveis>
-    //Imagem da base do tank
-    public Sprite _baseSprite;
-
-    private SpriteRenderer sprtRendBase;
-
     //Velocidade do jogador se mover
-    public float _speed;
+    private  float _speed;
     //Velocidade do jogador virar a base do tank
-    public float _rotationSpeed;
+    private float _rotationSpeed = 3f;
     //Angulho para rotação da torre
-    public  float _angle;
+    private  float _angle;
     //Vida inicial do jogador maxima e atual
     private int _maxLife;
     private int _life;
@@ -57,8 +45,6 @@ public class PlayerTank : MonoBehaviour
     //Energia maxima e atual
     private float _maxEnergy;
     private float _energy;
-    //Movendo ou não
-    private bool _isMoving;
     /// </Variaveis>
 
 
@@ -68,17 +54,17 @@ public class PlayerTank : MonoBehaviour
     //Vetor para a torre do tank
     Vector3 baseRotation;
 
-    ///Componentes
+    ///<Componentes>
     //Componente de rigidbody do player
+    [HideInInspector]
     public Rigidbody2D playerRb;
+    //Sprite para ser alterada do tank
+    private SpriteRenderer sprtRendBase;
+    ///</Componentes>
 
-    int sfx_Explosion, sfx_Movement, sfx_Shoot;
-
-
-
+    
     void Start ()
-    {
-       
+    { 
 
         rewPlayer = ReInput.players.GetPlayer(_playerNumber);
 
@@ -88,15 +74,14 @@ public class PlayerTank : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody2D>();
 
+        
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-       
-
         
-
         rotate();
         move();
 
@@ -129,32 +114,38 @@ public class PlayerTank : MonoBehaviour
 
     void move()
     {
-        
+
+        _sfx.VolumeController(0, 0.1f);
+
+
         //Frente, com joystick
         if (rewPlayer.GetButton("MoveFront"))
         {
             //Clip, source, bool
-            if (!_sfx.AudioIsPlaying(0, 1))
+            if (_sfx.AudioIsPlaying(0, 1))
+            {
+                _sfx.StopSound(0);
                 _sfx.Playsound(0, 0, false);
-
+            }
             playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
         }
-        
 
         //Trás, com joystick
         else if (rewPlayer.GetButton("MoveBack"))
         {
-            if(!_sfx.AudioIsPlaying(0, 1))
-            _sfx.Playsound(0, 0, false);
+            if (_sfx.AudioIsPlaying(0, 1))
+            {
+                _sfx.StopSound(0);
+                _sfx.Playsound(0, 0, false);
+            }
 
             playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
         }
-        //else
-        if(!_sfx.AudioIsPlaying(0,1))
+
+        if (!_sfx.AudioIsPlaying(0, 0))
+        {
             _sfx.Playsound(0, 1, true);
-   
-
-
+        }
     }
 
 
@@ -164,11 +155,13 @@ public class PlayerTank : MonoBehaviour
         //Verifica se a tag é food
         if (other.collider.CompareTag("Food"))
         {
+            //Som coletando a comida
+            _sfx.Playsound(3, 0, false);
+
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
 
-            //Som coletando a comida
-            _sfx.Playsound(3, 0, false);
+           
 
             //Contando as comidas
             _foodCount += 1;

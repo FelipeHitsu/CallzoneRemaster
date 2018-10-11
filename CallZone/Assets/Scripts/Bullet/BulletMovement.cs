@@ -13,6 +13,7 @@ public class BulletMovement : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        
         //Pegando o componente do projétil
         bulletRb = GetComponent<Rigidbody2D>();
     }

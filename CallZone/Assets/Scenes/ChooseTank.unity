@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudiosGroup:
-  - name: Escolhas
+  - name: Escolhas[0]
     clips:
     - {fileID: 8300000, guid: fe0192e70dfaef143bdd77c3dfce5f0d, type: 3}
     player: {fileID: 0}

@@ -36,7 +36,9 @@ public class AudioController : MonoBehaviour {
 
     public bool AudioIsPlaying(int group, int clipIndex)
     {
+        
         return AudiosGroup[group].player.isPlaying;
+       
     }
 
     //Tocar som
@@ -55,5 +57,10 @@ public class AudioController : MonoBehaviour {
     public void StopSound(int indexGroup)
     {
         AudiosGroup[indexGroup].player.Stop();
+    }
+
+    public void VolumeController(int group, float volume)    
+    {
+        AudiosGroup[group].player.volume = volume;
     }
 }
