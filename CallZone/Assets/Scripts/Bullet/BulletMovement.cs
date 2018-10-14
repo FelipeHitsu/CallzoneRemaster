@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
 
-    
+    ///<Particulas>
+    //Particla de sangue do jogador
+    public GameObject _ketchupParticle;
+    //Particle explosion na pedra
+    public GameObject particleExplosion;
+    //Quando acerta uma comida
+    public GameObject _foodExplosion;
+    /// </Particulas>
+
+
     //Velocidade de movimento do projetil
     public float speed;
 
     public Rigidbody2D bulletRb;
 
-    ///<Particulas>
-    public GameObject _ketchupParticle;
-    /// </Particulas>
+    int _playerNumber;
 
 
     // Use this for initialization
@@ -35,7 +42,10 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com a pedra
         if (other.gameObject.CompareTag("pedroso"))
         {
-            
+            //Efeito de explosão quando bate na pedra
+            GameObject tempExp = Instantiate(particleExplosion, transform.position, Quaternion.identity);
+            Destroy(tempExp, 1.0f);
+
             //Destruindo o objeto, no caso o projétil
             Destroy(gameObject);
         }
@@ -43,11 +53,12 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com o jogador adversário e chamando a função que aplica o dano
         if (other.gameObject.CompareTag("Player"))
         {
-           
-            Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
-          
+            //Particlua de colisão com o jogadore
+            GameObject tempKetc = Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
+            Destroy(tempKetc, 1.0f);
+
             //Pegando o componente do tank para chamar a função de dano com o valor
-            other.collider.GetComponent<PlayerTank>().ApplyDamage(10);
+            other.collider.GetComponent<PlayerTank>().ApplyDamage((int)other.collider.GetComponent<PlayerTank>().Turret._damage, _playerNumber);
 
             //Destruindo o projétil
             Destroy(gameObject);
@@ -55,9 +66,17 @@ public class BulletMovement : MonoBehaviour {
 
         if(other.gameObject.CompareTag("Food"))
         {
+            GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+            Destroy(tempFood, 1.2f);
+
             Destroy(other.gameObject);
         }
         
+    }
+
+    public  void SetBullet(int player)
+    {
+        _playerNumber = player;
     }
 
     

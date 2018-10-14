@@ -5,26 +5,37 @@ using Rewired;
 
 public class rotateTurret : MonoBehaviour {
 
-    
+    /// <Particulas>
+    //Particulas de quando atira
+    public GameObject _shootingParticle;
+    /// </Particulas>
+
+
+    ///<Componentes>
+    //Objeto de tiro
     private GameObject shoot;
-
+    //Posição do tiro-
     public Transform shootspawn;
-
+    //Gerenciador de som
     public AudioController soundController;
-    
-
+    //Pra saber qual sprite será desenhado
     private SpriteRenderer sprtRendTurret;
-
+    ///</Componentes>
+    
+    ///<Variaveis>
     //Pra saber qual jogador que é
     public int _playerNumber;
-
+    //Intervalo de tiros
     public float _fireRate;
+    //Velocidade da rotação da torre
     private float _rotationSpeed;
+    //Quanto de dano cada torre da
     public float _damage;
-
+    //Reloader do tiro
     private float _fireReloadTimer = 0.0f;
-
+    //Pra saber se pode atirar de novo
     private bool _fireUp = false;
+    ///</Variaveis>
 
     private Vector3 turretRotation;
 
@@ -40,7 +51,6 @@ public class rotateTurret : MonoBehaviour {
 
 	void Update ()
     {
-
         //Timer de reload
         if(!_fireUp)
         {
@@ -52,14 +62,11 @@ public class rotateTurret : MonoBehaviour {
              { _fireUp = true; }   
         }
         
-
         rotate();	
 	}
 
     void rotate()
     {
-        ///Futuramente: Deixar a rotação com o Joystick, no analógico direito
-
         if (rewPlayer.GetButton("TurnTurretRight"))
         {
             turretRotation.z += _rotationSpeed;
@@ -70,21 +77,27 @@ public class rotateTurret : MonoBehaviour {
         }
 
         transform.rotation = Quaternion.Euler(turretRotation);
-
     }
 
     
     public void Shoot()
     {
-       ///Furutamente: Deixar esse input para o Joystick, ou seja aqui seria o quadrado para atirar.
+       
          if (_fireUp)
          {
-           //Som de tiro
-           soundController.Playsound(1, 0, false);
+            //Particula de tiro
+            GameObject tempShoot = Instantiate(_shootingParticle, shootspawn.position, Quaternion.identity);
+            Destroy(tempShoot, 1.0f);
+
+
+            //Som de tiro
+            soundController.Playsound(1, 0, false);
 
            //Criando instancia temporária para o tiro
            GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
            tempBullet.transform.right = transform.right;
+
+            tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
 
            _fireReloadTimer = 0;
            _fireUp = false;
@@ -96,20 +109,18 @@ public class rotateTurret : MonoBehaviour {
 
     public void DefineTurret(TankTurret turret)
     {
-        
-        //O tank é carregado, mas a sprite não!
-
         //Sprite do canhão
         sprtRendTurret.sprite = turret._TowerSprite;
        
-
-        ////O projétil do canhão
+        //O projétil do canhão
         shoot = turret._bullet;
 
         //Velocidade de tiro
         _fireRate = TankSettings.tankInfo[_playerNumber].turret._fireRate;
+
         //Velocidade de rotação
         _rotationSpeed = TankSettings.tankInfo[_playerNumber].turret._turnSpeed;
+
         //Dano do canhão
         _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
 

@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 
+
 public class PlayerTank : MonoBehaviour
 {
-    
+    ///<Animações>
+    public Animator energyAnim;
+    ///</Animações>
+
+
     /// <Eventos>
-    public  delegate void  DamageDelegate(float currentLife);
+    public delegate void  DamageDelegate(float currentLife);
     public event DamageDelegate DamageEvent;
 
     public delegate void EnergyDelegate(float totalFood);
@@ -19,14 +24,18 @@ public class PlayerTank : MonoBehaviour
     public AudioController _sfx;
     ///</Áudio>
 
-        ///Particulas
+    ///<Particulas>
+    //Particulas de coletando objeto
     public GameObject _collectParticle;
-
+    //Particula de prize por coletar
+    public GameObject _collectPrize;
+    ///</Particulas>
 
     /// <Torre>
     public rotateTurret Turret;
     /// </Torre>
 
+    public Transform prize;
 
     /// <Rewired>
     private Player rewPlayer;
@@ -84,7 +93,7 @@ public class PlayerTank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        
+        VerifyEnergy(_energy);
         rotate();
         move();
 
@@ -151,6 +160,13 @@ public class PlayerTank : MonoBehaviour
         }
     }
 
+    public void VerifyEnergy(float energy)
+    {
+        if (energy >= _maxEnergy)
+            energyAnim.SetBool("energyIsFull", true);
+        else
+            energyAnim.SetBool("energyIsFull", false);
+    }
 
 
     void OnCollisionEnter2D(Collision2D other)
@@ -158,7 +174,11 @@ public class PlayerTank : MonoBehaviour
         //Verifica se a tag é food
         if (other.collider.CompareTag("Food"))
         {
-            Instantiate(_collectParticle, transform.position, Quaternion.identity);
+            GameObject tempPrize = Instantiate(_collectPrize, prize.position, transform.rotation);
+            Destroy(tempPrize, .15f);
+
+            GameObject tempCollect = Instantiate(_collectParticle, transform.position, Quaternion.identity);
+            Destroy(tempCollect, 1.0f);
 
             //Som coletando a comida
             _sfx.Playsound(3, 0, false);
@@ -180,7 +200,7 @@ public class PlayerTank : MonoBehaviour
     }
 
     //Função de dano contra os tanks
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(int damage, int numberOfWho)
     {
         //Aplicando o dano
        _life -= damage;
@@ -237,7 +257,6 @@ public class PlayerTank : MonoBehaviour
 
         //Energia
         _maxEnergy = 200;
-
 
         //Informações da torre
         Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
