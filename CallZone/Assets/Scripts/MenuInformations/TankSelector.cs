@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class TankSelector : MonoBehaviour {
 
@@ -16,8 +18,11 @@ public class TankSelector : MonoBehaviour {
     private int baseIndex = 0;
     private int turretIndex = 0;
 
-    public Text baseText;
-    public Text turretText;
+    //public Text baseText;
+    //public Text turretText;
+
+    public TextMeshProUGUI _mainCourse;
+    public TextMeshProUGUI _appertizer;
 
     public Button advanceBase, backBase;
     public Button advanceTurret, backTurret;
@@ -31,12 +36,14 @@ public class TankSelector : MonoBehaviour {
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
         
-        baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        //baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        _mainCourse.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
         TankSettings.tankInfo[PlayerNumber].turret = turrets[turretIndex];
         spriteRendTuret.sprite = turrets[turretIndex]._TowerSprite;
 
-        turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        //turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
     }
     public void AdvanceBase ()
     {
@@ -45,7 +52,8 @@ public class TankSelector : MonoBehaviour {
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
-        baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        //baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        _mainCourse.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
         soundController.Playsound(0, 0, false);
     }
@@ -57,7 +65,8 @@ public class TankSelector : MonoBehaviour {
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
-        baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        //baseText.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
+        _mainCourse.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
         soundController.Playsound(0, 0, false);
     }
@@ -70,7 +79,8 @@ public class TankSelector : MonoBehaviour {
         spriteRendTuret.sprite = turrets[turretIndex]._TowerSprite;
 
 
-        turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        //turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
         soundController.Playsound(0, 0, false);
     }
@@ -84,7 +94,8 @@ public class TankSelector : MonoBehaviour {
         spriteRendTuret.sprite = turrets[turretIndex]._TowerSprite;
 
 
-        turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        //turretText.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+        _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
         soundController.Playsound(0, 0, false);
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +8,10 @@ public class PlayerHUDMenu : MonoBehaviour
 {
 
     //Variáveis de texto para UI dos tanks no menu
-    public Text _LifeTxt;
-    public Text _speedTxt;
-    public Text _fireRateTxt;
-    public Text _DamageTxt;
-
+    public TextMeshProUGUI _lifeTMP;
+    public TextMeshProUGUI _speedTMP;
+    public TextMeshProUGUI _fireRateTMP;
+    public TextMeshProUGUI _damageTMP;
 
     //Variáveis que conterão as informações do jogador
     private float _speed;
@@ -42,10 +42,11 @@ public class PlayerHUDMenu : MonoBehaviour
 
     public void GetInformation()
     {
-        _LifeTxt.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name +" " + "life: " +  _life;
-        _speedTxt.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "speed: " + _speed;
-        _fireRateTxt.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "fire rate: " + _fireRate;
-        _DamageTxt.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "damage: " + _damage;
+        
+        _lifeTMP.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "Life .... " + _life;
+        _speedTMP.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "Dpeed .... " + _speed;
+        _fireRateTMP.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "Fire rate .... " + _fireRate;
+        _damageTMP.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "Damage .... " + _damage;
     }
 
 }
