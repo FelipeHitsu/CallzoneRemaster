@@ -206,6 +206,8 @@ MonoBehaviour:
     type: 2}
   _foodExplosion: {fileID: 1972556260453804, guid: 35873d7cda70b1443b8a60cf2ce31ea9,
     type: 2}
+  _wallExplosion: {fileID: 1428778368520322, guid: cbdad4b3e810b4e42b9a73d632bbe688,
+    type: 2}
   speed: 60
   bulletRb: {fileID: 0}
 --- !u!212 &212276732401820628

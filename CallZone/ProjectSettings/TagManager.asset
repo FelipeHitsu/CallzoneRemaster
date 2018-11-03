@@ -15,6 +15,7 @@ TagManager:
   - Food
   - Bullet
   - Box
+  - Wall
   layers:
   - Default
   - TransparentFX

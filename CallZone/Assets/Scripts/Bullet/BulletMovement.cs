@@ -11,6 +11,8 @@ public class BulletMovement : MonoBehaviour {
     public GameObject particleExplosion;
     //Quando acerta uma comida
     public GameObject _foodExplosion;
+    //Quando acerta a parede
+    public GameObject _wallExplosion;
     /// </Particulas>
 
 
@@ -66,7 +68,9 @@ public class BulletMovement : MonoBehaviour {
 
         if(other.gameObject.CompareTag("Food"))
         {
+            //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+            //Destroi a cópia
             Destroy(tempFood, 1.2f);
 
             Destroy(other.gameObject);
@@ -74,9 +78,24 @@ public class BulletMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Box"))
         {
-            Debug.Log("Colidiu");
-            //Colocar animação de destruir antes
+            //Instancia uma cópa da particula
+            GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+            //Destroi a cópia
+            Destroy(tempFood, 1.2f);
+
+            //Destroi a caixa
             Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Wall"))
+        {
+            //Instancia uma cópa da particula
+            GameObject tempWallExplosion = Instantiate(_wallExplosion, transform.position, Quaternion.identity);
+            //Destroi a cópia
+            Destroy(tempWallExplosion, 1.0f);
+
+            //Destrói o projétil
+            Destroy(gameObject);
         }
         
     }
