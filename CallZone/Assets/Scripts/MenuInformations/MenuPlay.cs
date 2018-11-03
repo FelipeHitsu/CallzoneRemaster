@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuPlay : MonoBehaviour {
 
     public GameObject Menu;
+    public GameObject howToPlay;
+    public GameObject credits;
 
 	// Use this for initialization
 	void Start () {
@@ -20,11 +22,27 @@ public class MenuPlay : MonoBehaviour {
     public void Credits()
     {
         Menu.SetActive(false);
+        credits.SetActive(true);
     }
+
     public void BackCredits()
     {
         Menu.SetActive(true);
+        credits.SetActive(false);
     }
+
+    public void HowTo()
+    {
+        howToPlay.SetActive(true);
+        Menu.SetActive(false);
+    }
+
+    public void BackHowTo()
+    {
+        howToPlay.SetActive(false);
+        Menu.SetActive(true);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("ChooseTank");

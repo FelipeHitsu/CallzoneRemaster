@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameController : Singleton<GameController>
 {
     public GameObject _pauseMenuUi;
+
+    //Se o jogo estiver pausado ou não
+    public  bool _pausedGame = false;
+
+
     //Variável para ver quantos jogadores existem em cena
     private int alivePlayers;
 
@@ -14,10 +19,7 @@ public class GameController : Singleton<GameController>
 	void Start ()
     {
         //A variavel faz a contagem de quantos objetos na cena temos com a tag Player
-        alivePlayers = GameObject.FindGameObjectsWithTag("Player").Length;
-        
-
-        
+        alivePlayers = GameObject.FindGameObjectsWithTag("Player").Length; 
     }
 	
 	// Update is called once per frame
@@ -47,14 +49,14 @@ public class GameController : Singleton<GameController>
     {
         _pauseMenuUi.SetActive(true);
         Time.timeScale = 0f;
-        
+        _pausedGame = true;
     }
 
     public void ResumeGame()
     {
         _pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
-       
+        _pausedGame = false;
     }
 
     public void QuitMenu()

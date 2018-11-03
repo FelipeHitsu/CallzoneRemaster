@@ -75,7 +75,7 @@ public class PlayerTank : MonoBehaviour
     public Rigidbody2D playerRb;
     //Sprite para ser alterada do tank
     private SpriteRenderer sprtRendBase;
-    //
+    //Controle do jogo
     public GameController _gameController;
     ///</Componentes>
 
@@ -109,13 +109,32 @@ public class PlayerTank : MonoBehaviour
             Turret.Shoot();
         }
 
-        if(Input.GetKey(KeyCode.R))
+        //Apertar (triangulo) abri o menu
+        if(rewPlayer.GetButton("Pause"))
         {
             _gameController.PauseGame();
+
         }
-        if(Input.GetKey(KeyCode.Escape))
+
+        if (_gameController._pausedGame)
         {
-            _gameController.ResumeGame();
+            //Apertar (quadrado) dentro do pause vai para a seleção de menu
+            if (rewPlayer.GetButton("MenuSelection"))
+            {
+                _gameController.ChooseTank();
+            }
+
+            //Apertar (bolinha) dentro do pause vai volta para o jogo
+            if (rewPlayer.GetButton("BackPause"))
+            {
+                _gameController.ResumeGame();
+            }
+
+            //Apertar (X) volta pro menu inicial do jogo
+            if(rewPlayer.GetButton("Quit"))
+            {
+                _gameController.QuitMenu();
+            }
         }
     }
 
@@ -247,7 +266,10 @@ public class PlayerTank : MonoBehaviour
 
     }
 
-   
+    public void ScreenShake()
+    {
+
+    }
 
     //Isso aqui vai servir pra dar respawns caso as comidas acabem
     public void CountFood(int food)
