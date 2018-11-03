@@ -71,6 +71,13 @@ public class BulletMovement : MonoBehaviour {
 
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Box"))
+        {
+            Debug.Log("Colidiu");
+            //Colocar animação de destruir antes
+            Destroy(other.gameObject);
+        }
         
     }
 

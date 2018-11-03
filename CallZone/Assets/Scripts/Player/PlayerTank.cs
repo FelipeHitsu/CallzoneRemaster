@@ -18,6 +18,9 @@ public class PlayerTank : MonoBehaviour
 
     public delegate void EnergyDelegate(float totalFood);
     public event EnergyDelegate EnergyEvent;
+
+   
+        
     /// </Eventos>
 
     ///<Áudio>
@@ -72,6 +75,8 @@ public class PlayerTank : MonoBehaviour
     public Rigidbody2D playerRb;
     //Sprite para ser alterada do tank
     private SpriteRenderer sprtRendBase;
+    //
+    public GameController _gameController;
     ///</Componentes>
 
     
@@ -102,6 +107,15 @@ public class PlayerTank : MonoBehaviour
         {
             //Chamando a função de tiro
             Turret.Shoot();
+        }
+
+        if(Input.GetKey(KeyCode.R))
+        {
+            _gameController.PauseGame();
+        }
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            _gameController.ResumeGame();
         }
     }
 
@@ -232,6 +246,8 @@ public class PlayerTank : MonoBehaviour
             EnergyEvent.Invoke(_energy / _maxEnergy);
 
     }
+
+   
 
     //Isso aqui vai servir pra dar respawns caso as comidas acabem
     public void CountFood(int food)

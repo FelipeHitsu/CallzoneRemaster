@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : Singleton<GameController>
 {
-    
+    public GameObject _pauseMenuUi;
     //Variável para ver quantos jogadores existem em cena
     private int alivePlayers;
 
@@ -41,6 +41,32 @@ public class GameController : Singleton<GameController>
         {  
             SceneManager.LoadScene("Gameplay");
         }
+    }
+
+    public void PauseGame()
+    {
+        _pauseMenuUi.SetActive(true);
+        Time.timeScale = 0f;
+        
+    }
+
+    public void ResumeGame()
+    {
+        _pauseMenuUi.SetActive(false);
+        Time.timeScale = 1f;
+       
+    }
+
+    public void QuitMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ChooseTank()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("ChooseTank");
     }
 
    
