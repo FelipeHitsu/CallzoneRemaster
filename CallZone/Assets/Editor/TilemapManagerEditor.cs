@@ -26,9 +26,9 @@ public class TilemapManagerEditor : Editor {
 		GUILayout.BeginHorizontal();
 		nomeArquivo = GUILayout.TextField(nomeArquivo);
 		if(GUILayout.Button("Salvar"))
-			myScript.SaveToFile(Application.dataPath + "/" + nomeArquivo);
+			myScript.SaveToFile(Application.dataPath + "/Mapas/" + nomeArquivo + ".czm");
 		if(GUILayout.Button("Carregar"))
-			myScript.LoadFromFile(Application.dataPath + "/" + nomeArquivo);
+			myScript.LoadFromFile(Application.dataPath + "/Mapas/" + nomeArquivo + ".czm");
 		GUILayout.EndHorizontal();
 
 		GUILayout.Space (20);

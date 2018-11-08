@@ -29,11 +29,11 @@ public class TilemapTile : MonoBehaviour {
 				DestroyImmediate(rend);
 		}
 
-		if(type.state != TileState.Liquid){
+		if(type.state != TileState.Liquid && type.state != TileState.Decal){
 			BoxCollider2D coll = GetComponent<BoxCollider2D>();
 			if(coll == null)
 				coll = gameObject.AddComponent<BoxCollider2D>();
-			coll.size = new Vector2(1f, 1f);
+			coll.size = new Vector2 (manager.tileSize.x, manager.tileSize.y);
 		}
 		else{//não usa collider
 			BoxCollider2D coll = GetComponent<BoxCollider2D>();
@@ -42,6 +42,6 @@ public class TilemapTile : MonoBehaviour {
 		}
 
 		if(type.canPass)//coloca e um layer que ignora o player
-			gameObject.layer = LayerMask.GetMask("ignoraPlayer");
+			gameObject.layer = LayerMask.NameToLayer("ignoraPlayer");
 	}
 }

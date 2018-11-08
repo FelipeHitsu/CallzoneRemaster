@@ -6,6 +6,7 @@ using System.IO;
 //ok
 public enum TileState{
 	Solid = 0,
+	Decal,
 	Liquid,
 	Destructible
 }
@@ -24,7 +25,7 @@ public class TilemapManager : MonoBehaviour {
 	public Vector2 tileSize;
 
 	void Start(){
-		GenerateTiles();
+		LoadFromFile (Application.dataPath + "/Mapas/" + MapSelect.mapaNome + ".czm");
 	}
 
 	void Reset(){
@@ -69,11 +70,19 @@ public class TilemapManager : MonoBehaviour {
 					+ tile.transform.localPosition.y.ToString("0.00") + " "
 					+ tile.myTypeIndex.ToString("0"));
 		}
+		var dirPath = path.Substring(0, path.Length - path.Split('/')[path.Split('/').Length - 1].Length);
+		if(!Directory.Exists(dirPath))
+			Directory.CreateDirectory(dirPath);
 		File.WriteAllLines(path, tiles.ToArray());
 	}
 
 	public void LoadFromFile (string path) {
 		Reset();
+		if (!File.Exists (path)) {//arquivo nem existe!
+			Debug.Log("Mapa não existe!");
+			return;
+		}
+		
 		string[] tiles = File.ReadAllLines(path);
 
 		for(int i = 0; i < tiles.Length; i++){			
@@ -100,5 +109,18 @@ public class TilemapManager : MonoBehaviour {
 				return transform.GetChild (i).GetComponent<TilemapTile> ();
 		}
 		return null;
+	}
+
+	public static string[] GetMaps(string path){
+		var files = Directory.GetFiles (path);
+		var maps = new List<string> ();
+		for (int i = 0; i < files.Length; i++) {
+			if(files[i].Substring(files[i].Length - 4, 4).Equals(".czm")){
+				var nome = files[i].Split ('/')[files [i].Split ('/').Length - 1];//arquivo com .czm no final
+				maps.Add(nome.Substring(0, nome.Length - 4));//nome sem o .czm
+			}
+		}
+
+		return maps.ToArray ();
 	}
 }
