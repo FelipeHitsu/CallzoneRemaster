@@ -23,6 +23,7 @@ public class BulletMovement : MonoBehaviour {
 
     int _playerNumber;
 
+    private int _boxLife = 3;
 
     // Use this for initialization
     void Start()
@@ -70,6 +71,7 @@ public class BulletMovement : MonoBehaviour {
         {
             //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
 
@@ -78,13 +80,16 @@ public class BulletMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Box"))
         {
+            _boxLife -= 1;
             //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
 
-            //Destroi a caixa
-            Destroy(other.gameObject);
+            if(_boxLife <= 0)
+                //Destroi a caixa
+                Destroy(other.gameObject);
         }
 
         if(other.gameObject.CompareTag("Wall"))
