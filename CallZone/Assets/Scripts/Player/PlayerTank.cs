@@ -266,10 +266,6 @@ public class PlayerTank : MonoBehaviour
 
     }
 
-    public void ScreenShake()
-    {
-
-    }
 
     //Isso aqui vai servir pra dar respawns caso as comidas acabem
     public void CountFood(int food)

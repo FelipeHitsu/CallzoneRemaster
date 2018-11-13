@@ -15,6 +15,8 @@ public class BulletMovement : MonoBehaviour {
     public GameObject _wallExplosion;
     /// </Particulas>
 
+    //Referencia do animator da camera
+    public Animator _camAnim;
 
     //Velocidade de movimento do projetil
     public float speed;
@@ -56,6 +58,10 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com o jogador adversário e chamando a função que aplica o dano
         if (other.gameObject.CompareTag("Player"))
         {
+            //Setando o screenshake para verdadeiro
+            //Não deu certo pq teria que ser prefab pra funcionar, ver outra forma de referenciar o animator
+            _camAnim.SetBool("isHit", true);
+
             //Particlua de colisão com o jogadore
             GameObject tempKetc = Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
             Destroy(tempKetc, 1.0f);
