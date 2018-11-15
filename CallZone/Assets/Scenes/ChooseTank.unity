@@ -769,28 +769,24 @@ MonoBehaviour:
     _turnSpeed: 5
     _fireRate: 0.5
     _damage: 20
-    _sound: {fileID: 8300000, guid: 555fe77302a69e140b03d8d30865dd01, type: 3}
   - name: DoubleTubes
     _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 06667dd70a975c04980fa5469543d531, type: 3}
     _turnSpeed: 5
     _fireRate: 0.5
     _damage: 15
-    _sound: {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
   - name: IceCream
     _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
     _TowerSprite: {fileID: 21300000, guid: a1ad8f40bfdcdee4b99388d044853b96, type: 3}
     _turnSpeed: 5
     _fireRate: 1
     _damage: 30
-    _sound: {fileID: 8300000, guid: 0cc77972d7ed1a64bbe86d0cdb1d534e, type: 3}
   - name: Carrot
     _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 460c799a929c5cd4da9059b58ba03376, type: 3}
     _turnSpeed: 5
     _fireRate: 0.2
     _damage: 10
-    _sound: {fileID: 8300000, guid: 6e1fc0bc41f5c8a4fa346274dc623206, type: 3}
   PlayerNumber: 1
   _mainCourse: {fileID: 332962974}
   _appertizer: {fileID: 1700428135}
@@ -826,13 +822,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333396779}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -392.8389, y: -235, z: 15.12}
-  m_LocalScale: {x: 1.2980391, y: 1.2980391, z: 1.2980391}
+  m_LocalPosition: {x: 6.5, y: 3, z: 0}
+  m_LocalScale: {x: 1.0562793, y: 1.0562793, z: 1.0562793}
   m_Children:
   - {fileID: 1802563205}
   - {fileID: 1778304271}
-  m_Father: {fileID: 1016994645}
-  m_RootOrder: 16
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &341120771
 GameObject:
@@ -1082,13 +1078,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420140649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -407.16116, y: -236, z: 15.12}
-  m_LocalScale: {x: 1.2980391, y: 1.2980391, z: 1.2980391}
+  m_LocalPosition: {x: -6.5, y: 3, z: 0}
+  m_LocalScale: {x: 1.0562793, y: 1.0562793, z: 0}
   m_Children:
   - {fileID: 963980097}
   - {fileID: 1550175681}
-  m_Father: {fileID: 1016994645}
-  m_RootOrder: 15
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &420140651
 MonoBehaviour:
@@ -1126,28 +1122,24 @@ MonoBehaviour:
     _turnSpeed: 5
     _fireRate: 0.5
     _damage: 20
-    _sound: {fileID: 8300000, guid: 555fe77302a69e140b03d8d30865dd01, type: 3}
   - name: DoubleTubes
     _bullet: {fileID: 1970330595397998, guid: 6abb4d753916ad543b535d65ebd20a8d, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 06667dd70a975c04980fa5469543d531, type: 3}
     _turnSpeed: 5
     _fireRate: 0.5
     _damage: 15
-    _sound: {fileID: 8300000, guid: 63c9cdd1e0ce3ae429c9fd8f6be23232, type: 3}
   - name: IceCream
     _bullet: {fileID: 1858929955750546, guid: a22444c70226a1145aea882d0f58ffa5, type: 2}
     _TowerSprite: {fileID: 21300000, guid: a1ad8f40bfdcdee4b99388d044853b96, type: 3}
     _turnSpeed: 5
     _fireRate: 1
     _damage: 30
-    _sound: {fileID: 8300000, guid: 0cc77972d7ed1a64bbe86d0cdb1d534e, type: 3}
   - name: Carrot
     _bullet: {fileID: 1314454853009426, guid: a1847b9fec4ffc84e9e2f773f268b407, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 460c799a929c5cd4da9059b58ba03376, type: 3}
     _turnSpeed: 5
     _fireRate: 0.2
     _damage: 10
-    _sound: {fileID: 8300000, guid: 6e1fc0bc41f5c8a4fa346274dc623206, type: 3}
   PlayerNumber: 0
   _mainCourse: {fileID: 735847182}
   _appertizer: {fileID: 1274503225}
@@ -2487,8 +2479,6 @@ RectTransform:
   - {fileID: 1019379274}
   - {fileID: 1379245452}
   - {fileID: 1319257026}
-  - {fileID: 420140650}
-  - {fileID: 333396783}
   m_Father: {fileID: 1348911305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

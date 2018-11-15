@@ -272,7 +272,7 @@ public class PlayerTank : MonoBehaviour
     {
         if(food >= 5)
         {
-            Debug.Log("Comidas full!" + food);
+           
             GameController.Instance.AllFood();
         }
     }

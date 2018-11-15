@@ -15,22 +15,32 @@ public class BulletMovement : MonoBehaviour {
     public GameObject _wallExplosion;
     /// </Particulas>
 
-    //Referencia do animator da camera
-    public Animator _camAnim;
 
+    ///<Componentes>
+    private CamShake _camShake;
+    //Corpo do projétil
+    public Rigidbody2D bulletRb;
+    ///</Componentes>
+   
+
+   
+
+    /// <Variaveis>
+    //Numero do jogador
+    int _playerNumber;
+    //Numero de vidas da caixa
+    private int _boxLife = 3;
     //Velocidade de movimento do projetil
     public float speed;
+    /// </Variveis>
 
-    public Rigidbody2D bulletRb;
-
-    int _playerNumber;
-
-    private int _boxLife = 3;
 
     // Use this for initialization
     void Start()
     {
-        
+        //Pegando a referencia para a camera no inicio do jogo
+        _camShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CamShake>();
+
         //Pegando o componente do projétil
         bulletRb = GetComponent<Rigidbody2D>();
     }
@@ -55,12 +65,11 @@ public class BulletMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //Verificando se houve colisão com o jogador adversário e chamando a função que aplica o dano
+        //Verificando se houve colisão com o jogador adversário
         if (other.gameObject.CompareTag("Player"))
         {
-            //Setando o screenshake para verdadeiro
-            //Não deu certo pq teria que ser prefab pra funcionar, ver outra forma de referenciar o animator
-            _camAnim.SetBool("isHit", true);
+            //Ativando o screenshake quando atinge outro jogador
+            _camShake.screenShake();
 
             //Particlua de colisão com o jogadore
             GameObject tempKetc = Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
@@ -86,16 +95,30 @@ public class BulletMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Box"))
         {
-            _boxLife -= 1;
+
+            Debug.Log("Vida da caixa antes: " + _boxLife);
+
+            //Destruindo o projétil
+            Destroy(gameObject);
+
             //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
 
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
 
-            if(_boxLife <= 0)
+            //Tira uma vida da caixa
+            _boxLife -= 1;
+
+            //Se zerar a vida, a caixa destroi
+            if (_boxLife <= 0)
+            {
+                Debug.Log("Vidas da caixa?" + _boxLife);
+
                 //Destroi a caixa
                 Destroy(other.gameObject);
+            }
+
         }
 
         if(other.gameObject.CompareTag("Wall"))
