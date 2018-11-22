@@ -6,15 +6,10 @@ public class CamShake : MonoBehaviour {
     
     //Componente de animator
     public Animator _camAnim;
-
-	void Update ()
-    {
-		
-	}
-
+    
     public void screenShake()
     {
         //Ativando a animação
-        _camAnim.SetBool("isHit", true);
+        _camAnim.SetTrigger("isHit");
     } 
 }

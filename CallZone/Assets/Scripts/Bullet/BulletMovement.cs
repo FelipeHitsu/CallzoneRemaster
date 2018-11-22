@@ -28,8 +28,6 @@ public class BulletMovement : MonoBehaviour {
     /// <Variaveis>
     //Numero do jogador
     int _playerNumber;
-    //Numero de vidas da caixa
-    private int _boxLife = 3;
     //Velocidade de movimento do projetil
     public float speed;
     /// </Variveis>
@@ -82,6 +80,7 @@ public class BulletMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //Verificando colisão com a comida
         if(other.gameObject.CompareTag("Food"))
         {
             //Instancia uma cópa da particula
@@ -93,11 +92,9 @@ public class BulletMovement : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
+        //Verificando colisão com as caixas do cenário
         if (other.gameObject.CompareTag("Box"))
         {
-
-            Debug.Log("Vida da caixa antes: " + _boxLife);
-
             //Destruindo o projétil
             Destroy(gameObject);
 
@@ -106,21 +103,9 @@ public class BulletMovement : MonoBehaviour {
 
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
-
-            //Tira uma vida da caixa
-            _boxLife -= 1;
-
-            //Se zerar a vida, a caixa destroi
-            if (_boxLife <= 0)
-            {
-                Debug.Log("Vidas da caixa?" + _boxLife);
-
-                //Destroi a caixa
-                Destroy(other.gameObject);
-            }
-
         }
 
+        //Verificando colisão com as paredes
         if(other.gameObject.CompareTag("Wall"))
         {
             //Instancia uma cópa da particula

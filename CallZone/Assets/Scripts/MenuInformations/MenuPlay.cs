@@ -14,6 +14,8 @@ public class MenuPlay : MonoBehaviour {
     {
         Menu.SetActive(false);
         credits.SetActive(true);
+
+        
     }
 
     //Volta pro menu
