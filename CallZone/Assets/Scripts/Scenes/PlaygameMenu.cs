@@ -8,7 +8,7 @@ public class PlaygameMenu : MonoBehaviour {
 
     public Animator sceneAnim;
 
-    public AudioController soundController;
+    public AudioController _soundController;
 
 
     public Button _readyButton1;
@@ -19,7 +19,12 @@ public class PlaygameMenu : MonoBehaviour {
     private bool _readyP1 = false;
     private bool _readyP2 = false;
 
-    public void Update()
+    void Start()
+    {
+        _soundController.Playsound(1, 0, true);
+    }
+
+    void Update()
     {
         if (_readyP1 && _readyP2)
         {
@@ -46,14 +51,14 @@ public class PlaygameMenu : MonoBehaviour {
 
     public void ReadyButtonP1()
     {
-        soundController.Playsound(0, 1, false);
+        _soundController.Playsound(0, 1, false);
         _readyP1 = true;
         _readyButton1.enabled = false;
         _buttonsSelections.SetActive(false);
     }
     public void ReadyButtonP2()
     {
-        soundController.Playsound(0, 1, false);
+        _soundController.Playsound(0, 1, false);
         _readyP2 = true;
         _readyButton2.enabled = false;
         _buttonsSelections2.SetActive(false);
