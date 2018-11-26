@@ -30,15 +30,13 @@ public class PlayerTank : MonoBehaviour
     ///<Particulas>
     //Particulas de coletando objeto
     public GameObject _collectParticle;
-    //Particula de prize por coletar
-    public GameObject _collectPrize;
     ///</Particulas>
 
     /// <Torre>
     public rotateTurret Turret;
     /// </Torre>
 
-    public Transform prize;
+
 
     /// <Rewired>
     private Player rewPlayer;
@@ -48,6 +46,8 @@ public class PlayerTank : MonoBehaviour
     /// <Variaveis>
     //Velocidade do jogador se mover
     private  float _speed;
+    //Velocidade do powerUp com valor 0
+    private float _speedPU = 1;
     //Velocidade do jogador virar a base do tank
     private float _rotationSpeed = 3f;
     //Angulho para rotação da torre
@@ -60,6 +60,14 @@ public class PlayerTank : MonoBehaviour
     //Energia maxima e atual
     private float _maxEnergy;
     private float _energy;
+    //Pra saber se o jogador usou o powerUp ou não
+    private bool _powerUpisOn;
+    //Quanto tempo o powerUp vai ficar ativo
+    private float _powerUpTimer = 5f;
+    //Line para o powerUp de velocidade
+    private TrailRenderer _speedLiner;
+    //Particula de powerUp
+    public GameObject _speedPtc;
     /// </Variaveis>
 
 
@@ -91,7 +99,8 @@ public class PlayerTank : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody2D>();
 
-        
+        _speedLiner = GetComponent<TrailRenderer>();
+        _speedLiner.enabled = false;
 
     }
 	
@@ -101,6 +110,37 @@ public class PlayerTank : MonoBehaviour
         VerifyEnergy(_energy);
         rotate();
         move();
+
+
+        
+        if (_powerUpisOn)
+        {
+            
+
+            //Habilita a linha
+            _speedLiner.enabled = true;
+
+            //Contagem de tempo
+            _powerUpTimer -= Time.deltaTime;
+           
+            //Se zerar, desativa a linha e volta velocidade normal
+            if (_powerUpTimer <= 0)
+            {
+                _powerUpisOn = false;
+                _speedPU = 1;
+                _speedLiner.enabled = false;
+                _powerUpTimer = 5f;
+            }
+        }
+
+
+
+        //Apertar X, para o powerUp
+        if (rewPlayer.GetButton("PowerUp"))
+        {
+            //Chamando a função de powerup
+            PowerUpSpeed(_energy);
+        }
 
         //Input R1 do joystick
         if (rewPlayer.GetButton("Shoot"))
@@ -172,7 +212,8 @@ public class PlayerTank : MonoBehaviour
                 _sfx.StopSound(0);
                 _sfx.Playsound(0, 0, false);
             }
-            playerRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
+
+            playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
         //Trás, com joystick
@@ -184,7 +225,7 @@ public class PlayerTank : MonoBehaviour
                 _sfx.Playsound(0, 0, false);
             }
 
-            playerRb.MovePosition(transform.position - transform.right * _speed * Time.deltaTime);
+            playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
         if (!_sfx.AudioIsPlaying(0, 0))
@@ -196,19 +237,38 @@ public class PlayerTank : MonoBehaviour
     public void VerifyEnergy(float energy)
     {
         if (energy >= _maxEnergy)
+        {
+            
             energyAnim.SetBool("energyIsFull", true);
+            
+        }
         else
             energyAnim.SetBool("energyIsFull", false);
     }
 
+    //Função que ativa o powerup
+    public void PowerUpSpeed(float energy)
+    {
+        //Se estiver ativo
+        if(energy >= _maxEnergy)
+        {
+            //Instanciando a particula
+            GameObject tempSpeedPtc = Instantiate(_speedPtc, transform.position, transform.rotation);
+            Destroy(tempSpeedPtc, 1f);
+
+            _energy = 0;
+            _speedPU = 2.5f;
+            _powerUpisOn = true;
+            
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         //Verifica se a tag é food
         if (other.collider.CompareTag("Food"))
         {
-            GameObject tempPrize = Instantiate(_collectPrize, prize.position, transform.rotation);
-            Destroy(tempPrize, .15f);
+            
 
             GameObject tempCollect = Instantiate(_collectParticle, transform.position, Quaternion.identity);
             Destroy(tempCollect, 1.0f);

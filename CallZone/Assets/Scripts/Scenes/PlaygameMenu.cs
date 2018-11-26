@@ -21,6 +21,7 @@ public class PlaygameMenu : MonoBehaviour {
 
     void Start()
     {
+        _soundController.VolumeController(1, 0.5f);
         _soundController.Playsound(1, 0, true);
     }
 

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MapSelect : MonoBehaviour {
+public class MapSelect : MonoBehaviour
+{
 	public static string mapaNome = "";
 	public TextMeshProUGUI text;
 	string[] maps;
 	int curr = 0;
-	// Use this for initialization
+    public AudioController _sfx;
+
 	void Start () {
 		maps = TilemapManager.GetMaps (Application.dataPath + "/Mapas/");
 		if (text != null) {
@@ -20,18 +22,22 @@ public class MapSelect : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
+	
 	void Set (int id) {
 		curr = id;
 		text.text = maps [curr];
 		mapaNome = maps [curr];
 	}
 
-	public void Next(){
+	public void Next()
+    {
 		Set (++curr >= maps.Length ? 0 : curr);
+        _sfx.Playsound(0, 0, false);
 	}
 
-	public void Prev(){
+	public void Prev()
+    {
 		Set (--curr < 0 ? maps.Length - 1 : curr);
-	}
+        _sfx.Playsound(0, 0, false);
+    }
 }
