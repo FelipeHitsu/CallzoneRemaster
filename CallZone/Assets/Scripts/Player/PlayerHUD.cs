@@ -45,6 +45,6 @@ public class PlayerHUD : MonoBehaviour
     public void OnEnergy (float energy)
     {
         barEnergy.fillAmount = energy;
-        Debug.Log("Minha energia: " + barEnergy.fillAmount);
+
     }
 }

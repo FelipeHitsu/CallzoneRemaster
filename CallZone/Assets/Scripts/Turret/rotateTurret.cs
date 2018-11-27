@@ -35,6 +35,8 @@ public class rotateTurret : MonoBehaviour {
     private float _fireReloadTimer = 0.0f;
     //Pra saber se pode atirar de novo
     private bool _fireUp = false;
+    //Som de tiro do canhão
+    public AudioClip _effectSound;
     ///</Variaveis>
 
     private Vector3 turretRotation;
@@ -90,11 +92,23 @@ public class rotateTurret : MonoBehaviour {
             Destroy(tempShoot, 1.0f);
 
 
-            //Som de tiro
-            soundController.Playsound(1, 0, false);
+            ///Sons de tiro
+            //Torre de tubos
+            if (TankSettings.tankInfo[_playerNumber].turret.name == "DoubleTubes")
+                soundController.Playsound(1, 0, false);
+            //Tore de sorvete
+            if (TankSettings.tankInfo[_playerNumber].turret.name == "IceCream")
+                soundController.Playsound(1, 1, false);
+            //Torre de salsicha
+            if (TankSettings.tankInfo[_playerNumber].turret.name == "Sausage")
+                soundController.Playsound(1, 2, false);
+            //Torre de cenoura
+            if (TankSettings.tankInfo[_playerNumber].turret.name == "Carrot")
+                soundController.Playsound(1, 3, false);
 
-           //Criando instancia temporária para o tiro
-           GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
+
+            //Criando instancia temporária para o tiro
+            GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
            tempBullet.transform.right = transform.right;
 
             tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
@@ -123,6 +137,7 @@ public class rotateTurret : MonoBehaviour {
 
         //Dano do canhão
         _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
+
 
     }
    

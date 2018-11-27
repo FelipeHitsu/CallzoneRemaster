@@ -19,9 +19,7 @@ public class AudioController : MonoBehaviour {
     }
 
     public List<AudioGroup> AudiosGroup;
-    //A source 0 será para efeitos rápidos, como tiro, coletar comida, levar tiro...
-    //A source 1 será para efeitos que precisam tocar a todo instante, movimento/parada do "tank"
-    //A source 2 será a de musicas
+    
 
    
 	// Use this for initialization
@@ -63,4 +61,6 @@ public class AudioController : MonoBehaviour {
     {
         AudiosGroup[group].player.volume = volume;
     }
+
+    
 }

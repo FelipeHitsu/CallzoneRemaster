@@ -208,6 +208,7 @@ MonoBehaviour:
     type: 2}
   _wallExplosion: {fileID: 1428778368520322, guid: cbdad4b3e810b4e42b9a73d632bbe688,
     type: 2}
+  _camAnim: {fileID: 0}
   speed: 60
   bulletRb: {fileID: 0}
 --- !u!212 &212813070505597578

@@ -27,6 +27,45 @@ Prefab:
       propertyPath: m_TagString
       value: Food
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: bb0c3422fb42c3f46824ef01cb3d6d84,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 22df93ae7246b8049a0186ef80c8e804,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 551afd60ae7db6444be89228f3b4e428,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: af396a7f042dd81489750ca0c563f0f8,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: becf621350886ed4984597c713771d63,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3aac1eb078f30ba4ba31583aa5bb7c83,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22df93ae7246b8049a0186ef80c8e804,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: foodEnergy
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 0}
@@ -79,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.67, y: 0.66}
+    oldSize: {x: 0.9, y: 1.27}
     newSize: {x: 0.67, y: 0.66}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -100,13 +139,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: dda2c0c415bde204ab5c82e20b636bea, type: 3}
-  - {fileID: 21300000, guid: fc8806eb499187944ac0e9de3f9fdee7, type: 3}
-  - {fileID: 21300000, guid: 8a598661fe4dc23489d502efcadd36e1, type: 3}
-  - {fileID: 21300000, guid: d6a998794817189488a90e7c64b3760f, type: 3}
-  - {fileID: 21300000, guid: af9a0678e5a37294f82df6499be86280, type: 3}
-  - {fileID: 21300000, guid: 0f0abe40b0bf0c04b981d0b90c350d31, type: 3}
+  - {fileID: 21300000, guid: bb0c3422fb42c3f46824ef01cb3d6d84, type: 3}
+  - {fileID: 21300000, guid: 22df93ae7246b8049a0186ef80c8e804, type: 3}
+  - {fileID: 21300000, guid: 551afd60ae7db6444be89228f3b4e428, type: 3}
+  - {fileID: 21300000, guid: af396a7f042dd81489750ca0c563f0f8, type: 3}
+  - {fileID: 21300000, guid: becf621350886ed4984597c713771d63, type: 3}
+  - {fileID: 21300000, guid: 3aac1eb078f30ba4ba31583aa5bb7c83, type: 3}
   foodType: 0
+  foodEnergy: 15
 --- !u!212 &212144903338169432
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -142,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dda2c0c415bde204ab5c82e20b636bea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22df93ae7246b8049a0186ef80c8e804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

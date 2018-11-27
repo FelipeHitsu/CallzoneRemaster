@@ -16,18 +16,29 @@ public class BulletMovement : MonoBehaviour {
     /// </Particulas>
 
 
+    ///<Componentes>
+    private CamShake _camShake;
+    //Corpo do projétil
+    public Rigidbody2D bulletRb;
+    ///</Componentes>
+   
+
+   
+
+    /// <Variaveis>
+    //Numero do jogador
+    int _playerNumber;
     //Velocidade de movimento do projetil
     public float speed;
-
-    public Rigidbody2D bulletRb;
-
-    int _playerNumber;
+    /// </Variveis>
 
 
     // Use this for initialization
     void Start()
     {
-        
+        //Pegando a referencia para a camera no inicio do jogo
+        _camShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CamShake>();
+
         //Pegando o componente do projétil
         bulletRb = GetComponent<Rigidbody2D>();
     }
@@ -52,9 +63,12 @@ public class BulletMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //Verificando se houve colisão com o jogador adversário e chamando a função que aplica o dano
+        //Verificando se houve colisão com o jogador adversário
         if (other.gameObject.CompareTag("Player"))
         {
+            //Ativando o screenshake quando atinge outro jogador
+            _camShake.screenShake();
+
             //Particlua de colisão com o jogadore
             GameObject tempKetc = Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
             Destroy(tempKetc, 1.0f);
@@ -66,27 +80,32 @@ public class BulletMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //Verificando colisão com a comida
         if(other.gameObject.CompareTag("Food"))
         {
             //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
 
             Destroy(other.gameObject);
         }
 
+        //Verificando colisão com as caixas do cenário
         if (other.gameObject.CompareTag("Box"))
         {
+            //Destruindo o projétil
+            Destroy(gameObject);
+
             //Instancia uma cópa da particula
             GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
+
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
-
-            //Destroi a caixa
-            Destroy(other.gameObject);
         }
 
+        //Verificando colisão com as paredes
         if(other.gameObject.CompareTag("Wall"))
         {
             //Instancia uma cópa da particula
