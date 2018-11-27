@@ -24,12 +24,22 @@ public class TilemapManagerEditor : Editor {
 		if(GUILayout.Button("Gerar"))
 			myScript.GenerateTiles();
 		GUILayout.BeginHorizontal();
+		GUILayout.Label ("Nome do mapa:");
 		nomeArquivo = GUILayout.TextField(nomeArquivo);
 		if(GUILayout.Button("Salvar"))
 			myScript.SaveToFile(Application.dataPath + "/Mapas/" + nomeArquivo + ".czm");
-		if(GUILayout.Button("Carregar"))
-			myScript.LoadFromFile(Application.dataPath + "/Mapas/" + nomeArquivo + ".czm");
-		GUILayout.EndHorizontal();
+		//carga de mapa
+		List <string> choices = new List<string>();
+		choices.Add ("Carregar");
+		var maps = TilemapManager.GetMaps (Application.dataPath + "/Mapas/");
+		foreach (string map in maps)
+			choices.Add (map);
+		int mapChoice = EditorGUILayout.Popup (0, choices.ToArray());
+		if (mapChoice != 0) {
+			myScript.LoadFromFile (Application.dataPath + "/Mapas/" + maps [mapChoice - 1] + ".czm");
+			nomeArquivo = maps [mapChoice - 1];
+		}
+		GUILayout.EndHorizontal ();
 
 		GUILayout.Space (20);
 		GUILayout.BeginHorizontal ();

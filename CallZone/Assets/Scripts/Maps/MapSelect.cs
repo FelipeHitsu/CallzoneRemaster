@@ -16,7 +16,7 @@ public class MapSelect : MonoBehaviour
 		if (text != null) {
 			curr = 0;
 			if (maps.Length > 0)
-				text.text = maps [0];
+				Set (0);
 			else
 				text.text = "NO MAPS FOUND!";
 		}
