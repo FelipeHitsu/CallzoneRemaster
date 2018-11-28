@@ -34,6 +34,7 @@ public class TilemapTile : MonoBehaviour {
 			if(coll == null)
 				coll = gameObject.AddComponent<BoxCollider2D>();
 			coll.size = new Vector2 (manager.tileSize.x, manager.tileSize.y);
+			gameObject.tag = "wall";
 		}
 		else{//não usa collider
 			BoxCollider2D coll = GetComponent<BoxCollider2D>();
