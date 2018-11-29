@@ -12,11 +12,18 @@ public enum TileState{
 }
 
 [System.Serializable]
+public class TileCondition {
+	public string otherName = "Nome";
+	public Sprite[] newSprites;
+}
+
+[System.Serializable]
 public class TileType{
 	public string name = "Nome";
 	public Sprite sprite;
 	public TileState state = TileState.Solid;
 	public bool canPass = false;
+	public TileCondition[] conditions;
 }
 
 public class TilemapManager : MonoBehaviour {
@@ -66,9 +73,11 @@ public class TilemapManager : MonoBehaviour {
 			TilemapTile tile = transform.GetChild(i).GetComponent<TilemapTile>();
 			if(tile == null)//pula pois tile é nulo
 				continue;
-			tiles.Add(tile.transform.localPosition.x.ToString("0.00") + " "
-					+ tile.transform.localPosition.y.ToString("0.00") + " "
-					+ tile.myTypeIndex.ToString("0"));
+			tiles.Add(tile.transform.localPosition.x.ToString("0.00") + " "//0
+					+ tile.transform.localPosition.y.ToString("0.00") + " "//1
+				+ tile.myTypeIndex.ToString("0") + " "//2
+				+ (tile.otherTile.Length > 0 ? tile.otherTile : "None") + " "//3
+				+ tile.theBrush.ToString("0"));//4
 		}
 		var dirPath = path.Substring(0, path.Length - path.Split('/')[path.Split('/').Length - 1].Length);
 		if(!Directory.Exists(dirPath))
@@ -99,9 +108,15 @@ public class TilemapManager : MonoBehaviour {
 			int type = 0;
 			int.TryParse(tiles[i].Split(' ')[2], out type);
 			newTile.SetTileType(type);
+
+			string other = tiles [i].Split (' ') [3];
+			int brush = 0;
+			int.TryParse(tiles[i].Split(' ')[4], out brush);
+			newTile.UpdateTileSprite (other, brush);
 		}
 	}
 
+	//encontra o tile no index x y
 	public TilemapTile FindTile(int x, int y){
 		for (int i = 0; i < this.transform.childCount; i++) {
 			Vector3 childPos = transform.GetChild (i).position;

@@ -6,6 +6,8 @@ using UnityEditor;
 [CustomEditor(typeof(TilemapManager))]
 public class TilemapManagerEditor : Editor {
 	static int selected = 0;
+	static int selectedSecondary;
+	static int brushOption = 4;//qual bruss será usada? 4 é meio, 0 é cima-esquerda
 	static string nomeArquivo = "mapa1";
 	static Vector3 drawPos;
 	static bool delete = false;
@@ -14,6 +16,13 @@ public class TilemapManagerEditor : Editor {
 		DrawDefaultInspector();
 
 		TilemapManager myScript = target as TilemapManager;
+
+		foreach (var t in myScript.tiles) {
+			foreach (var cond in t.conditions) {
+				if (cond == null || cond.newSprites.Length != 9)
+					cond.newSprites = new Sprite[9];
+			}
+		}
 
 		if (myScript.tileSize.x == 0.0f)
 			myScript.tileSize.x = 1.0f;
@@ -48,9 +57,26 @@ public class TilemapManagerEditor : Editor {
 		for(int i = 0; i < ops.Length; i++){
 			ops[i] = myScript.tiles[i].name;
 		}
-
+		if (selected >= ops.Length)
+			selected = 0;
 		selected = EditorGUILayout.Popup(selected, ops);
 		GUILayout.EndHorizontal ();
+
+		GUILayout.BeginHorizontal ();
+		if (selectedSecondary >= ops.Length)
+			selectedSecondary = 0;
+		GUILayout.Label("Secundário: " + (selectedSecondary != -1 ? myScript.tiles [selectedSecondary].name : "None"));
+		selectedSecondary = EditorGUILayout.Popup(selectedSecondary, ops);
+		GUILayout.EndHorizontal ();
+
+		for (int i = 0; i < 3; i++) {
+			GUILayout.BeginHorizontal ();
+			for (int j = 0; j < 3; j++) {
+				if (GUILayout.Button (i * 3 + j == brushOption ? "X" : " "))
+					brushOption = i * 3 + j;
+			}
+			GUILayout.EndHorizontal ();
+		}
 
 		GUILayout.BeginHorizontal ();
 		GUILayout.Label ("Ferramenta selecionada:");
@@ -100,6 +126,9 @@ public class TilemapManagerEditor : Editor {
 				if (tile == null)
 					tile = obj.CreateTile (x, y);
 				tile.SetTileType (selected);
+
+				var sec = obj.tiles [selectedSecondary];
+				tile.UpdateTileSprite (sec.name, brushOption);
 			}
 		}
 

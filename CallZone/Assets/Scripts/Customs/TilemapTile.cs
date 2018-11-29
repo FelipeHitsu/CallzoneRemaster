@@ -5,6 +5,8 @@ using UnityEngine;
 public class TilemapTile : MonoBehaviour {
 	public TilemapManager manager;
 	public int myTypeIndex = -1;
+	public string otherTile;
+	public int theBrush;
 
 	//setup do tile de acordo com o manager
 	public void SetTileType(int typeIndex){
@@ -44,5 +46,33 @@ public class TilemapTile : MonoBehaviour {
 
 		if(type.canPass)//coloca e um layer que ignora o player
 			gameObject.layer = LayerMask.NameToLayer("ignoraPlayer");
+	}
+
+	public void UpdateTileSprite(string other, int brush){
+		otherTile = other;
+		theBrush = brush;
+
+		if (myTypeIndex >= manager.tiles.Length)
+			return;
+		var conds = manager.tiles [myTypeIndex].conditions;
+		foreach (var cond in conds) {
+			if (cond.otherName.CompareTo (other) == 0) {
+				if (cond.newSprites [brush] != null) {
+					SpriteRenderer rend = GetComponent<SpriteRenderer> ();
+					if (rend == null)
+						rend = gameObject.AddComponent<SpriteRenderer> ();
+					rend.sprite = cond.newSprites [brush];
+					return;
+				}
+			}
+		}
+		//usa a tex padrão se o resto falhou
+		TileType type = manager.tiles [myTypeIndex];
+		if (type.sprite != null) {
+			SpriteRenderer rend = GetComponent<SpriteRenderer> ();
+			if (rend == null)
+				rend = gameObject.AddComponent<SpriteRenderer> ();
+			rend.sprite = type.sprite;
+		}
 	}
 }

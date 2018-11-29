@@ -1486,7 +1486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368906209
 GameObject:
@@ -5632,66 +5632,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1137253055
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1137253057}
-  - component: {fileID: 1137253056}
-  m_Layer: 0
-  m_Name: EditorDeMapa
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1137253056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137253055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f7ada54c516be4099cc77d90934e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles:
-  - name: Terra
-    sprite: {fileID: 21300000, guid: c7c50990077d9774bbde93ecb61aee3e, type: 3}
-    state: 1
-    canPass: 1
-  - name: Grama
-    sprite: {fileID: 21300002, guid: c7c50990077d9774bbde93ecb61aee3e, type: 3}
-    state: 1
-    canPass: 1
-  - name: "\xC1gua"
-    sprite: {fileID: 21300004, guid: c7c50990077d9774bbde93ecb61aee3e, type: 3}
-    state: 2
-    canPass: 0
-  - name: Pedra
-    sprite: {fileID: 21300006, guid: c7c50990077d9774bbde93ecb61aee3e, type: 3}
-    state: 0
-    canPass: 0
-  width: 0
-  height: 0
-  tileSize: {x: 5, y: 5}
---- !u!4 &1137253057
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137253055}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154273706
 GameObject:
   m_ObjectHideFlags: 0
@@ -7128,7 +7068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1326481802
 GameObject:
@@ -8216,6 +8156,180 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1587955528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1587955530}
+  - component: {fileID: 1587955529}
+  m_Layer: 0
+  m_Name: EditorDeMapa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1587955529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587955528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7ada54c516be4099cc77d90934e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - name: Grama
+    sprite: {fileID: 21300000, guid: e1667d0bb09714944a228f229d4b5bc4, type: 3}
+    state: 1
+    canPass: 1
+    conditions:
+    - otherName: Areia
+      newSprites:
+      - {fileID: 21300000, guid: c4714e37ee23d8a45b5c1947868186a7, type: 3}
+      - {fileID: 21300000, guid: f53d54d05cb71fb458afaae0862b31b1, type: 3}
+      - {fileID: 21300000, guid: 46b13df527cd4c04fa0582f5bc7fe0fa, type: 3}
+      - {fileID: 21300000, guid: 1f75ba76eff06ed419baea941432c83b, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: f65c0cb2f64719c45a7fe3e656ac1f1b, type: 3}
+      - {fileID: 21300000, guid: 3d642abc34679f14b90944de9a183f34, type: 3}
+      - {fileID: 21300000, guid: fd92111bdb3977d488d85f87de9112a9, type: 3}
+      - {fileID: 21300000, guid: 2726c09d395c84c4da94045aab036b37, type: 3}
+    - otherName: "\xC1gua"
+      newSprites:
+      - {fileID: 21300000, guid: d65ceb01baea0cb49801026a1b958c8d, type: 3}
+      - {fileID: 21300000, guid: acea0e6ea6b2c7d4bb03bce44a1e1a25, type: 3}
+      - {fileID: 21300000, guid: 21b7c97e44038684d97ef32fe3e60da0, type: 3}
+      - {fileID: 21300000, guid: 5ec08af72e6a15e4b9be10d39d4e02a7, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: e38396d09ca64034791b3523c5c74b22, type: 3}
+      - {fileID: 21300000, guid: 3d53644488aa5e447b1e8decf3a2a584, type: 3}
+      - {fileID: 21300000, guid: 0cde54115dac91741b5e0f2d8691b101, type: 3}
+      - {fileID: 21300000, guid: 8f00dec0305466f4782db83cf31156fe, type: 3}
+  - name: Grama2
+    sprite: {fileID: 21300000, guid: e1667d0bb09714944a228f229d4b5bc4, type: 3}
+    state: 1
+    canPass: 1
+    conditions:
+    - otherName: Areia
+      newSprites:
+      - {fileID: 21300000, guid: 4fd4bd52b613dc044a6bff7a130bbed5, type: 3}
+      - {fileID: 21300000, guid: f091e1724d48fba418015504efd5d7ca, type: 3}
+      - {fileID: 21300000, guid: 4e4124513cb4ee6468770646fab2b092, type: 3}
+      - {fileID: 21300000, guid: 0db6281d0184af643af9894eb19ac9d5, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 853e9448e47902c44bf3c7795cb4a173, type: 3}
+      - {fileID: 21300000, guid: 5f8f17e3196c5c445b97f85fc504d0e5, type: 3}
+      - {fileID: 21300000, guid: 05ffa0ea93f715e4d826fb94b2adfa87, type: 3}
+      - {fileID: 21300000, guid: 9505f91243c8d1b4e941cadc694ef34e, type: 3}
+    - otherName: "\xC1gua"
+      newSprites:
+      - {fileID: 21300000, guid: d65ceb01baea0cb49801026a1b958c8d, type: 3}
+      - {fileID: 21300000, guid: acea0e6ea6b2c7d4bb03bce44a1e1a25, type: 3}
+      - {fileID: 21300000, guid: 21b7c97e44038684d97ef32fe3e60da0, type: 3}
+      - {fileID: 21300000, guid: 5ec08af72e6a15e4b9be10d39d4e02a7, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: e38396d09ca64034791b3523c5c74b22, type: 3}
+      - {fileID: 21300000, guid: 3d53644488aa5e447b1e8decf3a2a584, type: 3}
+      - {fileID: 21300000, guid: 0cde54115dac91741b5e0f2d8691b101, type: 3}
+      - {fileID: 21300000, guid: 8f00dec0305466f4782db83cf31156fe, type: 3}
+  - name: Areia
+    sprite: {fileID: 21300000, guid: ff21474ff2476fc40aac98c4e4bc84bd, type: 3}
+    state: 1
+    canPass: 1
+    conditions:
+    - otherName: Grama
+      newSprites:
+      - {fileID: 21300000, guid: 1a54206e88715b345bc8e078cd6038d4, type: 3}
+      - {fileID: 21300000, guid: fd92111bdb3977d488d85f87de9112a9, type: 3}
+      - {fileID: 21300000, guid: 129d69c6ddd6d074bac5ab62b1b9442d, type: 3}
+      - {fileID: 21300000, guid: f65c0cb2f64719c45a7fe3e656ac1f1b, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 1f75ba76eff06ed419baea941432c83b, type: 3}
+      - {fileID: 21300000, guid: 7de250f760a3bb341bdd389cb1e99e1e, type: 3}
+      - {fileID: 21300000, guid: f53d54d05cb71fb458afaae0862b31b1, type: 3}
+      - {fileID: 21300000, guid: be4b8f04ec563bd46bfb11fbe54b07ae, type: 3}
+    - otherName: Grama2
+      newSprites:
+      - {fileID: 21300000, guid: d218d20e283de624785db0dec5e23a7a, type: 3}
+      - {fileID: 21300000, guid: 05ffa0ea93f715e4d826fb94b2adfa87, type: 3}
+      - {fileID: 21300000, guid: b00f9fab94994cd448f29b1dced7171e, type: 3}
+      - {fileID: 21300000, guid: 853e9448e47902c44bf3c7795cb4a173, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 0db6281d0184af643af9894eb19ac9d5, type: 3}
+      - {fileID: 21300000, guid: 2c7e0d9a871bce343ae3ae7219bb1665, type: 3}
+      - {fileID: 21300000, guid: 829c49aa7e078ed4bad74ec62c3aa5de, type: 3}
+      - {fileID: 21300000, guid: 7f545d232220d7744a19d35d572a00d0, type: 3}
+    - otherName: "\xC1gua"
+      newSprites:
+      - {fileID: 21300000, guid: e2d39020f482a8042b587a3acf6a2a1c, type: 3}
+      - {fileID: 21300000, guid: 0a371af731c148b4c94f9a71b9aebee9, type: 3}
+      - {fileID: 21300000, guid: 65c4a8a46ee60a2458d254920bdc7923, type: 3}
+      - {fileID: 21300000, guid: ec216c3bde5db904cad14755048d95cb, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 186873263e5c896438ccf81a0bcfa10b, type: 3}
+      - {fileID: 21300000, guid: 3345e6a7145da984db113751d0431a35, type: 3}
+      - {fileID: 21300000, guid: d9b1481a60bd803468a0e52add013908, type: 3}
+      - {fileID: 21300000, guid: 2e1a8e5d87a70e7428e7e1380d98c1bd, type: 3}
+  - name: "\xC1gua"
+    sprite: {fileID: 21300000, guid: 506624d189b98ff4a93411201c69f428, type: 3}
+    state: 1
+    canPass: 1
+    conditions:
+    - otherName: Areia
+      newSprites:
+      - {fileID: 21300000, guid: a6954ba5ebb68c74f9552395cee01eee, type: 3}
+      - {fileID: 21300000, guid: d9b1481a60bd803468a0e52add013908, type: 3}
+      - {fileID: 21300000, guid: 09f5d1ce9e4e7ad4ebc3d45abb5f83fb, type: 3}
+      - {fileID: 21300000, guid: 186873263e5c896438ccf81a0bcfa10b, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: ec216c3bde5db904cad14755048d95cb, type: 3}
+      - {fileID: 21300000, guid: c55056654db34424ab28b06a633f38f9, type: 3}
+      - {fileID: 21300000, guid: 0a371af731c148b4c94f9a71b9aebee9, type: 3}
+      - {fileID: 21300000, guid: c1fc8f355fd0b394d8e77948878f3c49, type: 3}
+    - otherName: Grama
+      newSprites:
+      - {fileID: 21300000, guid: 6e0c0b12dea04ca46ba2d1967e972773, type: 3}
+      - {fileID: 21300000, guid: 0cde54115dac91741b5e0f2d8691b101, type: 3}
+      - {fileID: 21300000, guid: 9bcb3e2f1629f81418452512dc264bb7, type: 3}
+      - {fileID: 21300000, guid: e38396d09ca64034791b3523c5c74b22, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 5ec08af72e6a15e4b9be10d39d4e02a7, type: 3}
+      - {fileID: 21300000, guid: 90a6e45605b696641b06801059928e78, type: 3}
+      - {fileID: 21300000, guid: acea0e6ea6b2c7d4bb03bce44a1e1a25, type: 3}
+      - {fileID: 21300000, guid: 3c744f7831686f843a4411251e7c6428, type: 3}
+    - otherName: Grama2
+      newSprites:
+      - {fileID: 21300000, guid: 6e0c0b12dea04ca46ba2d1967e972773, type: 3}
+      - {fileID: 21300000, guid: 0cde54115dac91741b5e0f2d8691b101, type: 3}
+      - {fileID: 21300000, guid: 9bcb3e2f1629f81418452512dc264bb7, type: 3}
+      - {fileID: 21300000, guid: e38396d09ca64034791b3523c5c74b22, type: 3}
+      - {fileID: 0}
+      - {fileID: 21300000, guid: 5ec08af72e6a15e4b9be10d39d4e02a7, type: 3}
+      - {fileID: 21300000, guid: 90a6e45605b696641b06801059928e78, type: 3}
+      - {fileID: 21300000, guid: acea0e6ea6b2c7d4bb03bce44a1e1a25, type: 3}
+      - {fileID: 21300000, guid: 3c744f7831686f843a4411251e7c6428, type: 3}
+  width: 0
+  height: 0
+  tileSize: {x: 5, y: 5}
+--- !u!4 &1587955530
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587955528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592240135
 GameObject:
   m_ObjectHideFlags: 0
