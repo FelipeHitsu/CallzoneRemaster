@@ -18,6 +18,7 @@ public class TankBase
     public float _speed;
     public int _life;
     public Sprite _BodySprite;
+    
 }
 
 [System.Serializable]
