@@ -22,9 +22,6 @@ public class BreakBox : MonoBehaviour {
         //Se colidir com o projétil, perde vida e muda a sprite
         if(other.gameObject.CompareTag("Bullet"))
         {
-            //Perdendo vida
-            Debug.Log("vidinha da caixa:" + _boxLife);
-
             //Dizendo que o valor da vida é igual para a animação
             _boxAnim.SetInteger("_LifeBox", _boxLife);
             _boxLife -= 1;

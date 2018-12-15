@@ -1,0 +1,6 @@
+Tiro ricochete com explosão:
+
+Consiste em um tiro que irá bater até 3 vezes em qualquer lugar(inclusive jogador), pedra, caixa de madeira ou parede
+e depois na terceira batida irá explodir. 
+O dano da explosão será o valor de 3x de um tiro padrão. 
+A área não será maior do que 2x de um tank. 

@@ -46,7 +46,7 @@ public class BulletMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Deixei com transform pq funciona sem aquele bug bizarro do Move.Positions
+        //Movimentação do projétil
         bulletRb.MovePosition(transform.position + transform.right * speed * Time.deltaTime);
     }
 

@@ -184,13 +184,15 @@ public class PlayerTank : MonoBehaviour
         
         ///Rotação
         //Direita, com joystick
-        if (rewPlayer.GetButton("TurnRight"))
+        if (rewPlayer.GetButton("TurnBaseRight"))
         {
+            Debug.Log("Virando direita");
             baseRotation.z -= _rotationSpeed;
         }
         //Esquerda, com joystick
-        else if (rewPlayer.GetButton("TurnLeft"))
+        else if (rewPlayer.GetButton("TurnBaseLeft"))
         {
+            Debug.Log("Virando esquerda");
             baseRotation.z += _rotationSpeed;
         }
 
@@ -213,6 +215,11 @@ public class PlayerTank : MonoBehaviour
                 _sfx.Playsound(0, 0, false);
             }
 
+            //Novo movimento com o ângulo do joystick
+           
+           
+
+            //Movimento antigo
             playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
@@ -225,6 +232,11 @@ public class PlayerTank : MonoBehaviour
                 _sfx.Playsound(0, 0, false);
             }
 
+            //Novo movimento com o ângulo do joystick
+            
+           
+
+            //Movimento antigo
             playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);
         }
 

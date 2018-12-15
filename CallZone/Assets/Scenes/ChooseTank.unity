@@ -890,7 +890,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333396779}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 558, y: 315, z: -1298}
+  m_LocalPosition: {x: 558, y: 315, z: -1128}
   m_LocalScale: {x: 40, y: 40, z: 1.0562793}
   m_Children:
   - {fileID: 1802563205}
@@ -1146,7 +1146,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420140649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 171, y: 315, z: -1298}
+  m_LocalPosition: {x: 171, y: 315, z: -1128}
   m_LocalScale: {x: 40, y: 40, z: 0}
   m_Children:
   - {fileID: 963980097}
@@ -1185,7 +1185,7 @@ MonoBehaviour:
     _BodySprite: {fileID: 21300000, guid: 5046f8bcbe08f76489abb73316fd42be, type: 3}
   turrets:
   - name: Sausage
-    _bullet: {fileID: 1435108645071508, guid: 863b0510e1fba23498d16149758c273d, type: 2}
+    _bullet: {fileID: 1773033220477042, guid: ec491b5ea7eaa8644b46f1be967a9dac, type: 2}
     _TowerSprite: {fileID: 21300000, guid: 66582519f5c2b1e4295fc5e458c2e5bf, type: 3}
     _turnSpeed: 5
     _fireRate: 0.5
@@ -2391,7 +2391,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016994644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 196103781}
@@ -3517,7 +3517,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332213173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 360, y: 200, z: -1379}
+  m_LocalPosition: {x: 360, y: 200, z: -1453}
   m_LocalScale: {x: 6.07327, y: 1, z: 0.13867778}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6722,7 +6722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2109585667
 Transform:
   m_ObjectHideFlags: 0
@@ -6730,7 +6730,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109585666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.19519, y: -24.180496, z: -7.0863137}
+  m_LocalPosition: {x: -32.19519, y: -24.180496, z: 41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 875307504}

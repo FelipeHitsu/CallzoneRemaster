@@ -73,7 +73,7 @@ public class rotateTurret : MonoBehaviour {
         {
             turretRotation.z += _rotationSpeed;
         }
-        if(rewPlayer.GetButton("TurnTurretLeft"))
+        else if(rewPlayer.GetButton("TurnTurretLeft"))
         {     
             turretRotation.z -= _rotationSpeed;
         }
@@ -109,9 +109,9 @@ public class rotateTurret : MonoBehaviour {
 
             //Criando instancia temporária para o tiro
             GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
-           tempBullet.transform.right = transform.right;
+            tempBullet.transform.right = transform.right;
 
-            tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
+            tempBullet.GetComponent<RicochetBullet>().SetBullet(_playerNumber);
 
            _fireReloadTimer = 0;
            _fireUp = false;
