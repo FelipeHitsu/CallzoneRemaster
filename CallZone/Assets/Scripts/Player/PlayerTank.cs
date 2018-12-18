@@ -180,27 +180,36 @@ public class PlayerTank : MonoBehaviour
 
    void rotate()
     {
-        
-        
-        ///Rotação
-        //Direita, com joystick
-        if (rewPlayer.GetButton("TurnBaseRight"))
-        {
-            Debug.Log("Virando direita");
-            baseRotation.z -= _rotationSpeed;
-        }
-        //Esquerda, com joystick
-        else if (rewPlayer.GetButton("TurnBaseLeft"))
-        {
-            Debug.Log("Virando esquerda");
-            baseRotation.z += _rotationSpeed;
-        }
+        //Inputs para rotação
+        float _rX = Input.GetAxis("Right_Horizontal");
+        float _rY = Input.GetAxis("Right_Vertical");
 
-        transform.rotation = Quaternion.Euler(baseRotation);
+
+        _rotationSpeed = Mathf.Atan2(_rX, _rY);
+
+        ////Direita, com joystick
+        //if (rewPlayer.GetButton("TurnBaseRight"))
+        //{
+           
+        //    baseRotation.z -= _rotationSpeed;
+        //}
+        ////Esquerda, com joystick
+        //else if (rewPlayer.GetButton("TurnBaseLeft"))
+        //{
+            
+        //    baseRotation.z += _rotationSpeed;
+        //}
+        
+         transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
     }
 
     void move()
     {
+        //Inputs para movimento, x e y
+        float _x = Input.GetAxis("Horizontal");
+        float _y = Input.GetAxis("Vertical");
+
+        
 
         _sfx.VolumeController(0, 0.1f);
 
@@ -216,11 +225,11 @@ public class PlayerTank : MonoBehaviour
             }
 
             //Novo movimento com o ângulo do joystick
-           
-           
+            playerRb.MovePosition(transform.position + new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
+
 
             //Movimento antigo
-            playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
+            //playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
         //Trás, com joystick
@@ -233,8 +242,8 @@ public class PlayerTank : MonoBehaviour
             }
 
             //Novo movimento com o ângulo do joystick
-            
-           
+            playerRb.MovePosition(transform.position - new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
+
 
             //Movimento antigo
             playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);

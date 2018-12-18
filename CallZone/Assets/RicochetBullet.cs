@@ -35,9 +35,7 @@ public class RicochetBullet : MonoBehaviour
         if (other.gameObject.CompareTag("pedroso") || other.gameObject.CompareTag("Player") ||
             other.gameObject.CompareTag("Box") || other.gameObject.CompareTag("Wall"))
         {
-            //Vector3 reflect = Vector3.Reflect(transform.forward, other.contacts[0].normal);
-            //float rot = 90 - Mathf.Atan2(reflect.z, reflect.x) * Mathf.Rad2Deg;
-            //transform.eulerAngles = new Vector3(90, rot, 0);
+            
 
             //Traço de raycast com as minhas posições
             Ray ray = new Ray(transform.position, transform.up);
