@@ -1168,7 +1168,7 @@ MonoBehaviour:
   soundController: {fileID: 853251272}
   bases:
   - name: Breads
-    _speed: 40
+    _speed: 20
     _life: 200
     _BodySprite: {fileID: 21300000, guid: 97a4a0afd2cb9134d99338d40f89d7b6, type: 3}
   - name: Chocolate

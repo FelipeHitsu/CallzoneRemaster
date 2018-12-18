@@ -72,10 +72,12 @@ public class PlayerTank : MonoBehaviour
 
 
     ///Vetores
+    private Vector3 moveInput;
+    private Vector3 moveVelocity;
     //Vetor para a base do tank
-    Vector3 basePosition;
+    private Vector3 basePosition;
     //Vetor para a torre do tank
-    Vector3 baseRotation;
+    private Vector3 baseRotation;
 
     ///<Componentes>
     //Componente de rigidbody do player
@@ -115,7 +117,6 @@ public class PlayerTank : MonoBehaviour
         
         if (_powerUpisOn)
         {
-            
 
             //Habilita a linha
             _speedLiner.enabled = true;
@@ -180,12 +181,10 @@ public class PlayerTank : MonoBehaviour
 
    void rotate()
     {
-        //Inputs para rotação
-        float _rX = Input.GetAxis("Right_Horizontal");
-        float _rY = Input.GetAxis("Right_Vertical");
+        
 
 
-        _rotationSpeed = Mathf.Atan2(_rX, _rY);
+       
 
         ////Direita, com joystick
         //if (rewPlayer.GetButton("TurnBaseRight"))
@@ -200,22 +199,34 @@ public class PlayerTank : MonoBehaviour
         //    baseRotation.z += _rotationSpeed;
         //}
         
-         transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
+         
     }
 
     void move()
     {
+
         //Inputs para movimento, x e y
         float _x = Input.GetAxis("Horizontal");
         float _y = Input.GetAxis("Vertical");
 
-        
+        //Let's try agaaaainnnn............
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
+
+        ////Inputs para rotação(VAI LA PRA TORRE ESSES INPUTS)
+        //float _rX = Input.GetAxis("Right_Horizontal");
+        //float _rY = Input.GetAxis("Right_Vertical");
+
+        
+       
+        //Som de movimento
         _sfx.VolumeController(0, 0.1f);
 
 
+
         //Frente, com joystick
-        if (rewPlayer.GetButton("MoveFront"))
+        if (rewPlayer.GetButton("Move"))
         {
             //Clip, source, bool
             if (_sfx.AudioIsPlaying(0, 1))
@@ -225,29 +236,36 @@ public class PlayerTank : MonoBehaviour
             }
 
             //Novo movimento com o ângulo do joystick
-            playerRb.MovePosition(transform.position + new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
+            playerRb.MovePosition(transform.position + moveInput);
+            
+
+            ////Rotação são os dois vetores de inputs
+            //_rotationSpeed = Mathf.Atan2(_y, _x);
+
+            ////Aplicando a rotação ao valor dos vetores
+            //transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
 
 
             //Movimento antigo
             //playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
-        //Trás, com joystick
-        else if (rewPlayer.GetButton("MoveBack"))
-        {
-            if (_sfx.AudioIsPlaying(0, 1))
-            {
-                _sfx.StopSound(0);
-                _sfx.Playsound(0, 0, false);
-            }
+        ////Trás, com joystick
+        //else if (rewPlayer.GetButton("MoveBack"))
+        //{
+        //    if (_sfx.AudioIsPlaying(0, 1))
+        //    {
+        //        _sfx.StopSound(0);
+        //        _sfx.Playsound(0, 0, false);
+        //    }
 
-            //Novo movimento com o ângulo do joystick
-            playerRb.MovePosition(transform.position - new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
+        //    //Novo movimento com o ângulo do joystick
+        //    playerRb.MovePosition(transform.position - new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
 
 
-            //Movimento antigo
-            playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);
-        }
+        //    //Movimento antigo
+        //    //playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);
+        //}
 
         if (!_sfx.AudioIsPlaying(0, 0))
         {
@@ -255,6 +273,7 @@ public class PlayerTank : MonoBehaviour
         }
     }
 
+    //Função que verifica a quantidade de energia que o jogador tem para usar o powerUp
     public void VerifyEnergy(float energy)
     {
         if (energy >= _maxEnergy)
@@ -267,7 +286,8 @@ public class PlayerTank : MonoBehaviour
             energyAnim.SetBool("energyIsFull", false);
     }
 
-    //Função que ativa o powerup
+
+    //Função que ativa o powerup(VAI SER PASSADO PRA PASSIVA COM CD ISSO AQUI)
     public void PowerUpSpeed(float energy)
     {
         //Se estiver ativo
