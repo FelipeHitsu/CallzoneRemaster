@@ -205,13 +205,10 @@ public class PlayerTank : MonoBehaviour
     void move()
     {
 
-        //Inputs para movimento, x e y
-        float _x = Input.GetAxis("Horizontal");
-        float _y = Input.GetAxis("Vertical");
-
         //Let's try agaaaainnnn............
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        //Aplicando um novo vetor os vetores de input com minha velocidade, tempo e velocidade passiva
         moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
 
         ////Inputs para rotação(VAI LA PRA TORRE ESSES INPUTS)
@@ -226,7 +223,7 @@ public class PlayerTank : MonoBehaviour
 
 
         //Frente, com joystick
-        if (rewPlayer.GetButton("Move"))
+        if (rewPlayer.GetButton("MoveFront"))
         {
             //Clip, source, bool
             if (_sfx.AudioIsPlaying(0, 1))
@@ -237,35 +234,33 @@ public class PlayerTank : MonoBehaviour
 
             //Novo movimento com o ângulo do joystick
             playerRb.MovePosition(transform.position + moveInput);
-            
 
-            ////Rotação são os dois vetores de inputs
-            //_rotationSpeed = Mathf.Atan2(_y, _x);
+
+            //////Rotação são os dois vetores de inputs
+            //_rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x);
 
             ////Aplicando a rotação ao valor dos vetores
             //transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
+            //transform.LookAt(new Vector3(transform.position.x, transform.position.y, moveInput.z));
 
 
             //Movimento antigo
             //playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
         }
 
-        ////Trás, com joystick
-        //else if (rewPlayer.GetButton("MoveBack"))
-        //{
-        //    if (_sfx.AudioIsPlaying(0, 1))
-        //    {
-        //        _sfx.StopSound(0);
-        //        _sfx.Playsound(0, 0, false);
-        //    }
+        //Trás, com joystick
+        else if (rewPlayer.GetButton("MoveBack"))
+        {
+            if (_sfx.AudioIsPlaying(0, 1))
+            {
+                _sfx.StopSound(0);
+                _sfx.Playsound(0, 0, false);
+            }
 
-        //    //Novo movimento com o ângulo do joystick
-        //    playerRb.MovePosition(transform.position - new Vector3(_x, 1) * _speed * _speedPU * Time.deltaTime);
+            //Novo movimento com o ângulo do joystick
+            playerRb.MovePosition(transform.position - moveInput);
+        }
 
-
-        //    //Movimento antigo
-        //    //playerRb.MovePosition(transform.position - transform.right * _speed * _speedPU * Time.deltaTime);
-        //}
 
         if (!_sfx.AudioIsPlaying(0, 0))
         {

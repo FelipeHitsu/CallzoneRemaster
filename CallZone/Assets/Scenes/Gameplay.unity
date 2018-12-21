@@ -1906,7 +1906,7 @@ GameObject:
   - component: {fileID: 196878244}
   - component: {fileID: 196878243}
   - component: {fileID: 196878245}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3557,7 +3557,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 466854473}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3590,7 +3590,7 @@ GameObject:
   - component: {fileID: 478295932}
   - component: {fileID: 478295934}
   - component: {fileID: 478295935}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tank 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3840,7 +3840,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 488347784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4125,7 +4125,7 @@ GameObject:
   - component: {fileID: 545741342}
   - component: {fileID: 545741340}
   - component: {fileID: 545741341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4312,7 +4312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547668725}
   - component: {fileID: 547668723}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AudioController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5232,7 +5232,7 @@ GameObject:
   - component: {fileID: 658958189}
   - component: {fileID: 658958191}
   - component: {fileID: 658958190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8547,7 +8547,7 @@ GameObject:
   - component: {fileID: 1095436520}
   - component: {fileID: 1095436519}
   - component: {fileID: 1095436524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tank2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9215,7 +9215,7 @@ GameObject:
   - component: {fileID: 1185922426}
   - component: {fileID: 1185922428}
   - component: {fileID: 1185922427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10044,7 +10044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258500904}
   - component: {fileID: 1258500905}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10099,7 +10099,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12d7fed7800f17c489469294dc35976f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97a4a0afd2cb9134d99338d40f89d7b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10107,7 +10107,7 @@ SpriteRenderer:
   m_Size: {x: 2.47, y: 1.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1 &1260784532
 GameObject:
@@ -10614,7 +10614,29 @@ MonoBehaviour:
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 20
+        _actionId: 0
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 17
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 1
+        _axisContribution: 1
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 0
         _elementType: 0
         _elementIdentifierId: 1
         _axisRange: 0
@@ -10627,29 +10649,7 @@ MonoBehaviour:
       - _actionCategoryId: 0
         _actionId: 17
         _elementType: 0
-        _elementIdentifierId: -1
-        _axisRange: 0
-        _invert: 1
-        _axisContribution: 1
-        _keyboardKeyCode: 0
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
-        _actionId: 20
-        _elementType: 0
-        _elementIdentifierId: 0
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 0
-        _keyboardKeyCode: 0
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
-        _actionId: 18
-        _elementType: 0
-        _elementIdentifierId: -1
+        _elementIdentifierId: 1
         _axisRange: 0
         _invert: 1
         _axisContribution: 1
@@ -10659,8 +10659,8 @@ MonoBehaviour:
         _modifierKey3: 0
       - _actionCategoryId: 0
         _actionId: 2
-        _elementType: 1
-        _elementIdentifierId: 11
+        _elementType: 0
+        _elementIdentifierId: 5
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -11961,7 +11961,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1404017326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12948,7 +12948,7 @@ GameObject:
   - component: {fileID: 1496654339}
   - component: {fileID: 1496654340}
   - component: {fileID: 1496654341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13830,7 +13830,7 @@ GameObject:
   - component: {fileID: 1608840042}
   - component: {fileID: 1608840044}
   - component: {fileID: 1608840043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Up
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -15798,7 +15798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812808606}
   - component: {fileID: 1812808607}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'AudioController '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16170,7 +16170,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1858693003}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

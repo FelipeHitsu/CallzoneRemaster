@@ -104,7 +104,7 @@ MonoBehaviour:
   _speed: 60
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
 --- !u!212 &212039842391318752
 SpriteRenderer:
   m_ObjectHideFlags: 1

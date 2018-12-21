@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlaygameMenu : MonoBehaviour {
 
@@ -10,7 +11,8 @@ public class PlaygameMenu : MonoBehaviour {
 
     public AudioController _soundController;
 
-
+    public TextMeshProUGUI _load;
+    public Animator _loadAnim;
     public Button _readyButton1;
     public Button _readyButton2;
     public GameObject _buttonsSelections;
@@ -23,6 +25,7 @@ public class PlaygameMenu : MonoBehaviour {
     {
         _soundController.VolumeController(1, 0.5f);
         _soundController.Playsound(1, 0, true);
+        _load.text = " ";
     }
 
     void Update()
@@ -46,7 +49,10 @@ public class PlaygameMenu : MonoBehaviour {
     IEnumerator LoadScene()
     {
         sceneAnim.SetBool("isLoad", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        _load.text = "Loading...";
+        _loadAnim.SetBool("load", true);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
