@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4134491592222124}
   - component: {fileID: 95364668631172494}
   - component: {fileID: 212222506864190400}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: bodyRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,8 +39,8 @@ GameObject:
   - component: {fileID: 50431712224167846}
   - component: {fileID: 61269766194551062}
   - component: {fileID: 114074709938779690}
-  m_Layer: 10
-  m_Name: pedrasobrepedra (1) 1
+  m_Layer: 11
+  m_Name: Rock
   m_TagString: pedroso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

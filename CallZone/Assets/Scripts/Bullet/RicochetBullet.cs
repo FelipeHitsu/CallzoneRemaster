@@ -38,24 +38,15 @@ public class RicochetBullet : MonoBehaviour
         //Verificando a colisão do raycast
         if (hit.collider != null)
         {
-            Debug.Log("Acertou");
-           
             //Vetor de reflexão
             Vector2 reflection = Vector2.Reflect(ray.direction, hit.normal);
             //Reflect retorna o valor contrário do vetor definido como normal
 
             //A rotação para que o objeto siga no caminho contrário
-            float rott = 90 - Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg;
-            
-            transform.eulerAngles = new Vector3(0, 0, rott);
+            float rot = 90 - Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg;
 
-           //Quase lá......como sempre
+            transform.eulerAngles = new Vector3(0, 0, rot);    
         }
-
-
-
-
-
     }
 
 
