@@ -9211,7 +9211,7 @@ ParticleSystemRenderer:
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
@@ -9250,7 +9250,7 @@ ParticleSystemRenderer:
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

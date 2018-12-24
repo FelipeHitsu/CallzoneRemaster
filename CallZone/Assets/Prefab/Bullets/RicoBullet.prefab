@@ -76,6 +76,10 @@ MonoBehaviour:
   _playerNumber: 0
   bulletRb: {fileID: 0}
   _speed: 60
+  _ricoParticle: {fileID: 1649726365594632, guid: d0590cd2217ec8943967bd4411262145,
+    type: 2}
+  _ricoExplosion: {fileID: 1354416872073234, guid: 5c6f219afd4587442810f88a950f58d0,
+    type: 2}
   collisionMask:
     serializedVersion: 2
     m_Bits: 1024
