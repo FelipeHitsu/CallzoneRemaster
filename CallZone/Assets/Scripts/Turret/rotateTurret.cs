@@ -117,7 +117,7 @@ public class rotateTurret : MonoBehaviour {
            _fireUp = false;
 
            //Destruindo objeto depois de 4 segundos
-           Destroy(tempBullet, 3.0f);
+           //Destroy(tempBullet, 3.0f);
          }
     }
 

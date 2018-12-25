@@ -813,6 +813,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenuUi: {fileID: 800503539}
+  _ricoBullet: {fileID: 114497802450273838, guid: ec491b5ea7eaa8644b46f1be967a9dac,
+    type: 2}
+  _ricoExplo: {fileID: 1354416872073234, guid: 5c6f219afd4587442810f88a950f58d0, type: 2}
   _pausedGame: 0
 --- !u!4 &128021424
 Transform:

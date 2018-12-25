@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class RicochetBullet : MonoBehaviour
 {
+    /// <Eventos>
+    //Evento de explosão
+    public delegate void ExplosionDelegate(bool active);
+    public event ExplosionDelegate ExplosionEvent;
+    /// </eventos>
+
+
+
+    ///<Variáveis>
     public int _playerNumber;
     //Corpo do projétil
     public Rigidbody2D bulletRb;
@@ -12,13 +21,15 @@ public class RicochetBullet : MonoBehaviour
     //Vida(quantidade de vezes que vai bater)
     private int _ricoLife = 5;
     //Vai ativar a explosão
-    private bool _onExplosion = false;
+    [HideInInspector]
+    public bool _onExplosion = false;
     //Particula quando bate nas coisas
     public GameObject _ricoParticle;
     //Explosão que vai dar dano
     public GameObject _ricoExplosion;
 
     public LayerMask collisionMask;
+   // private object active;
 
     void Start ()
     {
@@ -54,11 +65,7 @@ public class RicochetBullet : MonoBehaviour
             _ricoLife -= 1;
             Debug.Log("Vai explodir em...:" + _ricoLife);
 
-            //Se chegar a 0, explode!
-            if (_ricoLife <= 0)
-            {
-                _onExplosion = true;
-            }   
+           
            
             //Vetor de reflexão
             Vector2 reflection = Vector2.Reflect(ray.direction, hit.normal);
@@ -70,16 +77,35 @@ public class RicochetBullet : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, rot);    
         }
 
-        if(_onExplosion)
+        //Se chegar a 0, explode!
+        if (_ricoLife <= 0)
         {
-            //Instanciando a particula
-            GameObject tempExplo = Instantiate(_ricoExplosion, transform.position, Quaternion.identity, transform);
-            //DEstruindo a particula
-            Destroy(tempExplo, 2.0f);
+            Debug.Log("PQ NÃO ENTRA NO EVENTO CARALHO!?!?");
+           
+            //Verificando se o evento não é nulo
+            if(ExplosionEvent != null)
+            {
+              Debug.Log("VAI CARALHO!@@@@@@@@@@@@: " + ExplosionEvent != null);
+              //A call do evento passando que a explosão está pronta
+              ExplosionEvent.Invoke(_onExplosion = true);
+              Destroy(gameObject);
+              _ricoLife = 5;
+            }
 
-            _onExplosion = false;
-            _ricoLife = 5;
+            //_onExplosion = true;
+            //_ricoLife = 5;
         }
+
+        //if(_onExplosion)
+        //{
+        //    //Instanciando a particula
+        //    GameObject tempExplo = Instantiate(_ricoExplosion, transform.position, Quaternion.identity, transform);
+
+        //    //Destruindo o objeto
+        //    Destroy(gameObject);
+        //    _onExplosion = false;
+
+        //}
     }
 
 

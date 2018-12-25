@@ -7,6 +7,7 @@ public class PlayerHUD : MonoBehaviour
 {
 
     public PlayerTank tank;
+    
 
     //Barra de vida do jogador
     [SerializeField]
