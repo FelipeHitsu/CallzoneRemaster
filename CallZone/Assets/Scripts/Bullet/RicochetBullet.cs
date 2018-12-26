@@ -6,7 +6,7 @@ public class RicochetBullet : MonoBehaviour
 {
     /// <Eventos>
     //Evento de explosão
-    public delegate void ExplosionDelegate(bool active);
+    public delegate void ExplosionDelegate();
     public event ExplosionDelegate ExplosionEvent;
     /// </eventos>
 
@@ -26,7 +26,7 @@ public class RicochetBullet : MonoBehaviour
     //Particula quando bate nas coisas
     public GameObject _ricoParticle;
     //Explosão que vai dar dano
-    public GameObject _ricoExplosion;
+    public GameObject _ricoExplo;
 
     public LayerMask collisionMask;
    // private object active;
@@ -40,7 +40,6 @@ public class RicochetBullet : MonoBehaviour
 
     void Update()
     {
-        
 
         //Movimentação do projétil
         bulletRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
@@ -80,39 +79,34 @@ public class RicochetBullet : MonoBehaviour
         //Se chegar a 0, explode!
         if (_ricoLife <= 0)
         {
-            Debug.Log("PQ NÃO ENTRA NO EVENTO CARALHO!?!?");
-           
-            //Verificando se o evento não é nulo
-            if(ExplosionEvent != null)
-            {
-              Debug.Log("VAI CARALHO!@@@@@@@@@@@@: " + ExplosionEvent != null);
-              //A call do evento passando que a explosão está pronta
-              ExplosionEvent.Invoke(_onExplosion = true);
-              Destroy(gameObject);
-              _ricoLife = 5;
-            }
-
-            //_onExplosion = true;
-            //_ricoLife = 5;
+            Debug.Log("Explodiu");
+            _onExplosion = true;
+            ricoExplosion(_onExplosion);
         }
 
-        //if(_onExplosion)
-        //{
-        //    //Instanciando a particula
-        //    GameObject tempExplo = Instantiate(_ricoExplosion, transform.position, Quaternion.identity, transform);
-
-        //    //Destruindo o objeto
-        //    Destroy(gameObject);
-        //    _onExplosion = false;
-
-        //}
+            
     }
 
+
+    public void ricoExplosion(bool active)
+    {
+        if(active)
+        {
+            //Instanciando a particula
+            GameObject tempExplo = Instantiate(_ricoExplo, transform.position, transform.rotation);
+            //Destroi o objeto
+            Destroy(gameObject);
+            //Reseta a vida da bala pro proximo uso
+            _ricoLife = 5;
+            //Dizendo que a explosão já foi
+            _onExplosion = false;
+        }
+    }
 
     public void SetBullet(int player)
     {
         _playerNumber = player;
     }
 
-    
 }
+

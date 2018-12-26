@@ -72,12 +72,8 @@ public class PlayerTank : MonoBehaviour
 
 
     ///Vetores
-    private Vector3 moveInput;
+    private Vector2 moveInput;
     private Vector3 moveVelocity;
-    //Vetor para a base do tank
-    private Vector3 basePosition;
-    //Vetor para a torre do tank
-    private Vector3 baseRotation;
 
     ///<Componentes>
     //Componente de rigidbody do player
@@ -110,8 +106,7 @@ public class PlayerTank : MonoBehaviour
 	void Update ()
     {
         VerifyEnergy(_energy);
-        rotate();
-        move();
+        movePlayer();
 
 
         
@@ -179,93 +174,26 @@ public class PlayerTank : MonoBehaviour
         }
     }
 
-   void rotate()
-    {
-        
-
-
-       
-
-        ////Direita, com joystick
-        //if (rewPlayer.GetButton("TurnBaseRight"))
-        //{
-           
-        //    baseRotation.z -= _rotationSpeed;
-        //}
-        ////Esquerda, com joystick
-        //else if (rewPlayer.GetButton("TurnBaseLeft"))
-        //{
-            
-        //    baseRotation.z += _rotationSpeed;
-        //}
-        
-         
-    }
-
-    void move()
+    void movePlayer()
     {
 
-        //Let's try agaaaainnnn............
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveInput = new Vector2(rewPlayer.GetAxisRaw("Horizontal"), rewPlayer.GetAxisRaw("Vertical")).normalized;
 
+        
         //Aplicando um novo vetor os vetores de input com minha velocidade, tempo e velocidade passiva
         moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
 
-        ////Inputs para rotação(VAI LA PRA TORRE ESSES INPUTS)
-        //float _rX = Input.GetAxis("Right_Horizontal");
-        //float _rY = Input.GetAxis("Right_Vertical");
-
-        
-       
-        //Som de movimento
-        _sfx.VolumeController(0, 0.1f);
+        //Novo movimento com o ângulo do joystick
+        playerRb.MovePosition(transform.position + moveVelocity);
 
 
+        //Rotação são os dois vetores de inputs
+        _rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
 
-        //Frente, com joystick
-        if (rewPlayer.GetButton("MoveFront"))
-        {
-            //Clip, source, bool
-            if (_sfx.AudioIsPlaying(0, 1))
-            {
-                _sfx.StopSound(0);
-                _sfx.Playsound(0, 0, false);
-            }
-
-            //Novo movimento com o ângulo do joystick
-            playerRb.MovePosition(transform.position + moveInput);
+        //Aplicando a rotação ao valor dos vetores
+        transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
 
 
-            //////Rotação são os dois vetores de inputs
-            //_rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x);
-
-            ////Aplicando a rotação ao valor dos vetores
-            //transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
-            //transform.LookAt(new Vector3(transform.position.x, transform.position.y, moveInput.z));
-
-
-            //Movimento antigo
-            //playerRb.MovePosition(transform.position + transform.right * _speed * _speedPU * Time.deltaTime);
-        }
-
-        //Trás, com joystick
-        else if (rewPlayer.GetButton("MoveBack"))
-        {
-            if (_sfx.AudioIsPlaying(0, 1))
-            {
-                _sfx.StopSound(0);
-                _sfx.Playsound(0, 0, false);
-            }
-
-            //Novo movimento com o ângulo do joystick
-            playerRb.MovePosition(transform.position - moveInput);
-        }
-
-
-        if (!_sfx.AudioIsPlaying(0, 0))
-        {
-            _sfx.Playsound(0, 1, true);
-        }
     }
 
     //Função que verifica a quantidade de energia que o jogador tem para usar o powerUp
@@ -325,6 +253,10 @@ public class PlayerTank : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.collider.CompareTag("RicoBullet"))
+        {
+            ApplyDamage(30, _playerNumber);
+        }
         
     }
 

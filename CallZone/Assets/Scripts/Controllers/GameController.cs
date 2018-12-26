@@ -7,10 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : Singleton<GameController>
 {
     public GameObject _pauseMenuUi;
-    public RicochetBullet _ricoBullet;
 
-
-    public GameObject _ricoExplo;
 
     //Se o jogo estiver pausado ou não
     public bool _pausedGame = false;
@@ -23,19 +20,10 @@ public class GameController : Singleton<GameController>
         //A variavel faz a contagem de quantos objetos na cena temos com a tag Player
         alivePlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
-        _ricoBullet.ExplosionEvent += OnExplosion;
     }
 	
 	
-    void Update ()
-    {
-        
-	}
-
-    void OnDisable()
-    {
-        _ricoBullet.ExplosionEvent -= OnExplosion;
-    }
+    void Update () {}
 
    public void AllFood()
    {
@@ -80,16 +68,6 @@ public class GameController : Singleton<GameController>
         SceneManager.LoadScene("ChooseTank");
    }
 
-   public void OnExplosion(bool explosion)
-   {
-        Debug.Log("O evento deu bom :D");
-        //Aqui, tem que instanciar a particula na posição da bala, dizer que a explosão aconteceu
-        GameObject tempExplo = Instantiate(_ricoExplo, _ricoBullet.transform.position, _ricoBullet.transform.rotation);
-        explosion = false;
-        _ricoBullet._onExplosion = explosion;
-        
-   }
-
-   
+  
    
 }

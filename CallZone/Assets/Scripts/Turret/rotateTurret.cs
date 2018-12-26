@@ -39,7 +39,7 @@ public class rotateTurret : MonoBehaviour {
     public AudioClip _effectSound;
     ///</Variaveis>
 
-    private Vector3 turretRotation;
+    private Vector2 moveInput;
 
     /// <Rewired>
     private Player rewPlayer;
@@ -69,16 +69,12 @@ public class rotateTurret : MonoBehaviour {
 
     void rotate()
     {
-        if (rewPlayer.GetButton("TurnTurretRight"))
-        {
-            turretRotation.z += _rotationSpeed;
-        }
-        else if(rewPlayer.GetButton("TurnTurretLeft"))
-        {     
-            turretRotation.z -= _rotationSpeed;
-        }
+        moveInput = new Vector2(rewPlayer.GetAxisRaw("Right_Horizontal"), rewPlayer.GetAxisRaw("Right_Vertical")).normalized;
 
-        transform.rotation = Quaternion.Euler(turretRotation);
+        //Rotação são os dois vetores de inputs
+        _rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
     }
 
     
@@ -89,7 +85,7 @@ public class rotateTurret : MonoBehaviour {
          {
             //Particula de tiro
             GameObject tempShoot = Instantiate(_shootingParticle, shootspawn.position, Quaternion.identity);
-            Destroy(tempShoot, 1.0f);
+            
 
 
             ///Sons de tiro
@@ -111,7 +107,7 @@ public class rotateTurret : MonoBehaviour {
             GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
 
-            tempBullet.GetComponent<RicochetBullet>().SetBullet(_playerNumber);
+            tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
 
            _fireReloadTimer = 0;
            _fireUp = false;

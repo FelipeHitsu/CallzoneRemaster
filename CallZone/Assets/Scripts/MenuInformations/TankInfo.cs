@@ -26,6 +26,7 @@ public class TankTurret
 {
     public string name;
     public GameObject _bullet;
+    public GameObject[] powerUpBullets;
     public Sprite _TowerSprite;
     public float _turnSpeed;
     public float _fireRate;

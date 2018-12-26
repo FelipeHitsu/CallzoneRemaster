@@ -20,7 +20,6 @@ public class PlayerStatus : MonoBehaviour {
 
     public void SetFillAmountEnergy (float energy)
     {
-        Debug.Log("Que acontece? " + energy);
         _EnergyBar.fillAmount = energy;
     }
   

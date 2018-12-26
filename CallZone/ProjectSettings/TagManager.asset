@@ -6,17 +6,12 @@ TagManager:
   tags:
   - Collectable
   - pedroso
-  - Milho
-  - Cenoura
-  - Cogumelo
-  - Ovo
-  - Pao
-  - Queijo
   - Food
   - Bullet
   - Box
   - Wall
   - ScreenShake
+  - RicoBullet
   layers:
   - Default
   - TransparentFX

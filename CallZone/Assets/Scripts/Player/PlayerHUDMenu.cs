@@ -44,7 +44,7 @@ public class PlayerHUDMenu : MonoBehaviour
     {
         
         _lifeTMP.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "Life .... " + _life;
-        _speedTMP.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "Dpeed .... " + _speed;
+        _speedTMP.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name + " " + "Speed .... " + _speed;
         _fireRateTMP.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "Fire rate .... " + _fireRate;
         _damageTMP.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name + " " + "Damage .... " + _damage;
     }
