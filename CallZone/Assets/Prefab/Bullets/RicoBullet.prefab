@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50448325377533282}
   - component: {fileID: 114497802450273838}
   - component: {fileID: 96170989906202172}
+  - component: {fileID: 95517435651855064}
   m_Layer: 10
   m_Name: RicoBullet
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773033220477042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 350.08978, y: 251.6488, z: -1173.8723}
+  m_LocalPosition: {x: 75.61, y: -80.27, z: -1173.8723}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,6 +64,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &95517435651855064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773033220477042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11182559a21c81a41ae7e2391cd6aeb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!96 &96170989906202172
 TrailRenderer:
   serializedVersion: 2
@@ -99,7 +118,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.5
@@ -162,7 +181,7 @@ TrailRenderer:
     textureMode: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.31
-  m_Autodestruct: 0
+  m_Autodestruct: 1
 --- !u!114 &114497802450273838
 MonoBehaviour:
   m_ObjectHideFlags: 1

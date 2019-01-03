@@ -79,7 +79,7 @@ public class PlayerTank : MonoBehaviour
 
     ///<Componentes>
     //Componente de rigidbody do player
-    [HideInInspector]
+   
     public Rigidbody2D playerRb;
     //Sprite para ser alterada do tank
     private SpriteRenderer sprtRendBase;
@@ -97,7 +97,7 @@ public class PlayerTank : MonoBehaviour
 
         CreateTank();
 
-        playerRb = GetComponent<Rigidbody2D>();
+        //playerRb = GetComponent<Rigidbody2D>();
 
         _speedLiner = GetComponent<TrailRenderer>();
         _speedLiner.enabled = false;
@@ -138,21 +138,29 @@ public class PlayerTank : MonoBehaviour
 
 
 
-        //Apertar X, para o powerUp
-        if (rewPlayer.GetButton("PowerUp"))
-        {
-            //Chamando a função de powerup
-            PowerUpSpeed(_energy);
-        }
+        ////Apertar X/A, para o powerUp
+        //if (rewPlayer.GetButton("SpeedUp"))
+        //{
+        //    //Chamando a função de powerup
+        //    PowerUpSpeed(_energy);
+        //}
 
-        //Input R1 do joystick
+        //Input R1/RB do joystick
         if (rewPlayer.GetButton("Shoot"))
         {
             //Chamando a função de tiro
             Turret.Shoot();
         }
 
-        //Apertar (triangulo) abri o menu
+        //Input L1/LB do joystick
+        if(rewPlayer.GetButton("PowerUp"))
+        {
+            //Chamando a função do pw
+            Debug.Log("Atirando no input");
+            Turret.RicochetPowerUp();
+        }
+
+        //Apertar (triangulo/Y) abri o menu
         if(rewPlayer.GetButton("Pause"))
         {
             _gameController.PauseGame();
@@ -161,19 +169,19 @@ public class PlayerTank : MonoBehaviour
 
         if (_gameController._pausedGame)
         {
-            //Apertar (quadrado) dentro do pause vai para a seleção de menu
+            //Apertar (quadrado/X) dentro do pause vai para a seleção de menu
             if (rewPlayer.GetButton("MenuSelection"))
             {
                 _gameController.ChooseTank();
             }
 
-            //Apertar (bolinha) dentro do pause vai volta para o jogo
+            //Apertar (bolinha/B) dentro do pause vai volta para o jogo
             if (rewPlayer.GetButton("BackPause"))
             {
                 _gameController.ResumeGame();
             }
 
-            //Apertar (X) volta pro menu inicial do jogo
+            //Apertar (X/A) volta pro menu inicial do jogo
             if(rewPlayer.GetButton("Quit"))
             {
                 _gameController.QuitMenu();
@@ -238,6 +246,8 @@ public class PlayerTank : MonoBehaviour
             
         }
     }
+
+   
 
     void OnCollisionEnter2D(Collision2D other)
     {

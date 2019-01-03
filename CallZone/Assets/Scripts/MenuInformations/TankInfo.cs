@@ -8,6 +8,7 @@ public class TankInfo
 
    public TankBase baseTank;
    public TankTurret turret;
+   public PowerUp powerUp;
     
 }
 
@@ -26,10 +27,19 @@ public class TankTurret
 {
     public string name;
     public GameObject _bullet;
-    public GameObject[] powerUpBullets;
     public Sprite _TowerSprite;
     public float _turnSpeed;
     public float _fireRate;
+    public int _damage;
+   
+}
+
+[System.Serializable]
+public class PowerUp
+{
+    public string name;
+    public GameObject _powerUp;
+    public Sprite _pwSprite;
     public int _damage;
 }
     

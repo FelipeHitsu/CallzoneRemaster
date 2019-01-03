@@ -14,6 +14,8 @@ public class rotateTurret : MonoBehaviour {
     ///<Componentes>
     //Objeto de tiro
     private GameObject shoot;
+    //Objeto de pw
+    private GameObject _powerUpShoot;
     //Posição do tiro-
     public Transform shootspawn;
     //Gerenciador de som
@@ -31,6 +33,8 @@ public class rotateTurret : MonoBehaviour {
     private float _rotationSpeed;
     //Quanto de dano cada torre da
     public float _damage;
+    //Dano do pw
+    private float _damagePw;
     //Reloader do tiro
     private float _fireReloadTimer = 0.0f;
     //Pra saber se pode atirar de novo
@@ -112,10 +116,20 @@ public class rotateTurret : MonoBehaviour {
            _fireReloadTimer = 0;
            _fireUp = false;
 
-           //Destruindo objeto depois de 4 segundos
-           //Destroy(tempBullet, 3.0f);
          }
     }
+
+    public void RicochetPowerUp()
+    {
+        //Instanciar o pw
+        Debug.Log("Ricochet lives!?!?!");
+        GameObject tempPw = Instantiate(_powerUpShoot, shootspawn.position, Quaternion.identity);
+        tempPw.transform.right = transform.right;
+
+        tempPw.GetComponent<RicochetBullet>().SetBullet(_playerNumber);
+
+    }
+
 
     public void DefineTurret(TankTurret turret)
     {
@@ -134,7 +148,11 @@ public class rotateTurret : MonoBehaviour {
         //Dano do canhão
         _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
 
+        //Dano do pw
+        _damagePw = TankSettings.tankInfo[_playerNumber].powerUp._damage;
 
+        //Projétil de pw
+        _powerUpShoot = TankSettings.tankInfo[_playerNumber].powerUp._powerUp;
     }
    
 }

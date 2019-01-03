@@ -27,19 +27,26 @@ public class RicochetBullet : MonoBehaviour
     public GameObject _ricoParticle;
     //Explosão que vai dar dano
     public GameObject _ricoExplo;
-
+    //Animator para animação
+    private Animator _ricoAnim;
+    
     public LayerMask collisionMask;
-   // private object active;
+   
 
     void Start ()
     {
         //Pegando o componente do projétil
         bulletRb = GetComponent<Rigidbody2D>();
+
+        //Pegando animator
+        _ricoAnim = GetComponent<Animator>();
     }
 
 
     void Update()
     {
+        //Dizendo que a vida da bala é igual do animator, pra poder ativar as animações
+        _ricoAnim.SetInteger("_ricoLife", _ricoLife);
 
         //Movimentação do projétil
         bulletRb.MovePosition(transform.position + transform.right * _speed * Time.deltaTime);
@@ -62,10 +69,7 @@ public class RicochetBullet : MonoBehaviour
 
             //Diminuindo a vida para saber quando ela vai explodir
             _ricoLife -= 1;
-            Debug.Log("Vai explodir em...:" + _ricoLife);
 
-           
-           
             //Vetor de reflexão
             Vector2 reflection = Vector2.Reflect(ray.direction, hit.normal);
             //Reflect retorna o valor contrário do vetor definido como normal
@@ -79,7 +83,7 @@ public class RicochetBullet : MonoBehaviour
         //Se chegar a 0, explode!
         if (_ricoLife <= 0)
         {
-            Debug.Log("Explodiu");
+            
             _onExplosion = true;
             ricoExplosion(_onExplosion);
         }
