@@ -17,10 +17,7 @@ public class PlayerTank : MonoBehaviour
     public event DamageDelegate DamageEvent;
 
     public delegate void EnergyDelegate(float totalFood);
-    public event EnergyDelegate EnergyEvent;
-
-   
-        
+    public event EnergyDelegate EnergyEvent;  
     /// </Eventos>
 
     ///<Áudio>
@@ -30,6 +27,12 @@ public class PlayerTank : MonoBehaviour
     ///<Particulas>
     //Particulas de coletando objeto
     public GameObject _collectParticle;
+    //Particula de fumaça do tank
+    public GameObject _smokePtc;
+    //Particula de powerUp
+    public GameObject _speedPtc;
+    //Line para o powerUp de velocidade
+    private TrailRenderer _speedLiner;
     ///</Particulas>
 
     /// <Torre>
@@ -64,16 +67,15 @@ public class PlayerTank : MonoBehaviour
     private bool _powerUpisOn;
     //Quanto tempo o powerUp vai ficar ativo
     private float _powerUpTimer = 5f;
-    //Line para o powerUp de velocidade
-    private TrailRenderer _speedLiner;
-    //Particula de powerUp
-    public GameObject _speedPtc;
+    //Bool para a particula de movimento
+    private bool _smokeMoving;
     /// </Variaveis>
 
 
     ///Vetores
     private Vector2 moveInput;
     private Vector3 moveVelocity;
+    public Transform _smokePos;
 
     ///<Componentes>
     //Componente de rigidbody do player
@@ -108,8 +110,13 @@ public class PlayerTank : MonoBehaviour
         VerifyEnergy(_energy);
         movePlayer();
 
+        //Instanciando a particla quando movimenta
+        if (_smokeMoving)
+        {
+            GameObject smokeTemp = Instantiate(_smokePtc, _smokePos.position, _smokePos.rotation);
+            _smokeMoving = false;
+        }
 
-        
         if (_powerUpisOn)
         {
 
@@ -179,7 +186,12 @@ public class PlayerTank : MonoBehaviour
 
         moveInput = new Vector2(rewPlayer.GetAxisRaw("Horizontal"), rewPlayer.GetAxisRaw("Vertical")).normalized;
 
-        
+        if (moveInput.magnitude > 0)
+            _smokeMoving = true;
+        else
+            _smokeMoving = false;
+
+
         //Aplicando um novo vetor os vetores de input com minha velocidade, tempo e velocidade passiva
         moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
 
@@ -193,7 +205,7 @@ public class PlayerTank : MonoBehaviour
         //Aplicando a rotação ao valor dos vetores
         transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
 
-
+        
     }
 
     //Função que verifica a quantidade de energia que o jogador tem para usar o powerUp
