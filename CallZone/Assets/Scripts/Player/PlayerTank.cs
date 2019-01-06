@@ -32,7 +32,7 @@ public class PlayerTank : MonoBehaviour
     //Particula de powerUp
     public GameObject _speedPtc;
     //Line para o powerUp de velocidade
-    private TrailRenderer _speedLiner;
+    public TrailRenderer _speedLiner;
     ///</Particulas>
 
     /// <Torre>
@@ -63,12 +63,14 @@ public class PlayerTank : MonoBehaviour
     //Energia maxima e atual
     private float _maxEnergy;
     private float _energy;
-    //Pra saber se o jogador usou o powerUp ou não
-    private bool _powerUpisOn;
-    //Quanto tempo o powerUp vai ficar ativo
-    private float _powerUpTimer = 5f;
+    //Pra saber se o jogador usou o powerUp de velocidade ou não
+    private bool _powerUpisOn = false;
+    //Quanto tempo o powerUp de speed vai ter de cd
+    private float _powerUpTimerCd = 0;
     //Bool para a particula de movimento
     private bool _smokeMoving;
+    //Quanto tempo pw de speed vai durar
+    private float _activeTimer = 5f;
     /// </Variaveis>
 
 
@@ -97,11 +99,6 @@ public class PlayerTank : MonoBehaviour
 
         CreateTank();
 
-        //playerRb = GetComponent<Rigidbody2D>();
-
-        _speedLiner = GetComponent<TrailRenderer>();
-        _speedLiner.enabled = false;
-
     }
 	
 	// Update is called once per frame
@@ -109,6 +106,7 @@ public class PlayerTank : MonoBehaviour
     {
         VerifyEnergy(_energy);
         movePlayer();
+        PowerUpSpeed();
 
         //Instanciando a particla quando movimenta
         if (_smokeMoving)
@@ -117,33 +115,22 @@ public class PlayerTank : MonoBehaviour
             _smokeMoving = false;
         }
 
-        if (_powerUpisOn)
+
+
+
+
+        //Apertar X/A, para o powerUp
+        if (rewPlayer.GetButton("SpeedUp"))
         {
-
-            //Habilita a linha
-            _speedLiner.enabled = true;
-
-            //Contagem de tempo
-            _powerUpTimer -= Time.deltaTime;
-           
-            //Se zerar, desativa a linha e volta velocidade normal
-            if (_powerUpTimer <= 0)
+            //Verificando o cd, se for = 10, pode ativar de novo
+            if (_powerUpTimerCd >= 4)
             {
-                _powerUpisOn = false;
-                _speedPU = 1;
-                _speedLiner.enabled = false;
-                _powerUpTimer = 5f;
+                //Instanciando a particula
+                GameObject tempSpeedPtc = Instantiate(_speedPtc, transform.position, transform.rotation);
+                _powerUpisOn = true;
+               
             }
         }
-
-
-
-        ////Apertar X/A, para o powerUp
-        //if (rewPlayer.GetButton("SpeedUp"))
-        //{
-        //    //Chamando a função de powerup
-        //    PowerUpSpeed(_energy);
-        //}
 
         //Input R1/RB do joystick
         if (rewPlayer.GetButton("Shoot"))
@@ -187,6 +174,8 @@ public class PlayerTank : MonoBehaviour
                 _gameController.QuitMenu();
             }
         }
+
+        
     }
 
     void movePlayer()
@@ -230,21 +219,50 @@ public class PlayerTank : MonoBehaviour
     }
 
 
-    //Função que ativa o powerup(VAI SER PASSADO PRA PASSIVA COM CD ISSO AQUI)
-    public void PowerUpSpeed(float energy)
+    //Função que ativa o powerup
+    public void PowerUpSpeed()
     {
         //Se estiver ativo
-        if(energy >= _maxEnergy)
+        if (_powerUpisOn)
         {
-            //Instanciando a particula
-            GameObject tempSpeedPtc = Instantiate(_speedPtc, transform.position, transform.rotation);
-            Destroy(tempSpeedPtc, 1f);
-
-            _energy = 0;
-            _speedPU = 2.5f;
-            _powerUpisOn = true;
             
+            //Habilita a linha
+            _speedLiner.enabled = true;
+
+            //Velocidade aumentada
+            _speedPU = 4f;
+
+            //Contador pra ver o tempo que vai durar
+            _activeTimer -= Time.deltaTime;
+            Debug.Log("TEmpo de duração do SPEEDUP vagabundo: " + _activeTimer);
+
+            //Se chegar a 5 segundos, desativa
+            if (_activeTimer <= 0f)
+            {
+                Debug.Log("ACABOU LADRÃO!: " + _speedPU);
+                _powerUpisOn = false;
+                _powerUpTimerCd = 0f;
+               
+            }
         }
+        //Se não estiver ativo, o contador vai contandoo tempo do cd, até poder ativar de novo
+        else
+        {
+            _speedLiner.enabled = false;
+            _speedPU = 1f;
+            
+            //Contando tempo do Cd
+            _powerUpTimerCd += Time.deltaTime;
+
+            //Debug.Log("Tempo do Cd CARALHOOO, SPEEDUP:" + _powerUpTimerCd);
+            //Se chegar a dez, deu o Cd
+            if (_powerUpTimerCd >= 4)
+            {
+                Debug.Log("USA LADRÃO! VAAAAIAIIIIIIIIIIIIIIII");
+                _powerUpTimerCd = 4;
+            }
+        }
+
     }
 
    
