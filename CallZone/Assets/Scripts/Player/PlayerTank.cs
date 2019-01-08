@@ -50,7 +50,7 @@ public class PlayerTank : MonoBehaviour
     //Velocidade do jogador se mover
     private  float _speed;
     //Velocidade do powerUp com valor 0
-    private float _speedPU = 1;
+    private float _speedPU;
     //Velocidade do jogador virar a base do tank
     private float _rotationSpeed = 3f;
     //Angulho para rotação da torre
@@ -64,9 +64,10 @@ public class PlayerTank : MonoBehaviour
     private float _maxEnergy;
     private float _energy;
     //Pra saber se o jogador usou o powerUp de velocidade ou não
-    private bool _powerUpisOn = false;
+    private bool _powerUpisOn;
+    private bool _activeSpeed;
     //Quanto tempo o powerUp de speed vai ter de cd
-    private float _powerUpTimerCd = 0;
+    private float _powerUpTimerCd;
     //Bool para a particula de movimento
     private bool _smokeMoving;
     //Quanto tempo pw de speed vai durar
@@ -81,12 +82,15 @@ public class PlayerTank : MonoBehaviour
 
     ///<Componentes>
     //Componente de rigidbody do player
-   
     public Rigidbody2D playerRb;
     //Sprite para ser alterada do tank
     private SpriteRenderer sprtRendBase;
     //Controle do jogo
     public GameController _gameController;
+    //Imagem para a passiva
+    public Image _SpeedPwImage;
+    //Animator pra animação do SpeedUp
+    public Animator _speedPwAnim;
     ///</Componentes>
 
     
@@ -99,6 +103,8 @@ public class PlayerTank : MonoBehaviour
 
         CreateTank();
 
+        //Deixando a animação normal
+        _speedPwAnim.SetBool("speedCharged", false);
     }
 	
 	// Update is called once per frame
@@ -118,19 +124,21 @@ public class PlayerTank : MonoBehaviour
 
 
 
-
+        //Debug.Log("Ativando o pw:" + _powerUpisOn);
         //Apertar X/A, para o powerUp
         if (rewPlayer.GetButton("SpeedUp"))
         {
-            //Verificando o cd, se for = 10, pode ativar de novo
-            if (_powerUpTimerCd >= 4)
+            //Se tiver o cd pode ativar
+            if (_powerUpisOn)
             {
                 //Instanciando a particula
                 GameObject tempSpeedPtc = Instantiate(_speedPtc, transform.position, transform.rotation);
-                _powerUpisOn = true;
-               
+                _activeSpeed = true;
+                _powerUpisOn = false;
             }
         }
+
+
 
         //Input R1/RB do joystick
         if (rewPlayer.GetButton("Shoot"))
@@ -223,24 +231,24 @@ public class PlayerTank : MonoBehaviour
     public void PowerUpSpeed()
     {
         //Se estiver ativo
-        if (_powerUpisOn)
+        if (_activeSpeed)
         {
             
+
             //Habilita a linha
             _speedLiner.enabled = true;
 
             //Velocidade aumentada
-            _speedPU = 4f;
+            _speedPU = 3f;
 
             //Contador pra ver o tempo que vai durar
             _activeTimer -= Time.deltaTime;
-            Debug.Log("TEmpo de duração do SPEEDUP vagabundo: " + _activeTimer);
 
-            //Se chegar a 5 segundos, desativa
+            //Se chegar a 0 segundos, desativa
             if (_activeTimer <= 0f)
             {
-                Debug.Log("ACABOU LADRÃO!: " + _speedPU);
-                _powerUpisOn = false;
+                //Debug.Log("ACABOU LADRÃO!: " + _speedPU);
+                _activeSpeed = false;
                 _powerUpTimerCd = 0f;
                
             }
@@ -250,16 +258,25 @@ public class PlayerTank : MonoBehaviour
         {
             _speedLiner.enabled = false;
             _speedPU = 1f;
-            
+
+            //Dizendo que o fillAmount da imagem é igual o cd
+            _SpeedPwImage.fillAmount = _powerUpTimerCd / 4;
+
             //Contando tempo do Cd
             _powerUpTimerCd += Time.deltaTime;
 
-            //Debug.Log("Tempo do Cd CARALHOOO, SPEEDUP:" + _powerUpTimerCd);
+           
             //Se chegar a dez, deu o Cd
             if (_powerUpTimerCd >= 4)
             {
-                Debug.Log("USA LADRÃO! VAAAAIAIIIIIIIIIIIIIIII");
-                _powerUpTimerCd = 4;
+                //Ativando a pw de novo
+                _powerUpisOn = true;
+                //Definindo o tempo do cd pra não ficar sempre somando
+                _powerUpTimerCd = 4f;
+                //Zerando o tempo do pw ativo
+                _activeTimer = 4f;
+                //Ativar animação do pwSpeed
+                _speedPwAnim.SetBool("speedCharged", true);
             }
         }
 

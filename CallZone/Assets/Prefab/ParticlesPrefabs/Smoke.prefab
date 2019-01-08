@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787155174944592}
   m_LocalRotation: {x: 0, y: 0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: 51.014606, y: -18.471272, z: 27.02}
+  m_LocalPosition: {x: -39.11491, y: -31.919266, z: 27.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787155174944592}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -120,7 +120,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -173,7 +173,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1251,9 +1251,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0.5882353}
-        key2: {r: 1, g: 1, b: 1, a: 0.32156864}
-        key3: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.70980394}
+        key2: {r: 1, g: 1, b: 1, a: 0.3529412}
+        key3: {r: 0, g: 0, b: 0, a: 0.32156864}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1266,17 +1266,17 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
-        atime1: 31033
-        atime2: 65535
-        atime3: 0
+        atime0: 1928
+        atime1: 16577
+        atime2: 34502
+        atime3: 59367
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4589,7 +4589,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 17a655d4e31d390478844a7524c9e2bb, type: 2}
-  - {fileID: 2100000, guid: 234f9ed2a96d31c458031c3453dad202, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
