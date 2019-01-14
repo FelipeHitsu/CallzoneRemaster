@@ -89,8 +89,6 @@ public class PlayerTank : MonoBehaviour
     public GameController _gameController;
     //Imagem para a passiva
     public Image _SpeedPwImage;
-    //Animator pra animação do SpeedUp
-    public Animator _speedPwAnim;
     ///</Componentes>
 
     
@@ -103,8 +101,6 @@ public class PlayerTank : MonoBehaviour
 
         CreateTank();
 
-        //Deixando a animação normal
-        _speedPwAnim.SetBool("speedCharged", false);
     }
 	
 	// Update is called once per frame
@@ -275,8 +271,7 @@ public class PlayerTank : MonoBehaviour
                 _powerUpTimerCd = 4f;
                 //Zerando o tempo do pw ativo
                 _activeTimer = 4f;
-                //Ativar animação do pwSpeed
-                _speedPwAnim.SetBool("speedCharged", true);
+                
             }
         }
 

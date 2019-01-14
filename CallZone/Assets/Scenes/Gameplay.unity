@@ -4166,7 +4166,6 @@ GameObject:
   - component: {fileID: 422078191}
   - component: {fileID: 422078190}
   - component: {fileID: 422078189}
-  - component: {fileID: 422078192}
   m_Layer: 5
   m_Name: SpeedUpEgg
   m_TagString: Untagged
@@ -4225,24 +4224,6 @@ RectTransform:
   m_AnchoredPosition: {x: -91.1, y: 147.36505}
   m_SizeDelta: {x: 89, y: 117}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &422078192
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 422078188}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 063527fd98b2e684f8af3e9e8befdb29, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &423318104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,7 +4234,6 @@ GameObject:
   - component: {fileID: 423318105}
   - component: {fileID: 423318107}
   - component: {fileID: 423318106}
-  - component: {fileID: 423318108}
   m_Layer: 5
   m_Name: SpeedUpMeat
   m_TagString: Untagged
@@ -4312,24 +4292,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423318104}
---- !u!95 &423318108
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 423318104}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4e92ece364718a94683322239b8b27b5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &445168031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4482,6 @@ MonoBehaviour:
   playerRb: {fileID: 478295933}
   _gameController: {fileID: 128021423}
   _SpeedPwImage: {fileID: 423318106}
-  _speedPwAnim: {fileID: 423318108}
 --- !u!4 &478295931
 Transform:
   m_ObjectHideFlags: 0
@@ -10068,7 +10029,6 @@ MonoBehaviour:
   playerRb: {fileID: 1095436520}
   _gameController: {fileID: 128021423}
   _SpeedPwImage: {fileID: 422078189}
-  _speedPwAnim: {fileID: 422078192}
 --- !u!4 &1095436523
 Transform:
   m_ObjectHideFlags: 0

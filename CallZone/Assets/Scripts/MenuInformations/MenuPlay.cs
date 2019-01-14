@@ -8,6 +8,8 @@ public class MenuPlay : MonoBehaviour {
     public GameObject Menu;
     public GameObject howToPlay;
     public GameObject credits;
+    public Animator _AnimPlay;
+
 
     //Abre os créditos
     public void Credits()
@@ -41,12 +43,21 @@ public class MenuPlay : MonoBehaviour {
     //Começa o jogo
     public void StartGame()
     {
-        SceneManager.LoadScene("ChooseTank");
+        //Colocar a animação pra tocar aqui 
+        StartCoroutine(ChooseMenu());
     }
 
     //Sai do jogo
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    //Animação de troca de cena
+    IEnumerator ChooseMenu()
+    {
+        _AnimPlay.SetBool("playGame", true);
+        yield return new WaitForSeconds(1.2f);
+        SceneManager.LoadScene("ChooseTank");
     }
 }
