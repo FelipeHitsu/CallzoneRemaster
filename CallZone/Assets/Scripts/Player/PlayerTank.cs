@@ -104,12 +104,6 @@ public class PlayerTank : MonoBehaviour
     }
 
 
-    void FixedUpdate()
-    {
-       
-        
-    }
-
     void Update ()
     {
         VerifyEnergy(_energy);

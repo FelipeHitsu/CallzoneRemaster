@@ -40,11 +40,9 @@ public class BulletMovement : MonoBehaviour {
         //Pegando a referencia para a camera no inicio do jogo
         _camShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CamShake>();
 
-        //Pegando o componente do projétil
-        bulletRb = GetComponent<Rigidbody2D>();
-
         //Pegando o componente de som para os projéteis
         _sfx = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        
         //Deixando o volume acessível
         _sfx.VolumeController(0, .2f);
     }

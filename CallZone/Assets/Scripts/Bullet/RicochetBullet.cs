@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class RicochetBullet : MonoBehaviour
 {
-    /// <Eventos>
-    //Evento de explosão
-    public delegate void ExplosionDelegate();
-    public event ExplosionDelegate ExplosionEvent;
-    /// </eventos>
-
-
+    
 
     ///<Variáveis>
     public int _playerNumber;

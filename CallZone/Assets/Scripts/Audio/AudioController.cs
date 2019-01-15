@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class AudioController : MonoBehaviour {
-
-    
+public class AudioController : MonoBehaviour
+{
 
     [System.Serializable]
     public class AudioGroup
@@ -22,16 +21,17 @@ public class AudioController : MonoBehaviour {
     
 
    
-	// Use this for initialization
+	
 	void Start ()
     {
-        
+        //Cria todos os audioSources necessários
         for (int i = 0; i < AudiosGroup.Count; i++)
         {
             AudiosGroup[i].player = gameObject.AddComponent<AudioSource>();
         }
     }
 
+    //Verifica se está tocando
     public bool AudioIsPlaying(int group, int clipIndex)
     {
         
@@ -57,6 +57,7 @@ public class AudioController : MonoBehaviour {
         AudiosGroup[indexGroup].player.Stop();
     }
 
+    //Controle de volume
     public void VolumeController(int group, float volume)    
     {
         AudiosGroup[group].player.volume = volume;

@@ -20,6 +20,7 @@ public class GameController : Singleton<GameController>
         //A variavel faz a contagem de quantos objetos na cena temos com a tag Player
         alivePlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
+        
     }
 	
 
