@@ -13,7 +13,7 @@ public class GameController : Singleton<GameController>
     public bool _pausedGame = false;
     //Variável para ver quantos jogadores existem em cena
     private int alivePlayers;
-
+    public AudioController _sfx;
 	
 	void Start ()
     {
@@ -22,8 +22,6 @@ public class GameController : Singleton<GameController>
 
     }
 	
-	
-    void Update () {}
 
    public void AllFood()
    {
@@ -44,9 +42,11 @@ public class GameController : Singleton<GameController>
 
    public void PauseGame()
    {
+
         _pauseMenuUi.SetActive(true);
         Time.timeScale = 0f;
         _pausedGame = true;
+        _sfx.Playsound(4, 0, false);
    }
 
    public void ResumeGame()
@@ -54,17 +54,21 @@ public class GameController : Singleton<GameController>
         _pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
         _pausedGame = false;
-   }
+        _sfx.Playsound(4, 0, false);
+    }
 
    public void QuitMenu()
    {
         Time.timeScale = 1f;
+        _sfx.Playsound(4, 0, false);
         SceneManager.LoadScene("Menu");
+
    }
 
    public void ChooseTank()
    {
         Time.timeScale = 1f;
+        _sfx.Playsound(4, 0, false);
         SceneManager.LoadScene("ChooseTank");
    }
 
