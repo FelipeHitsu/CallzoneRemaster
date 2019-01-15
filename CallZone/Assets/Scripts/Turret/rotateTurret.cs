@@ -19,7 +19,7 @@ public class rotateTurret : MonoBehaviour {
     //Posição do tiro-
     public Transform shootspawn;
     //Gerenciador de som
-    public AudioController soundController;
+    public AudioController _sfx;
     //Pra saber qual sprite será desenhado
     private SpriteRenderer sprtRendTurret;
     ///</Componentes>
@@ -95,16 +95,16 @@ public class rotateTurret : MonoBehaviour {
             ///Sons de tiro
             //Torre de tubos
             if (TankSettings.tankInfo[_playerNumber].turret.name == "DoubleTubes")
-                soundController.Playsound(1, 0, false);
+                _sfx.Playsound(1, 0, false);
             //Tore de sorvete
             if (TankSettings.tankInfo[_playerNumber].turret.name == "IceCream")
-                soundController.Playsound(1, 1, false);
+                _sfx.Playsound(1, 1, false);
             //Torre de salsicha
             if (TankSettings.tankInfo[_playerNumber].turret.name == "Sausage")
-                soundController.Playsound(1, 2, false);
+                _sfx.Playsound(1, 2, false);
             //Torre de cenoura
             if (TankSettings.tankInfo[_playerNumber].turret.name == "Carrot")
-                soundController.Playsound(1, 3, false);
+                _sfx.Playsound(1, 3, false);
 
 
             //Criando instancia temporária para o tiro
@@ -148,11 +148,11 @@ public class rotateTurret : MonoBehaviour {
         //Dano do canhão
         _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
 
-        //Dano do pw
-        _damagePw = TankSettings.tankInfo[_playerNumber].powerUp._damage;
+        ////Dano do pw
+        //_damagePw = TankSettings.tankInfo[_playerNumber].powerUp._damage;
 
-        //Projétil de pw
-        _powerUpShoot = TankSettings.tankInfo[_playerNumber].powerUp._powerUp;
+        ////Projétil de pw
+        //_powerUpShoot = TankSettings.tankInfo[_playerNumber].powerUp._powerUp;
     }
    
 }

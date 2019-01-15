@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf36a37da1929e249ab371d9fd69f55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundController: {fileID: 853251272}
+  _sfx: {fileID: 853251272}
   bases:
   - name: Breads
     _speed: 40
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf36a37da1929e249ab371d9fd69f55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundController: {fileID: 853251272}
+  _sfx: {fileID: 853251272}
   bases:
   - name: Breads
     _speed: 20
@@ -2337,8 +2337,9 @@ MonoBehaviour:
   AudiosGroup:
   - name: Escolhas[0]
     clips:
-    - {fileID: 8300000, guid: fe0192e70dfaef143bdd77c3dfce5f0d, type: 3}
-    - {fileID: 8300000, guid: 50296d9107b6ac74ca9b2984fb005f28, type: 3}
+    - {fileID: 8300000, guid: d61e0afc31659b04fb7cae016efd1b4a, type: 3}
+    - {fileID: 8300000, guid: 15732fa26cc51774a830e4e59d48c037, type: 3}
+    - {fileID: 8300000, guid: bb05a1122aa255d429039346331aa81a, type: 3}
     player: {fileID: 0}
   - name: MenuBg[1]
     clips:
@@ -2613,7 +2614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneAnim: {fileID: 2109585668}
-  _soundController: {fileID: 853251272}
+  _sfx: {fileID: 853251272}
   _load: {fileID: 629104488}
   _loadAnim: {fileID: 629104490}
   _readyButton1: {fileID: 433426888}

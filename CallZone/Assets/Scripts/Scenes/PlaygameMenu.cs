@@ -9,7 +9,7 @@ public class PlaygameMenu : MonoBehaviour {
 
     public Animator sceneAnim;
 
-    public AudioController _soundController;
+    public AudioController _sfx;
 
     public TextMeshProUGUI _load;
     public Animator _loadAnim;
@@ -23,8 +23,9 @@ public class PlaygameMenu : MonoBehaviour {
 
     void Start()
     {
-        _soundController.VolumeController(1, 0.5f);
-        _soundController.Playsound(1, 0, true);
+        //Musica de menu com loop
+        _sfx.VolumeController(1, 0.5f);
+        _sfx.Playsound(1, 0, true);
         _load.text = " ";
     }
 
@@ -58,14 +59,14 @@ public class PlaygameMenu : MonoBehaviour {
 
     public void ReadyButtonP1()
     {
-        _soundController.Playsound(0, 1, false);
+        _sfx.Playsound(0, 2, false);
         _readyP1 = true;
         _readyButton1.enabled = false;
         _buttonsSelections.SetActive(false);
     }
     public void ReadyButtonP2()
     {
-        _soundController.Playsound(0, 1, false);
+        _sfx.Playsound(0, 2, false);
         _readyP2 = true;
         _readyButton2.enabled = false;
         _buttonsSelections2.SetActive(false);

@@ -102,9 +102,15 @@ public class PlayerTank : MonoBehaviour
         CreateTank();
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+
+    void FixedUpdate()
+    {
+       
+        
+    }
+
+    void Update ()
     {
         VerifyEnergy(_energy);
         movePlayer();
@@ -128,6 +134,7 @@ public class PlayerTank : MonoBehaviour
             if (_powerUpisOn)
             {
                 //Instanciando a particula
+                _sfx.Playsound(3, 0, false);
                 GameObject tempSpeedPtc = Instantiate(_speedPtc, transform.position, transform.rotation);
                 _activeSpeed = true;
                 _powerUpisOn = false;
@@ -214,9 +221,8 @@ public class PlayerTank : MonoBehaviour
     {
         if (energy >= _maxEnergy)
         {
-            
             energyAnim.SetBool("energyIsFull", true);
-            
+
         }
         else
             energyAnim.SetBool("energyIsFull", false);
@@ -290,7 +296,7 @@ public class PlayerTank : MonoBehaviour
             Destroy(tempCollect, 1.0f);
 
             //Som coletando a comida
-            _sfx.Playsound(3, 0, false);
+            _sfx.Playsound(2, 0, false);
 
             //Verifica se o objeto é do tipo coletável
             Collectable collectable = other.gameObject.GetComponent<Collectable>();
@@ -319,7 +325,7 @@ public class PlayerTank : MonoBehaviour
        _life -= damage;
 
         //Som do dano
-        _sfx.Playsound(2, 0, false);
+        _sfx.Playsound(0, 0, false);
 
         //Chamada do evento de dano
         if (DamageEvent != null)

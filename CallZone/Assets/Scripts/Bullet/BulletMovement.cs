@@ -20,6 +20,7 @@ public class BulletMovement : MonoBehaviour {
     private CamShake _camShake;
     //Corpo do projétil
     public Rigidbody2D bulletRb;
+    private AudioController _sfx; 
     ///</Componentes>
    
 
@@ -41,6 +42,11 @@ public class BulletMovement : MonoBehaviour {
 
         //Pegando o componente do projétil
         bulletRb = GetComponent<Rigidbody2D>();
+
+        //Pegando o componente de som para os projéteis
+        _sfx = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        //Deixando o volume acessível
+        _sfx.VolumeController(0, .2f);
     }
 
     // Update is called once per frame
@@ -55,17 +61,25 @@ public class BulletMovement : MonoBehaviour {
         //Verificando se houve colisão com a pedra
         if (other.gameObject.CompareTag("pedroso"))
         {
+            
+
             //Efeito de explosão quando bate na pedra
             GameObject tempExp = Instantiate(particleExplosion, transform.position, Quaternion.identity);
             Destroy(tempExp, 1.0f);
 
             //Destruindo o objeto, no caso o projétil
             Destroy(gameObject);
+
+            //Som de explosão
+            _sfx.Playsound(0, 1, false);
+            
         }
 
         //Verificando se houve colisão com o jogador adversário
         if (other.gameObject.CompareTag("Player"))
         {
+            
+
             //Ativando o screenshake quando atinge outro jogador
             _camShake.screenShake();
 
@@ -78,6 +92,9 @@ public class BulletMovement : MonoBehaviour {
 
             //Destruindo o projétil
             Destroy(gameObject);
+
+            //Som de explosão no jogador
+            _sfx.Playsound(0, 0, false);
         }
 
         //Verificando colisão com a comida
@@ -95,6 +112,7 @@ public class BulletMovement : MonoBehaviour {
         //Verificando colisão com as caixas do cenário
         if (other.gameObject.CompareTag("Box"))
         {
+            
             //Destruindo o projétil
             Destroy(gameObject);
 
@@ -103,11 +121,15 @@ public class BulletMovement : MonoBehaviour {
 
             //Destroi a cópia
             Destroy(tempFood, 1.2f);
+
+            _sfx.Playsound(0, 2, false);
         }
 
         //Verificando colisão com as paredes
         if(other.gameObject.CompareTag("Wall"))
         {
+            
+
             //Instancia uma cópa da particula
             GameObject tempWallExplosion = Instantiate(_wallExplosion, transform.position, Quaternion.identity);
             //Destroi a cópia
@@ -115,6 +137,9 @@ public class BulletMovement : MonoBehaviour {
 
             //Destrói o projétil
             Destroy(gameObject);
+
+            //Som da explosão
+            _sfx.Playsound(0, 1, false);
         }
         
     }

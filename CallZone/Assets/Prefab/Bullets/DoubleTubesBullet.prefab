@@ -236,6 +236,7 @@ MonoBehaviour:
   _wallExplosion: {fileID: 1428778368520322, guid: cbdad4b3e810b4e42b9a73d632bbe688,
     type: 2}
   bulletRb: {fileID: 0}
+  _sfx: {fileID: 114169799731833476, guid: 7495905ace869444981512ec58a1936d, type: 2}
   speed: 60
 --- !u!212 &212276732401820628
 SpriteRenderer:

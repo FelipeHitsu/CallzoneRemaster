@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220274624}
   - component: {fileID: 220274623}
+  - component: {fileID: 220274625}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -391,6 +392,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &220274625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220274622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa7cdfc846d4b043951e17abff495e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudiosGroup:
+  - name: Menu choice
+    clips:
+    - {fileID: 8300000, guid: 79aed82c0f3a311439e7d320c311a91a, type: 3}
+    - {fileID: 8300000, guid: 7dc2af22cfffbca46b16eb6c0166ba25, type: 3}
+    - {fileID: 8300000, guid: e4b82bc24e07f58498c2f6e33e9d500b, type: 3}
+    - {fileID: 8300000, guid: e23f737663c90b544bd4cbb2e0a375b2, type: 3}
+    player: {fileID: 0}
 --- !u!1 &281753590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1092,7 @@ MonoBehaviour:
   howToPlay: {fileID: 1509497556}
   credits: {fileID: 517611156}
   _AnimPlay: {fileID: 668029801}
+  _sfx: {fileID: 220274625}
 --- !u!1 &640190592
 GameObject:
   m_ObjectHideFlags: 0

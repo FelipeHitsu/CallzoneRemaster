@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TankSelector : MonoBehaviour {
 
     //Controlador de som 
-    public AudioController soundController;
+    public AudioController _sfx;
 
     //As bases com seus atributos
     public TankBase[] bases;
@@ -53,56 +53,50 @@ public class TankSelector : MonoBehaviour {
     }
     public void AdvanceBase ()
     {
+        _sfx.Playsound(0, 0, false);
         baseIndex++;
         VerifyIndex(ref baseIndex);
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
-       
         _mainCourse.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
-
-        soundController.Playsound(0, 0, false);
+ 
     }
 
     public void BackBase ()
     {
+        _sfx.Playsound(0, 1, false);
         baseIndex--;
         VerifyIndex(ref baseIndex);
         TankSettings.tankInfo[PlayerNumber].baseTank = bases[baseIndex];
         spriteRendBase.sprite = bases[baseIndex]._BodySprite;
 
-        
         _mainCourse.text = TankSettings.tankInfo[PlayerNumber].baseTank._BodySprite.name;
 
-        soundController.Playsound(0, 0, false);
     }
 
     public void AdvanceTurret()
     {
+        _sfx.Playsound(0, 0, false);
         turretIndex++;
         VerifyIndex(ref turretIndex);
         TankSettings.tankInfo[PlayerNumber].turret = turrets[turretIndex];
         spriteRendTuret.sprite = turrets[turretIndex]._TowerSprite;
 
-
         _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
-        soundController.Playsound(0, 0, false);
     }
 
     public void BackTurret()
     {
-        
+        _sfx.Playsound(0, 1, false);
         turretIndex--;
         VerifyIndex(ref turretIndex);
         TankSettings.tankInfo[PlayerNumber].turret = turrets[turretIndex];
         spriteRendTuret.sprite = turrets[turretIndex]._TowerSprite;
 
-
-       
         _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
 
-        soundController.Playsound(0, 0, false);
     }
 
     public void VerifyIndex(ref int index)
