@@ -14,12 +14,17 @@ public class GameController : Singleton<GameController>
     //Variável para ver quantos jogadores existem em cena
     private int alivePlayers;
     public AudioController _sfx;
+
+    public Animator _canvasAnim;
 	
 	void Start ()
     {
         //A variavel faz a contagem de quantos objetos na cena temos com a tag Player
         alivePlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
+
+        StartCoroutine(StartGame());
+       
         
     }
 	
@@ -36,8 +41,9 @@ public class GameController : Singleton<GameController>
 
         //Verificando se a quantidade de jogadores for menor que ou igual 1, reinicia a cena
         if (alivePlayers <= 1)
-        {  
-            SceneManager.LoadScene("Gameplay");
+        {
+            StartCoroutine(BeginGame());
+            
         }
    }
 
@@ -73,6 +79,19 @@ public class GameController : Singleton<GameController>
         SceneManager.LoadScene("ChooseTank");
    }
 
-  
+    IEnumerator BeginGame()
+    {
+        SceneManager.LoadScene("Gameplay");
+        _canvasAnim.SetBool("_gameOn", false);
+        yield return new WaitForSeconds(2f);
+        
+    }
+
+    IEnumerator StartGame()
+    {
+        _canvasAnim.SetBool("_gameOn", false);
+        yield return new WaitForSeconds(2f);
+        _canvasAnim.SetBool("_gameOn", true);
+    }
    
 }

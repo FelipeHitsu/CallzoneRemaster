@@ -10,6 +10,8 @@ public class BreakBox : MonoBehaviour {
     //Animação da caixa
     private Animator _boxAnim;
 
+    //Objeto de particula
+    public GameObject _plankPtc;
     void Start()
     {
         //Pegando o componente do filho para animar
@@ -22,7 +24,8 @@ public class BreakBox : MonoBehaviour {
         //Se colidir com o projétil, perde vida e muda a sprite
         if(other.gameObject.CompareTag("Bullet"))
         {
-            //Dizendo que o valor da vida é igual para a animação
+            //Dizendo que o valor da vida é igual para a animação e instanciando a particula que qubra
+            GameObject tempPtc = Instantiate(_plankPtc, transform.position, Quaternion.identity, transform);
             _boxAnim.SetInteger("_LifeBox", _boxLife);
             _boxLife -= 1;
 

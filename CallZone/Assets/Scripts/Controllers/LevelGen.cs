@@ -13,6 +13,12 @@ public class LevelGen : MonoBehaviour {
     //Tamanho relativo para criar as instancia dentro do mapa
     public float mapWidht, mapHeight;
 
+    //Quando começar ele randomiza as posições
+    void Start()
+    {
+        GenLevel();
+    }
+
 
     //Função para criar os objetos na cena, com o tamanho aproximado do mapa
     [ContextMenu("Gerar fase")]

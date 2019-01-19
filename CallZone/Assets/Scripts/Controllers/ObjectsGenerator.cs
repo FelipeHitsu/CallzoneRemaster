@@ -13,7 +13,10 @@ public class ObjectsGenerator : MonoBehaviour {
     //Tamanho relativo para criar as instancia dentro do mapa
     public float _mapWidht, _mapHeight;
 
-
+    void Start()
+    {
+        GenObjects();  
+    }
 
     [ContextMenu("Gerar objetos")]
     public void GenObjects()

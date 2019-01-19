@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a439af0797dfdf64a877872ac52b8eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _plankPtc: {fileID: 1699000801839126, guid: 4f0326beb20b6cf46bba1af889756108, type: 2}
 --- !u!212 &212983549379865230
 SpriteRenderer:
   m_ObjectHideFlags: 1

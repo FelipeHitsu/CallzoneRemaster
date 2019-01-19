@@ -236,13 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdae36d9b1ed3c34baeda34d5b2f61bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ketchupParticle: {fileID: 1451872480095636, guid: ebc8204cf09deac4e9206c66d1101935,
-    type: 2}
-  particleExplosion: {fileID: 1228415706164852, guid: 42d9e6e1ec5efa342a86fc668a0ec539,
+  _exploParticle: {fileID: 1504356263023910, guid: 24b4360393550f740a261ec632151baf,
     type: 2}
   _foodExplosion: {fileID: 1972556260453804, guid: 35873d7cda70b1443b8a60cf2ce31ea9,
-    type: 2}
-  _wallExplosion: {fileID: 1428778368520322, guid: cbdad4b3e810b4e42b9a73d632bbe688,
     type: 2}
   bulletRb: {fileID: 50267212194866326}
   speed: 60

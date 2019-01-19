@@ -6,7 +6,8 @@ public class CamShake : MonoBehaviour {
     
     //Componente de animator
     public Animator _camAnim;
-    
+
+
     public void screenShake()
     {
         //Ativando a animação

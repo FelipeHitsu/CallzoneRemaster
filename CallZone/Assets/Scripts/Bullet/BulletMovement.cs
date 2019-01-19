@@ -6,13 +6,10 @@ public class BulletMovement : MonoBehaviour {
 
     ///<Particulas>
     //Particla de sangue do jogador
-    public GameObject _ketchupParticle;
-    //Particle explosion na pedra
-    public GameObject particleExplosion;
+    public GameObject _exploParticle;
+   
     //Quando acerta uma comida
     public GameObject _foodExplosion;
-    //Quando acerta a parede
-    public GameObject _wallExplosion;
     /// </Particulas>
 
 
@@ -44,7 +41,7 @@ public class BulletMovement : MonoBehaviour {
         _sfx = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
         
         //Deixando o volume acessível
-        _sfx.VolumeController(0, .2f);
+        _sfx.VolumeController(0, .5f);
     }
 
     // Update is called once per frame
@@ -62,7 +59,7 @@ public class BulletMovement : MonoBehaviour {
             
 
             //Efeito de explosão quando bate na pedra
-            GameObject tempExp = Instantiate(particleExplosion, transform.position, Quaternion.identity);
+            GameObject tempExp = Instantiate(_exploParticle, transform.position, Quaternion.identity);
             Destroy(tempExp, 1.0f);
 
             //Destruindo o objeto, no caso o projétil
@@ -81,8 +78,8 @@ public class BulletMovement : MonoBehaviour {
             //Ativando o screenshake quando atinge outro jogador
             _camShake.screenShake();
 
-            //Particlua de colisão com o jogadore
-            GameObject tempKetc = Instantiate(_ketchupParticle, transform.position, Quaternion.identity);
+            //Particlua de colisão com o jogador
+            GameObject tempKetc = Instantiate(_exploParticle, transform.position, Quaternion.identity);
             Destroy(tempKetc, 1.0f);
 
             //Pegando o componente do tank para chamar a função de dano com o valor
@@ -114,11 +111,8 @@ public class BulletMovement : MonoBehaviour {
             //Destruindo o projétil
             Destroy(gameObject);
 
-            //Instancia uma cópa da particula
-            GameObject tempFood = Instantiate(_foodExplosion, transform.position, Quaternion.identity);
-
-            //Destroi a cópia
-            Destroy(tempFood, 1.2f);
+            GameObject tempKetc = Instantiate(_exploParticle, transform.position, Quaternion.identity);
+            Destroy(tempKetc, 1.0f);
 
             _sfx.Playsound(0, 2, false);
         }
@@ -126,12 +120,10 @@ public class BulletMovement : MonoBehaviour {
         //Verificando colisão com as paredes
         if(other.gameObject.CompareTag("Wall"))
         {
-            
 
-            //Instancia uma cópa da particula
-            GameObject tempWallExplosion = Instantiate(_wallExplosion, transform.position, Quaternion.identity);
-            //Destroi a cópia
-            Destroy(tempWallExplosion, 1.0f);
+
+            GameObject tempKetc = Instantiate(_exploParticle, transform.position, Quaternion.identity);
+            Destroy(tempKetc, 1.0f);
 
             //Destrói o projétil
             Destroy(gameObject);
