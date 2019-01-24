@@ -120,7 +120,7 @@ public class PlayerTank : MonoBehaviour
 
 
 
-        //Debug.Log("Ativando o pw:" + _powerUpisOn);
+        
         //Apertar X/A, para o powerUp
         if (rewPlayer.GetButton("SpeedUp"))
         {
@@ -223,7 +223,7 @@ public class PlayerTank : MonoBehaviour
     }
 
 
-    //Função que ativa o powerup
+    //Função que ativa o powerup de speed 
     public void PowerUpSpeed()
     {
         //Se estiver ativo
@@ -373,7 +373,7 @@ public class PlayerTank : MonoBehaviour
         _maxEnergy = 200;
 
         //Informações da torre
-        Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret);
+        Turret.DefineTurret(TankSettings.tankInfo[_playerNumber].turret, TankSettings.tankInfo[_playerNumber].powerUp);
         
     }
 }

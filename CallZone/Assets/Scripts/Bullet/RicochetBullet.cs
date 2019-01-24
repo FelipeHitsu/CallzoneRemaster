@@ -9,8 +9,9 @@ public class RicochetBullet : MonoBehaviour
     ///<Variáveis>
     public int _playerNumber;
     //Corpo do projétil
-    public Rigidbody2D bulletRb;
+    private Rigidbody2D bulletRb;
     //Velocidade de movimento do projetil
+    [HideInInspector]
     public float _speed;
     //Vida(quantidade de vezes que vai bater)
     private int _ricoLife = 5;
@@ -56,10 +57,7 @@ public class RicochetBullet : MonoBehaviour
         if (hit.collider != null)
         {
             //Instanciando a particula quando bate
-            GameObject tempPart = Instantiate(_ricoParticle, transform.position, Quaternion.identity, transform);
-
-            //Destruindo a particula 
-            Destroy(tempPart, 1.5f);
+            GameObject tempPart = Instantiate(_ricoParticle, transform.position, Quaternion.identity, transform);   
 
             //Diminuindo a vida para saber quando ela vai explodir
             _ricoLife -= 1;

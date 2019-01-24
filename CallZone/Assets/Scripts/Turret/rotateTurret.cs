@@ -28,10 +28,12 @@ public class rotateTurret : MonoBehaviour {
     //Pra saber qual jogador que é
     public int _playerNumber;
     //Intervalo de tiros
+    [HideInInspector]
     public float _fireRate;
     //Velocidade da rotação da torre
     private float _rotationSpeed;
     //Quanto de dano cada torre da
+    [HideInInspector]
     public float _damage;
     //Dano do pw
     private float _damagePw;
@@ -39,8 +41,6 @@ public class rotateTurret : MonoBehaviour {
     private float _fireReloadTimer = 0.0f;
     //Pra saber se pode atirar de novo
     private bool _fireUp = false;
-    //Som de tiro do canhão
-    public AudioClip _effectSound;
     ///</Variaveis>
 
     private Vector2 moveInput;
@@ -122,16 +122,16 @@ public class rotateTurret : MonoBehaviour {
     public void RicochetPowerUp()
     {
         //Instanciar o pw
-        Debug.Log("Ricochet lives!?!?!");
         GameObject tempPw = Instantiate(_powerUpShoot, shootspawn.position, Quaternion.identity);
         tempPw.transform.right = transform.right;
+        Debug.Log("Ricochet lives!?!?! " + tempPw != null);
 
         tempPw.GetComponent<RicochetBullet>().SetBullet(_playerNumber);
 
     }
 
 
-    public void DefineTurret(TankTurret turret)
+    public void DefineTurret(TankTurret turret, PowerUp pw)
     {
         //Sprite do canhão
         sprtRendTurret.sprite = turret._TowerSprite;
@@ -146,13 +146,15 @@ public class rotateTurret : MonoBehaviour {
         _rotationSpeed = TankSettings.tankInfo[_playerNumber].turret._turnSpeed;
 
         //Dano do canhão
-        _damage = TankSettings.tankInfo[_playerNumber].turret._damage;
+        _damage = turret._damage;
+        Debug.Log("Dano da bala? " + _damage);
 
-        ////Dano do pw
-        //_damagePw = TankSettings.tankInfo[_playerNumber].powerUp._damage;
-
-        ////Projétil de pw
-        //_powerUpShoot = TankSettings.tankInfo[_playerNumber].powerUp._powerUp;
+        //Dano do pw
+        _damagePw = pw._damage;
+        Debug.Log("Dano do pw? " + _damage);
+        //Projétil de pw
+        _powerUpShoot = pw._powerUp;
+        Debug.Log("Existe?" + _powerUpShoot != null);
     }
-   
+
 }
