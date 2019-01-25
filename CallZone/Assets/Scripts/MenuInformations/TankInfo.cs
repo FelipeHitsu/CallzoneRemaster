@@ -42,5 +42,3 @@ public class PowerUp
     public Sprite _pwSprite;
     public int _damage;
 }
-    
-

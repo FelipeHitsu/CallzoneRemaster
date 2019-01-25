@@ -50,6 +50,8 @@ public class TankSelector : MonoBehaviour {
 
        
         _appertizer.text = TankSettings.tankInfo[PlayerNumber].turret._TowerSprite.name;
+
+        TankSettings.tankInfo[PlayerNumber].powerUp = pws;
     }
     public void AdvanceBase ()
     {
