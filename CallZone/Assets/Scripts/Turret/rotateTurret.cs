@@ -8,6 +8,8 @@ public class rotateTurret : MonoBehaviour {
     /// <Particulas>
     //Particulas de quando atira
     public GameObject _shootingParticle;
+    //Particula do pw
+    public GameObject _shootingPwParticle;
     /// </Particulas>
 
 
@@ -111,6 +113,7 @@ public class rotateTurret : MonoBehaviour {
             GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
 
+            //Pegando componente da bala
             tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
 
            _fireReloadTimer = 0;
@@ -121,11 +124,14 @@ public class rotateTurret : MonoBehaviour {
 
     public void RicochetPowerUp()
     {
+        //Particula do Pw
+        GameObject tempShoot = Instantiate(_shootingPwParticle, shootspawn.position, Quaternion.identity);
+
         //Instanciar o pw
         GameObject tempPw = Instantiate(_powerUpShoot, shootspawn.position, Quaternion.identity);
         tempPw.transform.right = transform.right;
-        Debug.Log("Ricochet lives!?!?! " + tempPw != null);
-
+        
+        //Pegando componente da ricochete
         tempPw.GetComponent<RicochetBullet>().SetBullet(_playerNumber);
 
     }

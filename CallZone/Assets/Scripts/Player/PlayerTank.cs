@@ -72,6 +72,8 @@ public class PlayerTank : MonoBehaviour
     private bool _smokeMoving;
     //Quanto tempo pw de speed vai durar
     private float _activeTimer = 5f;
+    //Power up do personagem com a energia carregada
+    private bool _castPowerUp = false;
     /// </Variaveis>
 
 
@@ -140,16 +142,19 @@ public class PlayerTank : MonoBehaviour
         //Input R1/RB do joystick
         if (rewPlayer.GetButton("Shoot"))
         {
-            //Chamando a função de tiro
-            Turret.Shoot();
+            
+             //Chamando a função de tiro
+             Turret.Shoot();
         }
 
         //Input L1/LB do joystick
         if(rewPlayer.GetButton("PowerUp"))
         {
-            //Chamando a função do pw
-            Debug.Log("Atirando no input");
-            Turret.RicochetPowerUp();
+            // (_castPowerUp)
+           //Arrumar essa caganeira aqui
+                Turret.RicochetPowerUp();
+            //Zerando a energia
+           // _energy = 0;
         }
 
         //Apertar (triangulo/Y) abri o menu
@@ -185,28 +190,30 @@ public class PlayerTank : MonoBehaviour
 
     void movePlayer()
     {
+        //Quando for true eu não vou poder mexer
+        if (!_gameController._pausedGame)
+        {
+            moveInput = new Vector2(rewPlayer.GetAxisRaw("Horizontal"), rewPlayer.GetAxisRaw("Vertical")).normalized;
 
-        moveInput = new Vector2(rewPlayer.GetAxisRaw("Horizontal"), rewPlayer.GetAxisRaw("Vertical")).normalized;
-
-        if (moveInput.magnitude > 0)
-            _smokeMoving = true;
-        else
-            _smokeMoving = false;
-
-
-        //Aplicando um novo vetor os vetores de input com minha velocidade, tempo e velocidade passiva
-        moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
-
-        //Novo movimento com o ângulo do joystick
-        playerRb.MovePosition(transform.position + moveVelocity);
+            if (moveInput.magnitude > 0)
+                _smokeMoving = true;
+            else
+                _smokeMoving = false;
 
 
-        //Rotação são os dois vetores de inputs
-        _rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            //Aplicando um novo vetor os vetores de input com minha velocidade, tempo e velocidade passiva
+            moveVelocity = moveInput * _speed * _speedPU * Time.deltaTime;
 
-        //Aplicando a rotação ao valor dos vetores
-        transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
+            //Novo movimento com o ângulo do joystick
+            playerRb.MovePosition(transform.position + moveVelocity);
 
+
+            //Rotação são os dois vetores de inputs
+            _rotationSpeed = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+
+            //Aplicando a rotação ao valor dos vetores
+            transform.rotation = Quaternion.Euler(0, 0, _rotationSpeed);
+        }
         
     }
 
@@ -216,6 +223,7 @@ public class PlayerTank : MonoBehaviour
         if (energy >= _maxEnergy)
         {
             energyAnim.SetBool("energyIsFull", true);
+            _castPowerUp = true;
 
         }
         else

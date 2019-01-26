@@ -451,6 +451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootingParticle: {fileID: 1754048086205258, guid: 81ce6739b3c4f7f45b546dc1eee0d9d3,
     type: 2}
+  _shootingPwParticle: {fileID: 1672966033012352, guid: a5f8fd45cc0175340bb8927828056d3f,
+    type: 2}
   shootspawn: {fileID: 488347784}
   _sfx: {fileID: 1957131378}
   _playerNumber: 0
@@ -1383,6 +1385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootingParticle: {fileID: 1754048086205258, guid: 81ce6739b3c4f7f45b546dc1eee0d9d3,
+    type: 2}
+  _shootingPwParticle: {fileID: 1672966033012352, guid: a5f8fd45cc0175340bb8927828056d3f,
     type: 2}
   shootspawn: {fileID: 466854473}
   _sfx: {fileID: 1957131378}
