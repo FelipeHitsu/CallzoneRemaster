@@ -111,6 +111,7 @@ public class PlayerTank : MonoBehaviour
         VerifyEnergy(_energy);
         movePlayer();
         PowerUpSpeed();
+        
 
         //Instanciando a particla quando movimenta
         if (_smokeMoving)
@@ -148,13 +149,14 @@ public class PlayerTank : MonoBehaviour
         }
 
         //Input L1/LB do joystick
-        if(rewPlayer.GetButton("PowerUp"))
+        if(rewPlayer.GetButton("PowerUp") && _castPowerUp)
         {
-            // (_castPowerUp)
-           //Arrumar essa caganeira aqui
-                Turret.RicochetPowerUp();
+            //Chamando pw   
+            Turret.RicochetPowerUp();
             //Zerando a energia
-           // _energy = 0;
+            _energy = 0;
+            //Deixando falso pra não castar mais de uma vez
+            _castPowerUp = false;
         }
 
         //Apertar (triangulo/Y) abri o menu
@@ -224,7 +226,7 @@ public class PlayerTank : MonoBehaviour
         {
             energyAnim.SetBool("energyIsFull", true);
             _castPowerUp = true;
-
+            _energy = _maxEnergy;
         }
         else
             energyAnim.SetBool("energyIsFull", false);
@@ -348,7 +350,7 @@ public class PlayerTank : MonoBehaviour
     public void GetEnergy(float energy)
     {
         _energy += energy;
-
+        Debug.Log("Energia doido: " + _energy);
         if (EnergyEvent != null)
             EnergyEvent.Invoke(_energy / _maxEnergy);
 

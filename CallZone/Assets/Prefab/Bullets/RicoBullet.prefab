@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1773033220477042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 799.52, y: 50.47, z: -1173.8723}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -194,7 +194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 0
-  bulletRb: {fileID: 0}
   _speed: 60
   _onExplosion: 0
   _ricoParticle: {fileID: 1649726365594632, guid: d0590cd2217ec8943967bd4411262145,

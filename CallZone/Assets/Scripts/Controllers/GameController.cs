@@ -14,6 +14,7 @@ public class GameController : Singleton<GameController>
     //Variável para ver quantos jogadores existem em cena
     private int alivePlayers;
     public AudioController _sfx;
+    public GameObject _sparkle;
 
     public Animator _canvasAnim;
 	
@@ -83,14 +84,17 @@ public class GameController : Singleton<GameController>
     {
         SceneManager.LoadScene("Gameplay");
         _canvasAnim.SetBool("_gameOn", false);
+        
         yield return new WaitForSeconds(2f);
         
     }
 
     IEnumerator StartGame()
     {
+        
         _canvasAnim.SetBool("_gameOn", false);
         yield return new WaitForSeconds(2f);
+        GameObject tmpSparkle = Instantiate(_sparkle, transform.position, Quaternion.identity, transform);
         _canvasAnim.SetBool("_gameOn", true);
     }
    
