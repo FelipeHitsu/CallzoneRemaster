@@ -74,7 +74,7 @@ public class BulletMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
 
-            Debug.Log("Se matou maluco!");
+            
             //Ativando o screenshake quando atinge outro jogador
             _camShake.screenShake();
 

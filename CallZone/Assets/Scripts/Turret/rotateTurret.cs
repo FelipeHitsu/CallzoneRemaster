@@ -91,7 +91,7 @@ public class rotateTurret : MonoBehaviour {
          {
             //Particula de tiro
             GameObject tempShoot = Instantiate(_shootingParticle, shootspawn.position, Quaternion.identity);
-            
+            Destroy(tempShoot, 1f);
 
 
             ///Sons de tiro
@@ -112,9 +112,12 @@ public class rotateTurret : MonoBehaviour {
             //Criando instancia temporária para o tiro
             GameObject tempBullet = Instantiate(shoot, shootspawn.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
+           
 
             //Pegando componente da bala
             tempBullet.GetComponent<BulletMovement>().SetBullet(_playerNumber);
+
+          
 
            _fireReloadTimer = 0;
            _fireUp = false;
@@ -144,6 +147,7 @@ public class rotateTurret : MonoBehaviour {
        
         //O projétil do canhão
         shoot = turret._bullet;
+        
 
         //Velocidade de tiro
         _fireRate = TankSettings.tankInfo[_playerNumber].turret._fireRate;
@@ -153,14 +157,14 @@ public class rotateTurret : MonoBehaviour {
 
         //Dano do canhão
         _damage = turret._damage;
-        Debug.Log("Dano da bala? " + _damage);
+       
 
         //Dano do pw
         _damagePw = pw._damage;
-        Debug.Log("Dano do pw? " + _damage);
+        
         //Projétil de pw
         _powerUpShoot = pw._powerUp;
-        Debug.Log("Existe?" + _powerUpShoot != null);
+       
     }
 
 }

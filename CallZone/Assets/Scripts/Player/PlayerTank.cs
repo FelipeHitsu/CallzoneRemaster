@@ -350,7 +350,7 @@ public class PlayerTank : MonoBehaviour
     public void GetEnergy(float energy)
     {
         _energy += energy;
-        Debug.Log("Energia doido: " + _energy);
+       
         if (EnergyEvent != null)
             EnergyEvent.Invoke(_energy / _maxEnergy);
 

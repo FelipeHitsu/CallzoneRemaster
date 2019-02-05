@@ -33,25 +33,16 @@ public class PlaygameMenu : MonoBehaviour
     void Update()
     {
         if (_readyP1 && _readyP2)
-        {
-
-            StartCoroutine(PlaySound());
-
-            StartCoroutine(LoadScene());
-        }
+         StartCoroutine(LoadScene()); 
     }
         
     
-    IEnumerator PlaySound()
-    {
-
-        yield return new WaitForSeconds(2.5f);
-    }
+   
 
     IEnumerator LoadScene()
     {
-        sceneAnim.SetBool("isLoad", true);
-        yield return new WaitForSeconds(2f);
+        //sceneAnim.SetBool("isLoad", true);
+        //yield return new WaitForSeconds(2f);
         _load.text = "Loading...";
         _loadAnim.SetBool("load", true);
         yield return new WaitForSeconds(1.5f);
