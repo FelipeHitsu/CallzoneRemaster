@@ -12,6 +12,11 @@ TagManager:
   - Ovo
   - Pao
   - Queijo
+  - Food
+  - Bullet
+  - Box
+  - Wall
+  - ScreenShake
   layers:
   - Default
   - TransparentFX
@@ -21,9 +26,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - ignoraPlayer
+  - player
+  - bullet
   - 
   - 
   - 
